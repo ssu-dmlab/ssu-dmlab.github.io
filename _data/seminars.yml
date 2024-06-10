@@ -1,3 +1,15 @@
+- date: Jun 20, 2024
+  title: TBD
+  speaker: Minseo Jeon
+  paper: TBD
+  slide: TBD
+
+- date: May 30, 2024
+  title: "Predict Then Propagate: Graph Neural Networks Meet Personalized Pagerank"
+  speaker: DaeWon Gwak
+  paper: https://arxiv.org/abs/1810.05997
+  slide: https://drive.google.com/file/d/1Fk0YwsOTuogBjkGQAOnAWH5kA5-GD4_B/view?usp=drive_link
+
 - date: May 23, 2024
   title: "LightGCL: Simple Yet Effective Graph Contrastive Learning For Recommendation"
   speaker: Cheolhee Jung
