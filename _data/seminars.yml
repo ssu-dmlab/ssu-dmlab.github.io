@@ -1,3 +1,9 @@
+- date: Nov 11, 2024
+  title: "RecExplainer: Aligning Large Language Models for Explaining Recommendation Models"
+  speaker: Seokhyeon Cho
+  paper: https://arxiv.org/abs/2311.10947
+  slide: https://drive.google.com/file/d/1b3S0OaGwy27OSlfUaf73_v7lJXVtgu0q/view?usp=drive_link
+
 - date: Nov 04, 2024
   title: "Improving Multi-modal Recommender Systems by Denoising and Aligning Multi-modal Content and User Feedback"
   speaker: Junwoo Jung
