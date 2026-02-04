@@ -24,6 +24,10 @@ get seminars data from google sheet and save it to yaml files
 seminar_url = "https://script.google.com/macros/s/AKfycbzkHvVaplMOJp9tkEoJTX7-X0hy6o6IQz94tm4xyUBaA-Pf50LuEtwqOCgbHmModBDc5A/exec"
 
 response = requests.get(seminar_url)
+# print("status:", response.status_code)
+# print("content-type:", response.headers.get("Content-Type"))
+# print("final url:", response.url)
+# print("text head:", response.text[:300])
 data = response.json()
 
 with open('_data/seminars.yml', 'w', encoding='utf8') as f:
