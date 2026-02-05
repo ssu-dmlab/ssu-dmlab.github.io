@@ -20,13 +20,13 @@
     URL: ''
 - Date: '2026-02-05T00:00:00'
   Speaker: Junwoo Jung
-  Title: ''
-  Venue: ''
+  Title: 'MUFFIN: Mixture of User-Adaptive Frequency Filtering for Sequential Recommendation'
+  Venue: CIKM-25
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://arxiv.org/pdf/2508.13670
   Slide:
-    Text: ''
+    Text: link
     URL: ''
 - Date: '2026-01-22T00:00:00'
   Speaker: Jaehyun Park
