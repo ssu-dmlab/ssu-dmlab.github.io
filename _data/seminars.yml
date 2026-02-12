@@ -90,14 +90,14 @@
     URL: ''
 - Date: '2026-02-12T00:00:00'
   Speaker: Hanvit Lee
-  Title: ''
-  Venue: ''
+  Title: 'XRec: Large Language Models for Explainable Recommendation'
+  Venue: EMNLP-24
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://arxiv.org/abs/2406.02377
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://drive.google.com/file/d/1db_57FJFL2qJtz-q7IxvBkRgVdRUPyFu/view?usp=drive_link
 - Date: '2026-02-05T00:00:00'
   Speaker: Junwoo Jung
   Title: 'MUFFIN: Mixture of User-Adaptive Frequency Filtering for Sequential Recommendation'
