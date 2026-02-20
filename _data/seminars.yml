@@ -80,11 +80,12 @@
     URL: ''
 - Date: '2026-02-26T00:00:00'
   Speaker: Jongyoon Choi
-  Title: ''
-  Venue: ''
+  Title: 'You Don’t Bring Me Flowers: Mitigating Unwanted Recommendations Through
+    Conformal Risk Control'
+  Venue: RecSys-25
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://dl.acm.org/doi/pdf/10.1145/3705328.3748054
   Slide:
     Text: ''
     URL: ''
