@@ -87,8 +87,8 @@
     Text: link
     URL: https://dl.acm.org/doi/pdf/10.1145/3705328.3748054
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://drive.google.com/file/d/1Je0WEhIiOi5Ql6SR5pMycn3a7ZI4M-gk/view?usp=drive_link
 - Date: '2026-02-12T00:00:00'
   Speaker: Hanvit Lee
   Title: 'XRec: Large Language Models for Explainable Recommendation'
