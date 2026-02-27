@@ -1,5 +1,5 @@
 - Date: '2026-04-23T00:00:00'
-  Speaker: GyuwonJe
+  Speaker: Gyuwon Je
   Title: ''
   Venue: ''
   Paper:
@@ -88,7 +88,7 @@
     URL: https://dl.acm.org/doi/pdf/10.1145/3705328.3748054
   Slide:
     Text: link
-    URL: https://drive.google.com/file/d/1Je0WEhIiOi5Ql6SR5pMycn3a7ZI4M-gk/view?usp=drive_link
+    URL: https://drive.google.com/file/d/1oCDSxWUPaHD7VDBFsF1FeDE6lGokhk48/view?usp=sharing
 - Date: '2026-02-12T00:00:00'
   Speaker: Hanvit Lee
   Title: 'XRec: Large Language Models for Explainable Recommendation'
@@ -483,7 +483,7 @@
     URL: http://dmlab.kaist.ac.kr/~kijungs/papers/lightgcnppRecSys2024.pdf
   Slide:
     Text: link
-    URL: ''
+    URL: https://drive.google.com/file/d/13Ncchem8xKemvlkPhrSh4IhLBUUfL5Bx/view?usp=drive_link
 - Date: '2024-11-25T00:00:00'
   Speaker: Jiseung Hyun
   Title: Multi-Behavior Collaborative Filtering with Partial Order Graph Convolutional
@@ -494,7 +494,7 @@
     URL: https://arxiv.org/abs/2402.07659
   Slide:
     Text: link
-    URL: https://drive.google.com/file/d/13Ncchem8xKemvlkPhrSh4IhLBUUfL5Bx/view?usp=drive_link
+    URL: ''
 - Date: '2024-11-11T00:00:00'
   Speaker: Seokhyeon Cho
   Title: 'RecExplainer: Aligning Large Language Models for Explaining Recommendation
