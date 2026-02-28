@@ -70,13 +70,14 @@
     URL: ''
 - Date: '2026-03-05T00:00:00'
   Speaker: Jaehyun Park
-  Title: ''
-  Venue: ''
+  Title: Enriching Semantic Profiles into Knowledge Graph for Recommender Systems
+    Using Large Language Models
+  Venue: KDD-26
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://arxiv.org/pdf/2601.08148
   Slide:
-    Text: ''
+    Text: link
     URL: ''
 - Date: '2026-02-26T00:00:00'
   Speaker: Jongyoon Choi
