@@ -28,7 +28,7 @@ layout: article
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
   }
 
-  /* 1. 상단 Main Picture & Latest News 카드 슬라이더 (image_49bd45.png 참고) */
+  /* 1. 상단 Main Picture & Latest News 카드 슬라이더 */
   .carousel-news-container {
     margin-bottom: 40px;
   }
@@ -38,17 +38,15 @@ layout: article
     border-radius: 24px;
     overflow: hidden;
     border: 2px solid #cbd5e1;
-    background-color: #0f172a; /* 이미지 없을 때 기본 배경 */
+    background-color: #0f172a;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
-  /* 백그라운드 이미지 설정 (그라데이션 겹침으로 글씨 가독성 확보) */
   .news-slide-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* 만약 구글시트에 이미지 주소가 없으면 작동할 멋진 개발용 기본 그라데이션 고정 */
     background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     filter: brightness(0.65);
     z-index: 1;
@@ -57,7 +55,6 @@ layout: article
   .news-slide-card:hover .news-slide-bg {
     transform: scale(1.03);
   }
-  /* 카드 내부 콘텐츠 배치 */
   .news-slide-content {
     position: relative;
     z-index: 2;
@@ -80,6 +77,7 @@ layout: article
     padding: 6px 14px;
     border-radius: 30px;
     text-transform: uppercase;
+    color: #ffffff !important;
   }
   .slide-date {
     font-size: 0.9rem;
@@ -92,7 +90,6 @@ layout: article
     margin-bottom: 0;
     max-width: 85%;
   }
-  /* 부트스트랩 컨트롤러 디자인 변경 (원형 화살표) */
   .carousel-control-prev, .carousel-control-next {
     width: 60px;
     z-index: 3;
@@ -114,7 +111,7 @@ layout: article
     transform: scale(1.1);
   }
 
-  /* 2. 하단 가로형 뉴스 목록 카드 (image_49bd45.png 참고) */
+  /* 2. 하단 가로형 뉴스 목록 카드 */
   .news-row-card {
     display: flex;
     align-items: center;
@@ -133,7 +130,6 @@ layout: article
     min-width: 120px;
     max-width: 120px;
     height: 50px;
-    border: 2px solid #1e293b;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -141,10 +137,27 @@ layout: article
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    color: #1e293b;
     margin-right: 24px;
     text-transform: uppercase;
   }
+  
+  /* [동적 컬러 클래스 정의] */
+  .bg-vslab-paper {
+    background-color: #10b981 !important; /* 모던 그린 */
+    border: 2px solid #047857 !important;
+    color: #ffffff !important;
+  }
+  .bg-vslab-award {
+    background-color: #3b82f6 !important; /* 모던 블루 */
+    border: 2px solid #1d4ed8 !important;
+    color: #ffffff !important;
+  }
+  .bg-vslab-default {
+    background-color: #64748b !important; /* 기본 슬레이트 그레이 */
+    border: 2px solid #475569 !important;
+    color: #ffffff !important;
+  }
+
   .news-row-center {
     flex-grow: 1;
     font-size: 1.02rem;
@@ -178,7 +191,6 @@ layout: article
     .news-slide-content {
       padding: 24px;
     }
-    /* 하단 가로형 뉴스를 모바일에서는 세로형 배정으로 자동 압축 */
     .news-row-card {
       flex-direction: column;
       align-items: flex-start;
@@ -198,7 +210,7 @@ layout: article
 
 <div class="vslab-container">
 
-  <!-- ================= [1] Main Picture & Latest News 슬라이더 (상위 5개) ================= -->
+  <!-- ================= [1] Main Picture & Latest News 슬라이더 ================= -->
   <div class="carousel-news-container">
     <div id="vslabMainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -207,25 +219,26 @@ layout: article
         <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="4000">
           <div class="news-slide-card">
             
-            <!-- 구글 시트에 image 열이 있으면 배치, 없으면 CSS 그라데이션 자동 적용 -->
             <div class="news-slide-bg" {% if news.image %} style="background-image: url('{{ news.image }}');" {% endif %}></div>
             
             <div class="news-slide-content">
               <div class="news-slide-meta">
-                <span class="slide-badge bg-{{ news.button_color | default: 'primary' }}">{{ news.keyword }}</span>
+                <!-- 조건문에 따라 상단 배지 배경색 변경 -->
+                <span class="slide-badge 
+                  {% if news.keyword == 'Paper' %} bg-vslab-paper 
+                  {% elsif news.keyword == 'Award' %} bg-vslab-award 
+                  {% else %} bg-vslab-default {% endif %}">
+                  {{ news.keyword }}
+                </span>
                 <span class="slide-date"><i class="far fa-calendar-alt me-1"></i>{{ news.date }}</span>
               </div>
               
               <h2 class="news-slide-title">
-                <!-- [링크 조건 분기] keyword에 따른 스마트 이동 처리 -->
                 {% if news.keyword == "Paper" %}
-                  <!-- 1. Paper인 경우 무조건 우리 연구실 publication 메뉴로 이동 -->
                   <a href="/publications" style="color: inherit; text-decoration: none;">{{ news.content | strip_html | truncate: 120 }}</a>
-                {% elsif news.link != nil %}
-                  <!-- 2. Paper가 아니고 yml(구글시트)에 링크가 따로 적혀있는 경우 해당 주소로 새창 이동 -->
+                {%   elsif news.link != nil %}
                   <a href="{{ news.link }}" target="_blank" style="color: inherit; text-decoration: none;">{{ news.content | strip_html | truncate: 120 }}</a>
                 {% else %}
-                  <!-- 3. 링크가 아예 없는 경우 텍스트만 출력 -->
                   {{ news.content | strip_html | truncate: 120 }}
                 {% endif %}
               </h2>
@@ -237,7 +250,6 @@ layout: article
         
       </div>
       
-      <!-- 슬라이더 넘기기 버튼 -->
       <button class="carousel-control-prev" type="button" data-bs-target="#vslabMainCarousel" data-bs-slide="prev">
         <div class="control-icon-bg">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -269,23 +281,24 @@ layout: article
   </div>
 
 
-  <!-- ================= [3] News 리스트 영역 (스케치의 긴 둥근 사각형 완벽 구현) ================= -->
+  <!-- ================= [3] News 리스트 영역 (배경색 조건 분기 완료) ================= -->
   <h2 class="vslab-heading">News</h2>
   <div class="news-list-wrapper">
     
     {% for news in site.data.news %}
     <div class="news-row-card">
-      <!-- 좌측 고정 원통 프레임 타입 (PAPER, AWARD 등) -->
-      <div class="news-row-left">
+      <!-- 조건문에 따라 하단 좌측 박스 배경색 변경 -->
+      <div class="news-row-left 
+        {% if news.keyword == 'Paper' %} bg-vslab-paper 
+        {% elsif news.keyword == 'Award' %} bg-vslab-award 
+        {% else %} bg-vslab-default {% endif %}">
         {{ news.keyword }}
       </div>
       
-      <!-- 중앙 뉴스 텍스트 본문 (시트 내부의 <a>태그 링크 구조 자동 흡수) -->
       <div class="news-row-center">
         {{ news.content }}
       </div>
       
-      <!-- 우측 날짜 표기 -->
       <div class="news-row-right">
         {{ news.date }}
       </div>
