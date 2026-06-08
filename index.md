@@ -8,20 +8,22 @@ layout: article
 <style>
   /* [공통 스타일 정의] */
   .vslab-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  }
-  .vslab-heading {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 8px;
-  }
+  max-width: 1240px; 
+  margin: 0 auto;
+  padding: 0 24px;
+  font-family: 'Inter', 'Pretendard', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 섹션 타이틀 디자인 */
+.vslab-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a; /* 차콜색 */
+  margin-top: 80px; 
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
   
   /* 1. 상단 Hero Carousel 영역 개선 */
   .carousel-news-container {
@@ -134,17 +136,22 @@ layout: article
 
   /* 2. Research Highlights (중간 3단 카드 레이아웃) */
   .highlight-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    overflow: hidden;
-    height: 100%;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .highlight-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.05);
-  }
+  background: #ffffff;
+  border: 1px solid #f1f5f9; /* 선은 안 보일 듯 말 듯하게 */
+  border-radius: 20px; /* 라운딩을 더 부드럽게 */
+  overflow: hidden;
+  height: 100%;
+  /* 그림자 효과 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 20px 25px -5px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 부드러운 애니메이션 전환 속도 */
+}
+
+/* 마우스를 올렸을 때 떠오르는 효과 */
+.highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.1);
+  border-color: #e2e8f0;
+}
   .highlight-img-box {
     height: 180px;
     background-color: #f8fafc;
@@ -169,12 +176,19 @@ layout: article
 
   /* 3. 하단 리스트 영역 및 가로형 뉴스 카드 */
   .news-row-card {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 16px 0;
-    background-color: #ffffff;
-  }
+  display: flex;
+  align-items: center;
+  border: none; /* 테두리를 아예 없애고 */
+  border-bottom: 1px solid #f1f5f9; /* 깔끔한 구분선만 남김 */
+  padding: 20px 8px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+  /* 마우스를 올렸을 때 떠오르는 효과 */
+  .news-row-card:hover {
+  background-color: #f8fafc;
+  padding-left: 16px; 
+}
   .news-row-left {
     min-width: 90px;
     max-width: 90px;
@@ -190,8 +204,16 @@ layout: article
   }
   
   /* 동적 컬러 클래스 */
-  .bg-vslab-paper { background-color: #e6f4ea !important; color: #137333 !important; }
-  .bg-vslab-award { background-color: #e8f0fe !important; color: #1a73e8 !important; }
+  .bg-vslab-paper {
+  background-color: #f0fdf4 !important; /* 투명도 높은 그린 */
+  color: #166534 !important;
+  font-weight: 600;
+}
+  .bg-vslab-award {
+  background-color: #eff6ff !important; /* 투명도 높은 블루 */
+  color: #1e40af !important;
+  font-weight: 600;
+}
   .bg-vslab-default { background-color: #f1f5f9 !important; color: #475569 !important; }
 
   .news-row-center {
