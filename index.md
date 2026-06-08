@@ -6,124 +6,95 @@ layout: article
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
-  /* [공통 스타일 정의] */
-  .vslab-container {
-  max-width: 1240px; 
-  margin: 0 auto;
-  padding: 0 24px;
-  font-family: 'Inter', 'Pretendard', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  /* [폰트 및 초기화] */
+  body {
+    font-family: 'Inter', 'Pretendard', -apple-system, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+  }
 
-/* 섹션 타이틀 디자인 */
-.vslab-heading {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #0f172a; /* 차콜색 */
-  margin-top: 80px; 
-  margin-bottom: 32px;
-  letter-spacing: -0.02em;
-}
-  
-  /* 1. 상단 Hero Carousel 영역 개선 */
-  .carousel-news-container {
-    margin-bottom: 50px;
-  }
-  .news-slide-card {
+  /* 1. 가로 전체를 채우는 Full-width Hero Carousel */
+  .full-width-hero {
+    width: 100vw;
     position: relative;
-    height: 420px; /* 조금 더 시원한 개방감을 위해 높이 상향 */
-    border-radius: 24px;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 80px;
     overflow: hidden;
-    background-color: #0f172a;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   }
-  .news-slide-bg {
+  .hero-slide {
+    position: relative;
+    height: 550px; /* MILAB 스타일의 시원하고 깊은 높이감 */
+    background-color: #0b1329;
+  }
+  .hero-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    filter: brightness(0.55);
+    filter: brightness(0.45); /* 텍스트 가독성을 위한 최적화 어둡기 */
     z-index: 1;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease-in-out;
   }
-  .news-slide-card:hover .news-slide-bg {
+  .carousel-item:hover .hero-bg {
     transform: scale(1.02);
   }
-  .news-slide-content {
+  .hero-content-wrapper {
     position: relative;
     z-index: 2;
     height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 랩실 메인 정보 소개를 위해 중앙 정렬 배치 스타일 혼용 */
-    padding: 50px;
+    justify-content: center;
     color: #ffffff;
   }
-  .content-bottom {
-    justify-content: flex-end;
-  }
-  .news-slide-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .slide-badge {
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 30px;
-    text-transform: uppercase;
-    color: #ffffff !important;
-  }
-  .slide-date {
-    font-size: 0.9rem;
-    color: #cbd5e1;
-  }
-  .news-slide-title {
-    font-size: 2rem;
+  .hero-title {
+    font-size: 2.75rem;
     font-weight: 800;
-    line-height: 1.4;
-    margin-bottom: 15px;
-    max-width: 85%;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
   }
-  .news-slide-desc {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    margin-bottom: 25px;
-    max-width: 70%;
+  .hero-desc {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    max-width: 750px;
+    margin-bottom: 35px;
+    line-height: 1.6;
   }
   
-  /* 버튼 스타일 */
-  .btn-vslab-primary {
-    background-color: #ffffff;
-    color: #0f172a;
+  /* 미니멀 시크 버튼 스타일 (MILAB 감성) */
+  .btn-hero {
+    background-color: transparent;
+    color: #ffffff;
     font-weight: 600;
-    padding: 12px 28px;
-    border-radius: 30px;
-    border: none;
-    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    padding: 12px 30px;
+    border: 2px solid #ffffff;
+    border-radius: 4px; /* 칼각 스타일 혹은 미세 라운딩 */
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     width: fit-content;
+    letter-spacing: 0.05em;
   }
-  .btn-vslab-primary:hover {
-    background-color: #f1f5f9;
-    transform: translateY(-2px);
-    color: #0f172a;
+  .btn-hero:hover {
+    background-color: #ffffff;
+    color: #0b1329;
   }
 
-  .carousel-control-prev, .carousel-control-next {
-    width: 60px;
-    z-index: 3;
-  }
+  /* 부드러운 슬라이드 컨트롤 UI */
   .control-icon-bg {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 14px;
     border-radius: 50%;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,273 +102,294 @@ layout: article
   }
   .carousel-control-prev:hover .control-icon-bg,
   .carousel-control-next:hover .control-icon-bg {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
   }
 
-  /* 2. Research Highlights (중간 3단 카드 레이아웃) */
-  .highlight-card {
-  background: #ffffff;
-  border: 1px solid #f1f5f9; /* 선은 안 보일 듯 말 듯하게 */
-  border-radius: 20px; /* 라운딩을 더 부드럽게 */
-  overflow: hidden;
-  height: 100%;
-  /* 그림자 효과 */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 20px 25px -5px rgba(0, 0, 0, 0.02);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 부드러운 애니메이션 전환 속도 */
-}
-
-/* 마우스를 올렸을 때 떠오르는 효과 */
-.highlight-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.1);
-  border-color: #e2e8f0;
-}
-  .highlight-img-box {
-    height: 180px;
-    background-color: #f8fafc;
-    background-size: cover;
-    background-position: center;
+  /* [콘텐츠 공통 컨테이너] */
+  .vslab-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
   }
-  .highlight-body {
-    padding: 24px;
-  }
-  .highlight-title {
-    font-size: 1.15rem;
-    font-weight: 700;
+  .vslab-heading {
+    font-size: 1.75rem;
+    font-weight: 800;
     color: #0f172a;
-    margin-bottom: 10px;
-  }
-  .highlight-text {
-    font-size: 0.95rem;
-    color: #64748b;
-    line-height: 1.6;
-    margin-bottom: 0;
-  }
-
-  /* 3. 하단 리스트 영역 및 가로형 뉴스 카드 */
-  .news-row-card {
-  display: flex;
-  align-items: center;
-  border: none; /* 테두리를 아예 없애고 */
-  border-bottom: 1px solid #f1f5f9; /* 깔끔한 구분선만 남김 */
-  padding: 20px 8px;
-  background-color: transparent;
-  transition: all 0.2s ease;
-}
-  /* 마우스를 올렸을 때 떠오르는 효과 */
-  .news-row-card:hover {
-  background-color: #f8fafc;
-  padding-left: 16px; 
-}
-  .news-row-left {
-    min-width: 90px;
-    max-width: 90px;
-    height: 32px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.75rem;
-    margin-right: 20px;
+    margin-bottom: 35px;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
-  
-  /* 동적 컬러 클래스 */
-  .bg-vslab-paper {
-  background-color: #f0fdf4 !important; /* 투명도 높은 그린 */
-  color: #166534 !important;
-  font-weight: 600;
-}
-  .bg-vslab-award {
-  background-color: #eff6ff !important; /* 투명도 높은 블루 */
-  color: #1e40af !important;
-  font-weight: 600;
-}
+
+  /* 2. News 카드 그리드 영역 (3개씩 2줄 배치) */
+  .news-grid-container {
+    margin-bottom: 80px;
+  }
+  .news-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e1;
+  }
+  .news-card-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .bg-vslab-paper { background-color: #e6f4ea !important; color: #137333 !important; }
+  .bg-vslab-award { background-color: #e8f0fe !important; color: #1a73e8 !important; }
   .bg-vslab-default { background-color: #f1f5f9 !important; color: #475569 !important; }
 
-  .news-row-center {
-    flex-grow: 1;
-    font-size: 0.98rem;
+  .news-card-text {
+    font-size: 1rem;
+    font-weight: 500;
     color: #334155;
     line-height: 1.5;
+    margin-bottom: 20px;
   }
-  .news-row-center a {
-    color: #1a73e8;
+  .news-card-text a {
+    color: #0f172a;
     text-decoration: none;
+  }
+  .news-card-text a:hover { text-decoration: underline; }
+  
+  .news-card-date {
+    font-size: 0.85rem;
+    color: #94a3b8;
     font-weight: 500;
   }
-  .news-row-center a:hover { text-decoration: underline; }
-  
-  .news-row-right {
-    min-width: 90px;
-    text-align: right;
-    font-size: 0.9rem;
-    color: #94a3b8;
+
+  /* 3. 하단 레이아웃 (Publications / Contact 좌우 분할) */
+  .bottom-split-container {
+    margin-bottom: 100px;
+  }
+  .pub-row {
+    border-bottom: 1px solid #f1f5f9;
+    padding: 16px 0;
+  }
+  .pub-row:last-child { border-bottom: none; }
+  .pub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+  }
+  .pub-meta {
+    font-size: 0.88rem;
+    color: #64748b;
   }
 
-  /* [반응형 모바일 미디어 쿼리] */
-  @media (max-width: 992px) {
-    .news-slide-card { height: 360px; }
-    .news-slide-title { font-size: 1.5rem; }
-    .news-slide-desc { font-size: 1rem; max-width: 90%; }
-    .news-slide-content { padding: 30px; }
+  /* 우측 Contact 카드 스타일 */
+  .contact-info-box {
+    background-color: #f8fafc;
+    border-radius: 16px;
+    padding: 35px;
+    height: 100%;
   }
-  @media (max-width: 768px) {
-    .news-row-card {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 15px 0;
-    }
-    .news-row-left { margin-bottom: 8px; }
-    .news-row-right { text-align: left; margin-top: 4px; }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .contact-item:last-child { margin-bottom: 0; }
+  .contact-icon {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-right: 16px;
+    margin-top: 2px;
+    width: 24px;
+    text-align: center;
+  }
+  .contact-detail-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+  .contact-detail-text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+  }
+
+  /* [반응형 화면 대응] */
+  @media (max-width: 992px) {
+    .hero-slide { height: 460px; }
+    .hero-title { font-size: 2rem; }
+    .hero-desc { font-size: 1rem; }
+    .contact-info-box { margin-top: 40px; }
   }
 </style>
 
-<div class="vslab-container">
-
-  <div class="carousel-news-container">
-    <div id="vslabMainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        
-        <div class="carousel-item active" data-bs-interval="5000">
-          <div class="news-slide-card">
-            <div class="news-slide-bg" style="background-image: url('/assets/images/logo/hero_bg.jpg');"></div>
-            <div class="news-slide-content">
-              <h1 class="news-slide-title">DMLAB @ SSU</h1>
-              <p class="news-slide-desc">Advancing AI, Machine Learning, and Data Science for a Better World. We focus on innovative solutions for healthcare, computer vision, and large language models.</p>
-              <a href="/contact" class="btn-vslab-primary">EXPLORE OUR WORK</a>
-            </div>
+<div class="full-width-hero">
+  <div id="milabStyleCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      
+      <div class="carousel-item active" data-bs-interval="6000">
+        <div class="hero-slide">
+          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_main.jpg');"></div>
+          <div class="hero-content-wrapper">
+            <h1 class="hero-title">Data Mining & Machine Learning Lab</h1>
+            <p class="hero-desc">We investigate cutting-edge algorithms to solve real-world complexities. Our core research spans across fundamental machine learning methodologies and innovative data science applications.</p>
+            <a href="/contact" class="btn-hero">CONTACT US</a>
           </div>
         </div>
+      </div>
 
-        {% for news in site.data.news limit:5 %}
-        <div class="carousel-item" data-bs-interval="4000">
-          <div class="news-slide-card">
-            
-            <div class="news-slide-bg" {% if news.image %} style="background-image: url('{{ news.image }}');" {% endif %}></div>
-            
-            <div class="news-slide-content content-bottom">
-              <div class="news-slide-meta">
-                <span class="slide-badge 
-                  {% if news.keyword == 'Paper' %} bg-vslab-paper 
-                  {% elsif news.keyword == 'Award' %} bg-vslab-award 
-                  {% else %} bg-vslab-default {% endif %}">
-                  {{ news.keyword }}
-                </span>
-                <span class="slide-date"><i class="far fa-calendar-alt me-1"></i>{{ news.date }}</span>
-              </div>
-              
-              <h2 class="news-slide-title">
-                {% if news.keyword == "Paper" %}
-                  <a href="/publications" style="color: inherit; text-decoration: none;">{{ news.content | strip_html | truncate: 120 }}</a>
-                {% elsif news.link != nil %}
-                  <a href="{{ news.link }}" target="_blank" style="color: inherit; text-decoration: none;">{{ news.content | strip_html | truncate: 120 }}</a>
-                {% else %}
-                  {{ news.content | strip_html | truncate: 120 }}
-                {% endif %}
-              </h2>
-            </div>
-            
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="hero-slide">
+          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research1.jpg');"></div>
+          <div class="hero-content-wrapper">
+            <h1 class="hero-title">AI for Healthcare & Bio-informatics</h1>
+            <p class="hero-desc">Developing advanced deep learning architectures for early-stage epidemic forecasts, precision patient screening, and multimodal medical image diagnostics.</p>
+            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
           </div>
         </div>
-        {% endfor %}
-        
+      </div>
+
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="hero-slide">
+          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research2.jpg');"></div>
+          <div class="hero-content-wrapper">
+            <h1 class="hero-title">Next-Gen Computer Vision & Automation</h1>
+            <p class="hero-desc">Empowering machines to interpret the dynamic world through continuous object tracking, complex context understanding, and spatial generative models.</p>
+            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" data-bs-interval="5000">
+        <div class="hero-slide">
+          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research3.jpg');"></div>
+          <div class="hero-content-wrapper">
+            <h1 class="hero-title">Trustworthy Large Language Models</h1>
+            <p class="hero-desc">Exploring structural fine-tuning parameters, contextual alignment, and systematic bias mitigation for highly dependable corporate and logical NLP engines.</p>
+            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
+          </div>
+        </div>
       </div>
       
-      <button class="carousel-control-prev" type="button" data-bs-target="#vslabMainCarousel" data-bs-slide="prev">
-        <div class="control-icon-bg">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#milabStyleCarousel" data-bs-slide="prev">
+      <div class="control-icon-bg"><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#milabStyleCarousel" data-bs-slide="next">
+      <div class="control-icon-bg"><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+<div class="vslab-container">
+
+  <div class="news-grid-container">
+    <h2 class="vslab-heading">Latest News</h2>
+    <div class="row g-4">
+      
+      {% for news in site.data.news limit:6 %}
+      <div class="col-md-6 col-lg-4">
+        <div class="news-card">
+          <div>
+            <div class="news-card-badge 
+              {% if news.keyword == 'Paper' %} bg-vslab-paper 
+              {% elsif news.keyword == 'Award' %} bg-vslab-award 
+              {% else %} bg-vslab-default {% endif %}">
+              {{ news.keyword }}
+            </div>
+            <p class="news-card-text">
+              {% if news.keyword == "Paper" %}
+                <a href="/publications">{{ news.content | strip_html | truncate: 100 }}</a>
+              {% elsif news.link != nil %}
+                <a href="{{ news.link }}" target="_blank">{{ news.content | strip_html | truncate: 100 }}</a>
+              {% else %}
+                {{ news.content | strip_html | truncate: 100 }}
+              {% endif %}
+            </p>
+          </div>
+          <div class="news-card-date">
+            <i class="far fa-calendar-alt me-1"></i> {{ news.date }}
+          </div>
         </div>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#vslabMainCarousel" data-bs-slide="next">
-        <div class="control-icon-bg">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </div>
-        <span class="visually-hidden">Next</span>
-      </button>
+      </div>
+      {% endfor %}
+      
     </div>
   </div>
 
 
-  <h2 class="vslab-heading">Research Highlights</h2>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="highlight-card">
-        <div class="highlight-img-box" style="background-image: url('/assets/images/highlights/healthcare.jpg');"></div>
-        <div class="highlight-body">
-          <h3 class="highlight-title">AI for Healthcare</h3>
-          <p class="highlight-text">Leveraging deep learning for early disease diagnosis and personalized medical data analysis.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="highlight-card">
-        <div class="highlight-img-box" style="background-image: url('/assets/images/highlights/vision.jpg');"></div>
-        <div class="highlight-body">
-          <h3 class="highlight-title">Computer Vision Applications</h3>
-          <p class="highlight-text">Real-world solutions in object detection, video surveillance, and automation systems.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="highlight-card">
-        <div class="highlight-img-box" style="background-image: url('/assets/images/highlights/nlp.jpg');"></div>
-        <div class="highlight-body">
-          <h3 class="highlight-title">Large Language Models</h3>
-          <p class="highlight-text">Investigating efficient training methods, alignment engineering, and bias mitigation in LLMs.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
+  <div class="row bottom-split-container">
     
     <div class="col-lg-7">
       <h2 class="vslab-heading">Recent Publications</h2>
-      <div class="pe-lg-3">
+      <div class="pe-lg-4">
+        
+        {% assign count = 0 %}
         {% for news in site.data.news %}
-          {% if news.keyword == 'Paper' %}
-          <div class="news-row-card">
-            <div class="news-row-center">
-              <span class="fw-bold text-dark d-block mb-1">{{ news.content | strip_html | truncate: 80 }}</span>
-              <small class="text-secondary">Authors, Conference/Journal Year</small>
-            </div>
-            <div class="news-row-right">
-              <span class="badge bg-light text-primary border border-primary-subtle">Full Paper</span>
+          {% if news.keyword == 'Paper' and count < 4 %}
+          <div class="pub-row">
+            <h4 class="pub-title">
+              <a href="/publications" class="text-decoration-none text-dark-hover">{{ news.content | strip_html | truncate: 110 }}</a>
+            </h4>
+            <div class="pub-meta">
+              <span>Accepted at Top-tier Venue</span> &bull; <span class="text-primary fw-medium">{{ news.date }}</span>
             </div>
           </div>
+          {% assign count = count | plus: 1 %}
           {% endif %}
         {% endfor %}
+        
       </div>
     </div>
 
     <div class="col-lg-5">
-      <h2 class="vslab-heading">Latest News</h2>
-      <div class="ps-lg-2">
-        {% for news in site.data.news limit:4 %}
-        <div class="news-row-card">
-          <div class="news-row-left 
-            {% if news.keyword == 'Paper' %} bg-vslab-paper 
-            {% elsif news.keyword == 'Award' %} bg-vslab-award 
-            {% else %} bg-vslab-default {% endif %}">
-            {{ news.keyword }}
-          </div>
-          <div class="news-row-center">
-            {{ news.content | truncate: 60 }}
-          </div>
-          <div class="news-row-right">
-            {{ news.date }}
+      <h2 class="vslab-heading">Contact Us</h2>
+      <div class="contact-info-box">
+        
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="contact-detail-title">Lab Location</div>
+            <div class="contact-detail-text">Room 501, Information Science Building, Soongsil University, Seoul, Korea</div>
           </div>
         </div>
-        {% endfor %}
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="contact-detail-title">Email Contact</div>
+            <div class="contact-detail-text">professor_lee@ssu.ac.kr (Prof. Lee)<br>dmlab.ssu@gmail.com (Lab Admin)</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <div class="contact-detail-title">Office Phone</div>
+            <div class="contact-detail-text">+82-2-820-XXXX (Professor Office)<br>+82-2-828-XXXX (Student Lab)</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
   </div>
 
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
