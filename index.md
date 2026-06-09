@@ -366,7 +366,7 @@ layout: article
           <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div>
             <div class="contact-detail-title">Lab Location</div>
-            <div class="contact-detail-text">Room 501, Information Science Building, Soongsil University, Seoul, Korea</div>
+            <div class="contact-detail-text">Room 225, Information Science Building, 50, Sadang-ro, Dongjak-gu, Seoul</div>
           </div>
         </div>
 
@@ -374,7 +374,7 @@ layout: article
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
           <div>
             <div class="contact-detail-title">Email Contact</div>
-            <div class="contact-detail-text">professor_lee@ssu.ac.kr (Prof. Lee)<br>dmlab.ssu@gmail.com (Lab Admin)</div>
+            <div class="contact-detail-text">jinhong@ssu.ac.kr </div>
           </div>
         </div>
 
@@ -382,7 +382,7 @@ layout: article
           <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
           <div>
             <div class="contact-detail-title">Office Phone</div>
-            <div class="contact-detail-text">+82-2-820-XXXX (Professor Office)<br>+82-2-828-XXXX (Student Lab)</div>
+            <div class="contact-detail-text">+82–02–820–0909 </div>
           </div>
         </div>
 
