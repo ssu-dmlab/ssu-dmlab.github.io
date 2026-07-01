@@ -26,16 +26,23 @@ layout: article
   }
   .hero-slide {
     position: relative;
-    height: 550px; /* MILAB 스타일의 시원하고 깊은 높이감 */
+    width: 100%;
+    min-height: 450px; 
+    height: auto; 
+    aspect-ratio: 21 / 9; 
+    
     background-color: #0b1329;
+    overflow: hidden;
   }
   .hero-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
+    
+    background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
-    filter: brightness(0.45); /* 텍스트 가독성을 위한 최적화 어둡기 */
+    
+    filter: brightness(0.45); 
     z-index: 1;
     transition: transform 0.6s ease-in-out;
   }
@@ -90,6 +97,25 @@ layout: article
   }
 
   /* 부드러운 슬라이드 컨트롤 UI */
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: auto;
+    bottom: 40px; 
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+  }
+  .carousel-control-prev {
+    left: calc(50% - 600px + 24px); 
+  }
+  .carousel-control-next {
+    left: calc(50% - 600px + 90px);
+    right: auto;
+  }
+  @media (max-width: 1240px) {
+    .carousel-control-prev { left: 24px; }
+    .carousel-control-next { left: 90px; }
+  }
   .control-icon-bg {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 14px;
@@ -250,38 +276,32 @@ layout: article
         </div>
       </div>
 
+      {% for news in site.data.news limit:3 %}
       <div class="carousel-item" data-bs-interval="5000">
         <div class="hero-slide">
-          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research1.jpg');"></div>
+          
+          <div class="hero-bg" style="background-image: url('{% if news.img %}{{ news.img }}{% else %}/assets/images/hero/slide_research{{ forloop.index }}.png{% endif %}');"></div>
+          
           <div class="hero-content-wrapper">
-            <h1 class="hero-title">AI for Healthcare & Bio-informatics</h1>
-            <p class="hero-desc">Developing advanced deep learning architectures for early-stage epidemic forecasts, precision patient screening, and multimodal medical image diagnostics.</p>
-            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
+            <h1 class="hero-title">
+              [{{ news.keyword }} {{ news.date | date: "%Y" }}] News & Achievement
+            </h1>
+            
+            <p class="hero-desc">
+              {{ news.content | strip_html }}
+            </p>
+            
+            {% if news.link %}
+              <a href="{{ news.link }}" class="btn-hero">
+                {% if news.keyword == "Paper" %}VIEW PUBLICATION{% else %}LEARN MORE{% endif %}
+              </a>
+            {% else %}
+              <a href="/news" class="btn-hero">VIEW DETAILS</a>
+            {% endif %}
           </div>
         </div>
       </div>
-
-      <div class="carousel-item" data-bs-interval="5000">
-        <div class="hero-slide">
-          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research2.jpg');"></div>
-          <div class="hero-content-wrapper">
-            <h1 class="hero-title">Next-Gen Computer Vision & Automation</h1>
-            <p class="hero-desc">Empowering machines to interpret the dynamic world through continuous object tracking, complex context understanding, and spatial generative models.</p>
-            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-item" data-bs-interval="5000">
-        <div class="hero-slide">
-          <div class="hero-bg" style="background-image: url('/assets/images/hero/slide_research3.jpg');"></div>
-          <div class="hero-content-wrapper">
-            <h1 class="hero-title">Trustworthy Large Language Models</h1>
-            <p class="hero-desc">Exploring structural fine-tuning parameters, contextual alignment, and systematic bias mitigation for highly dependable corporate and logical NLP engines.</p>
-            <a href="/research" class="btn-hero">VIEW RESEARCH</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
       
     </div>
     
@@ -340,20 +360,46 @@ layout: article
       <h2 class="vslab-heading">Recent Publications</h2>
       <div class="pe-lg-4">
         
-        {% assign count = 0 %}
-        {% for news in site.data.news %}
-          {% if news.keyword == 'Paper' and count < 4 %}
+        {% assign all_papers = site.data.domestic_conference | concat: site.data.international_conference | concat: site.data.international_journal %}
+        
+        {% comment %} YAML 파일 내부의 'Date:' 키값 기준으로 내림차순 정렬 {% endcomment %}
+        {% assign sorted_papers = all_papers | sort: "Date" | reverse %}
+        
+        {% if sorted_papers.size > 0 %}
+          {% for paper in sorted_papers limit:4 %}
           <div class="pub-row">
             <h4 class="pub-title">
-              <a href="/publications" class="text-decoration-none text-dark-hover">{{ news.content | strip_html | truncate: 110 }}</a>
+              <a href="/publications" class="text-decoration-none text-dark-hover">
+                {% comment %} 1. domestic_conference의 객체형 Title 분기 처리 {% endcomment %}
+                {% if paper.Title.en %}
+                  {{ paper.Title.en | strip_html | truncate: 110 }}
+                {% elsif paper.Title.kr %}
+                  {{ paper.Title.kr | strip_html | truncate: 110 }}
+                {% comment %} 2. international journal & conference의 문자열형 Title 처리 {% endcomment %}
+                {% else %}
+                  {{ paper.Title | strip_html | truncate: 110 }}
+                {% endif %}
+              </a>
             </h4>
             <div class="pub-meta">
-              <span>Accepted at Top-tier Venue</span> &bull; <span class="text-primary fw-medium">{{ news.date }}</span>
+              <span>
+                {% if paper.FullVenue %}
+                  {{ paper.FullVenue }}
+                {% elsif paper.FullVenue.en %}
+                  {{ paper.FullVenue.en }}
+                {% elsif paper.Publisher %}
+                  {{ paper.Publisher }}
+                {% else %}
+                  Accepted Venue
+                {% endif %}
+              </span> 
+              &bull; <span class="text-primary fw-medium">{{ paper.Date | date: "%Y-%m-%d" }}</span>
             </div>
           </div>
-          {% assign count = count | plus: 1 %}
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        {% else %}
+          <p class="text-muted">등록된 최신 논문이 없습니다.</p>
+        {% endif %}
         
       </div>
     </div>
