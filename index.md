@@ -73,6 +73,19 @@ layout: article
   .tb-hero-text { width: 100%; height: 180px; background-color: #0f172a; padding: 20px 100px 20px 30px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative; }
   .tb-hero-text .hero-title { font-size: 1.75rem; font-weight: 800; line-height: 1.3; margin-top: 0px; margin-bottom: 0px; letter-spacing: -0.02em; color: #ffffff !important; }
   .tb-hero-text .hero-badge { font-size: 0.7rem; letter-spacing: 0.05em; display:block; margin-bottom: 6px; }
+  /* [추가] 마우스를 올렸을 때(hover) 제목을 제외한 모든 하위 요소의 밑줄을 강제로 제거 */
+  .hero-slide-link:hover,
+  .hero-slide-link:hover *,
+  .pub-slider-link:hover,
+  .pub-slider-link:hover * {
+    text-decoration: none !important;
+  }
+  .hero-slide-link:hover .hero-title,
+  .pub-slider-link:hover .pub-hero-title {
+    color: #ffffff !important;
+    text-decoration-line: underline !important;
+    text-decoration-color: #00B4D8 !important;
+  }
   
   .btn-hero { background-color: #ffffff !important; color: #0f172a !important; font-weight: 600; font-size: 0.85rem; padding: 8px 24px; border: 2px solid #ffffff !important; border-radius: 4px; transition: all 0.3s ease; text-decoration: none; display: inline-block; width: fit-content; letter-spacing: 0.05em; }
   .btn-hero:hover { background-color: transparent !important; color: #ffffff !important; }
