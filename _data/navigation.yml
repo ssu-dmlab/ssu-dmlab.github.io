@@ -34,7 +34,15 @@ header:
 
   - titles:
       en      : &EN       Publications
-    url: /publications/
+    url: /publications/#international
+    children:
+      - titles:
+          en      : &EN       International
+        url: /publications/#international/
+
+      - titles:
+          en      : &EN       Domestic
+        url: /publications/#domestic/
 
   - titles:
       en      : &EN       Seminar

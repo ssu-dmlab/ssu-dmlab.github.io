@@ -45,7 +45,16 @@ layout: article
      3. 연구실 메인 테마 핏 레이아웃
      ========================================================================== */
   .vslab-container { width: 100%; margin: 0 auto; padding: 0; }
-  .vslab-heading { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin-top: 1.5rem; margin-bottom: 35px; letter-spacing: -0.02em; text-transform: uppercase; }
+  .vslab-heading { 
+    font-size: 1.75rem; 
+    font-weight: 800; 
+    color: #0f172a; 
+    margin-top: 1.5rem; 
+    margin-bottom: 35px; 
+    letter-spacing: -0.02em; 
+    text-transform: uppercase; 
+    border-bottom: 2px solid #1A365D !important;
+  }
 
   /* Main Hero Carousel 외부 프레임 */
   .container-hero { margin-top: 10px; margin-bottom: 80px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); position: relative; }
@@ -105,14 +114,17 @@ layout: article
     display: flex;
     flex-direction: column;
     overflow: hidden; 
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
   }
   .news-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06);
-    border-color: #cbd5e1;
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+    border-color: #00B4D8;
+  }
+  .news-card:hover .news-card-text a {
+    color: #1A365D; /* 호버 시 제목 글자색을 Deep Navy로 강조 */
   }
 
   .news-card-img-wrap {
@@ -140,15 +152,28 @@ layout: article
   }
 
   .news-card-badge {
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    width: fit-content;
+    display: inline-block;
+    padding: 6px 12px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
     margin-bottom: 12px;
+    width: fit-content;
+    color: #ffffff !important;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
+  /* 키워드별 고유 배경색 */
+  .bg-vslab-paper { 
+    background-color: #0056b3 !important; /* 파란색 */
+  }
+  .bg-vslab-award { 
+    background-color: #f39c12 !important; /* 골드/노란색 */
+  }
+  .bg-vslab-default { 
+    background-color: #7f8c8d !important; /* 기본 회색 */
+  }
   .news-card-text { 
     font-size: 1.05rem; 
     font-weight: 700; 
@@ -174,12 +199,26 @@ layout: article
   }
 
   /* Recent Publications */
-  .bottom-split-container { margin-bottom: 100px; }
-  .pub-slider-link { display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease; }
-  .pub-slider-link:hover { transform: translateY(-3px); }
-  .pub-mini-hero { width: 100%; position: relative; background-color: #ffffff; }
-  .pub-hero-img-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #f8fafc; }
-  .pub-hero-bg { width: 100%; height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; }
+  .bottom-split-container { 
+    margin-bottom: 100px; 
+  }
+  .pub-slider-link {
+    display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease; 
+  }
+  /* [수정] 호버 시 하단 그림자를 #00B4D8 색상으로 변경 */
+  .pub-slider-link:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2) 
+  }
+  .pub-mini-hero { 
+    width: 100%; position: relative; background-color: #ffffff; 
+  }
+  .pub-hero-img-wrap { 
+    position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #f8fafc; 
+  }
+  .pub-hero-bg { 
+    width: 100%; height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; 
+  }
   
   /* [변경] 버튼 배치를 위해 position: relative 추가 및 우측 패딩 조정 */
   .pub-hero-text-wrap { background-color: #1e293b; padding: 20px 100px 20px 20px; min-height: 165px; display: flex; flex-direction: column; justify-content: flex-start; box-sizing: border-box; position: relative; }
@@ -292,7 +331,7 @@ layout: article
     <h2 class="vslab-heading">Latest News</h2>
     <div class="vslab-row">
       
-      {% for news in site.data.news limit:6 %}
+      {% for news in site.data.news limit:5 %}
       <div class="vslab-col-4 vslab-col-md-12 news-card-wrapper">
         <div class="news-card">
           
@@ -302,16 +341,22 @@ layout: article
           
           <div class="news-card-body">
             <div class="news-card-badge 
-              {% if news.keyword == 'Paper' %} bg-vslab-paper 
-              {% elsif news.keyword == 'Award' %} bg-vslab-award 
+              {% if news.keyword == 'Paper' or news.keyword == 'paper' %} bg-vslab-paper 
+              {% elsif news.keyword == 'Award' or news.keyword == 'award' %} bg-vslab-award 
               {% else %} bg-vslab-default {% endif %}">
+              
+              {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
+                <i class="far fa-file-alt me-1"></i> {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
+                <i class="fas fa-trophy me-1"></i> {% else %}
+                <i class="fas fa-bullhorn me-1"></i> {% endif %}
+              
               {{ news.keyword }}
             </div>
             
             <h4 class="news-card-text">
               {% if news.keyword == "Paper" %}
                 <a href="/publications">{{ news.content | strip_html }}</a>
-              {%     elsif news.link != nil %}
+              {% elsif news.link != nil %}
                 <a href="{{ news.link }}" target="_blank">{{ news.content | strip_html }}</a>
               {% else %}
                 {{ news.content | strip_html }}
@@ -326,6 +371,24 @@ layout: article
         </div>
       </div>
       {% endfor %}
+
+      <div class="vslab-col-4 vslab-col-md-12 news-card-wrapper">
+        <a href="/news" style="text-decoration: none; display: block; height: 100%;">
+          <div class="news-card" style="background: #f8fafc; border-style: dashed; border-width: 2px; align-items: center; justify-content: center; min-height: 300px;">
+            <div class="news-card-body" style="justify-content: center; align-items: center; text-align: center; width: 100%;">
+              <div style="font-size: 2.5rem; color: #64748b; margin-bottom: 15px;">
+                <i class="fas fa-arrow-circle-right"></i>
+              </div>
+              <h4 class="news-card-text" style="font-size: 1.3rem; color: #0f172a; margin-bottom: 8px;">
+                More News
+              </h4>
+              <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                Click to view past news
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
       
     </div>
   </div>
@@ -353,7 +416,7 @@ layout: article
                     </div>
                     
                     <div class="pub-hero-text-wrap">
-                      <span class="text-success fw-bold uppercase pub-hero-badge">TOP {{ forloop.index }} PUBLICATION</span>
+                      <span class="text-success fw-bold uppercase pub-hero-badge">RECENT {{ forloop.index }} PUBLICATION</span>
                       
                       <h4 class="pub-hero-title">
                         {% if paper.Title.en %}
