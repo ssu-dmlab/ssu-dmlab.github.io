@@ -71,7 +71,8 @@ permalink: /news/
 
   .news-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
+    border-color: #00B4D8;
   }
 
   /* 이미지 비율 16:9 유지 */
@@ -137,6 +138,7 @@ permalink: /news/
   }
 
   .news-card-text a:hover {
+    color: inherit !important;
     text-decoration: underline;
   }
 
