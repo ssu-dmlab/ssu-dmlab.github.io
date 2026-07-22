@@ -8,37 +8,270 @@
     <div class="main">
       <div class="header__title">
         <div class="header__brand">
-          <!--{%- include svg/newlogo.svg -%}-->
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
         </div>
-        {%- if site.search.provider -%}
-          <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
-        {%- endif -%}
+
+        <div class="header__actions">
+          {%- if site.search.provider -%}
+            <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
+          {%- endif -%}
+          <!-- 모바일 전용 햄버거 메뉴 토글 버튼 -->
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
+      
       {%- if site.data.navigation.header -%}
       <nav class="navigation">
-        <ul>
+        <ul class="nav-menu">
           {%- for _item in site.data.navigation.header -%}
             {%- include snippets/get-nav-url.html path=_item.url -%}
             {%- assign _nav_url = __return -%}
             {%- include snippets/get-nav-url.html path=page.url -%}
             {%- assign _page_url = __return -%}
             {%- include snippets/get-string-from-locale-config.html locale=_item.titles -%}
+            {%- assign _main_title = __return -%}
+            
+            {%- assign is_active = false -%}
             {%- if _nav_url == _page_url or page.nav_key and _item.key and page.nav_key == _item.key -%}
-              <li class="navigation__item navigation__item--active"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
+              {%- assign is_active = true -%}
+            {%- endif -%}
+
+            {%- if _item.children -%}
+              <li class="navigation__item has-dropdown {% if is_active %}navigation__item--active{% endif %}">
+                <a href="{{ _nav_url }}">{{ _main_title }}</a>
+                <ul class="dropdown-menu">
+                  {%- for _child in _item.children -%}
+                    {%- include snippets/get-nav-url.html path=_child.url -%}
+                    {%- assign _child_url = __return -%}
+                    {%- include snippets/get-string-from-locale-config.html locale=_child.titles -%}
+                    <li><a href="{{ _child_url }}">{{ __return }}</a></li>
+                  {%- endfor -%}
+                </ul>
+              </li>
             {%- else -%}
-              <li class="navigation__item"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
+              <li class="navigation__item {% if is_active %}navigation__item--active{% endif %}">
+                <a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ _main_title }}{%- endif -%}</a>
+              </li>
             {%- endif -%}
           {%- endfor -%}
-          {%- if site.search.provider -%}
-            <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
-          {%- endif -%}
         </ul>
       </nav>
       {%- endif -%}
     </div>
   </header>
+
+<style>
+  /* ==========================================================================
+     1. 데스크톱 기본 스타일 (화면 넓을 때)
+     ========================================================================== */
+  .navigation, 
+  .navigation ul, 
+  .main {
+    overflow: visible !important; 
+  }
+
+  /* 모바일 토글 버튼 데스크톱에서는 숨김 */
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .header__actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    align-items: center !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .navigation__item {
+    position: relative !important; 
+    overflow: visible !important;
+  }
+
+  /* 드롭다운 메뉴 (데스크톱 호버 모드) */
+  .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(10px) !important;
+    background-color: #ffffff !important;
+    min-width: 160px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 6px !important;
+    padding: 6px 0 !important;
+    list-style: none !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    z-index: 99999 !important;
+    transition: all 0.2s ease-in-out !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  .header--dark .dropdown-menu {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .dropdown-menu li {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .dropdown-menu li a {
+    display: block !important;
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    color: #334155 !important;
+    text-decoration: none !important;
+    text-align: left !important;
+    transition: background 0.15s !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+  }
+
+  .header--dark .dropdown-menu li a {
+    color: #cbd5e1 !important;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+  }
+  .header--dark .dropdown-menu li a:hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+  }
+
+  /* 데스크톱 호버 시 드롭다운 활성화 */
+  @media (min-width: 769px) {
+    .has-dropdown:hover .dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateX(-50%) translateY(0px) !important;
+    }
+  }
+
+  /* ==========================================================================
+     2. 모바일 스타일 및 메뉴 토글 설정 (@media max-width: 768px)
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .main {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      padding: 10px 15px !important;
+    }
+
+    .header__title {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
+    /* 오른쪽 상단 햄버거 버튼 표시 */
+    .nav-toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: transparent !important;
+      border: none !important;
+      font-size: 1.25rem !important;
+      padding: 6px 10px !important;
+      cursor: pointer !important;
+      color: inherit !important;
+    }
+
+    /* 평소에는 모바일 내비게이션 숨김 */
+    .navigation {
+      display: none !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+      padding-top: 10px !important;
+    }
+
+    .header--dark .navigation {
+      border-top-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* 햄버거 버튼 클릭 시 메뉴 펼침 */
+    .navigation.is-active {
+      display: block !important;
+    }
+
+    .nav-menu {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100% !important;
+    }
+
+    .navigation__item {
+      width: 100% !important;
+      text-align: left !important;
+    }
+
+    .navigation__item > a {
+      display: block !important;
+      padding: 12px 10px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 모바일 하위 드롭다운 (인라인) */
+    .dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-left: 2px solid #cbd5e1 !important;
+      margin-left: 15px !important;
+      padding: 4px 0 !important;
+      background-color: transparent !important;
+      width: auto !important;
+    }
+
+    .header--dark .dropdown-menu {
+      background-color: transparent !important;
+      border-left-color: #475569 !important;
+    }
+
+    .dropdown-menu li a {
+      padding: 8px 15px !important;
+      font-size: 0.85rem !important;
+    }
+  }
+</style>
+
+<!-- 토글 동작 JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleBtn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.navigation');
+
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener('click', function() {
+        nav.classList.toggle('is-active');
+      });
+    }
+  });
+</script>
