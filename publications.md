@@ -1,6 +1,5 @@
 ---
 layout: article
-title: Publications
 permalink: /publications/
 ---
 
@@ -20,7 +19,6 @@ permalink: /publications/
   .pub-tabs {
     display: flex;
     gap: 12px;
-    border-bottom: 2px solid #e2e8f0;
     margin-bottom: 35px;
     padding-bottom: 12px;
   }
@@ -166,7 +164,7 @@ permalink: /publications/
     padding: 6px 12px;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #334155;
+    color: #0f172a!important;
     background: #f8fafc;
     border: 1px solid #cbd5e1;
     border-radius: 4px;
@@ -174,9 +172,9 @@ permalink: /publications/
     transition: all 0.2s ease;
   }
   .pub-btn-link:hover {
-    background: #f1f5f9;
-    color: #0f172a;
-    border-color: #94a3b8;
+    background: #0f172a;
+    color: #f1f5f9!important;
+    border-color: #00B4D8;
   }
   .pub-modal {
     display: none; /* 기본 숨김 */
@@ -289,6 +287,41 @@ permalink: /publications/
   .pub-card {
     cursor: pointer;
   }
+
+  @media (max-width: 640px) {
+    /* 카드 내부 여백 및 간격 축소 */
+    .pub-card {
+      padding: 16px 18px;
+      gap: 10px;
+    }
+
+    /* 헤더: 제목과 Badge가 작은 화면에서 자연스럽게 줄바꿈되도록 변경 */
+    .pub-card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* 푸터: 날짜와 링크 그룹을 수직(Column)으로 배치하여 겹침 차단 */
+    .pub-card-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* 링크 버튼 그룹: 공간이 부족하면 자연스럽게 다음 줄로 내려가도록 줄바꿈 허용 */
+    .pub-links-group {
+      flex-wrap: wrap;
+      gap: 6px;
+      width: 100%;
+    }
+
+    /* 모바일에서 버튼 크기와 여백을 미세하게 조정하여 가독성 및 터치 영역 확보 */
+    .pub-btn-link {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  }
 </style>
 
 <div class="pub-container">
@@ -334,7 +367,7 @@ permalink: /publications/
                   <div class="pub-links-group">
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
-                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-presentation"></i> Slide</a>{% endif %}
+                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -348,7 +381,8 @@ permalink: /publications/
               <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.en | default: paper.Title.ko | default: paper.Title }}</h4>
-                  <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Conference" }}</div>
+                  {% assign short_year = y | slice: 2, 2 %}
+                  <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Conference" }} '{{ short_year }}</div>
                 </div>
                 <div class="pub-card-authors">
                   {% if paper.Authors %}
@@ -364,7 +398,7 @@ permalink: /publications/
                   <div class="pub-links-group">
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
-                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-presentation"></i> Slide</a>{% endif %}
+                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -409,7 +443,7 @@ permalink: /publications/
                   <div class="pub-links-group">
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
-                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-presentation"></i> Slide</a>{% endif %}
+                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -423,7 +457,8 @@ permalink: /publications/
               <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.ko | default: paper.Title.en | default: paper.Title }}</h4>
-                  <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Conference" }}</div>
+                  {% assign short_year = y | slice: 2, 2 %}
+                  <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Conference" }} '{{ short_year }}</div>
                 </div>
                 <div class="pub-card-authors">
                   {% if paper.Authors %}
@@ -439,7 +474,7 @@ permalink: /publications/
                   <div class="pub-links-group">
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
-                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-presentation"></i> Slide</a>{% endif %}
+                    {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>

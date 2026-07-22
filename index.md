@@ -4,6 +4,7 @@ layout: article
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+{% raw %}
 <style>
   /* ==========================================================================
      ★ 깜빡임 박멸: 전역 간섭 없는 순수 CSS 격리형 페이드 카루셀 시스템
@@ -26,7 +27,7 @@ layout: article
   #pubMiniCarousel .custom-carousel-item { position: absolute; }
   #pubMiniCarousel .custom-carousel-item.vslab-active { position: relative; }
 
-  /* 컨트롤 인터페이스 기본 제어 (공통 기본값 초기화) */
+  /* 컨트롤 인터페이스 기본 제어 */
   .custom-carousel-control-prev, .custom-carousel-control-next { 
     position: absolute; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 0; background: none; border: 0; opacity: 0.7; transition: opacity .15s ease; cursor: pointer;
   }
@@ -41,9 +42,7 @@ layout: article
     .vslab-col-md-12 { width: 100% !important; }
   }
 
-  /* ==========================================================================
-     3. 연구실 메인 테마 핏 레이아웃
-     ========================================================================== */
+  /* 연구실 메인 테마 핏 레이아웃 */
   .vslab-container { width: 100%; margin: 0 auto; padding: 0; }
   .vslab-heading { 
     font-size: 1.75rem; 
@@ -57,11 +56,11 @@ layout: article
   }
 
   /* Main Hero Carousel 외부 프레임 */
-  .container-hero { margin-top: 10px; margin-bottom: 80px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); position: relative; }
+  .container-hero { margin-top: 10px; margin-bottom: 60px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); position: relative; }
   .hero-slide-link { display: block; text-decoration: none; color: inherit; }
   .hero-slide { position: relative; width: 100%; height: 480px; background-color: #f8fafc; overflow: hidden; }
   .main-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 35%, rgba(15, 23, 42, 0.4) 100%), url('/assets/images/hero/slide_main.jpg'); background-size: cover; background-position: center; z-index: 1; }
-  .main-hero-wrapper { position: relative; z-index: 2; height: 100%; padding: 60px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; max-width: 850px; }
+  .main-hero-wrapper { position: relative; z-index: 2; height: 100%; padding: 60px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; max-width: 850px; box-sizing: border-box; }
   .main-hero-content { color: #ffffff !important; text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6); }
   .main-hero-content .hero-title { font-size: 2.85rem; font-weight: 800; margin-top: 0; margin-bottom: 20px; letter-spacing: -0.03em; color: #ffffff !important; }
   .main-hero-content .hero-desc { font-size: 1.15rem; line-height: 1.65; color: #cbd5e1 !important; margin-bottom: 32px; display: block; }
@@ -69,11 +68,10 @@ layout: article
   .tb-hero-container { display: flex; flex-direction: column; width: 100%; height: 100%; }
   .tb-hero-img { width: 100%; height: 300px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f8fafc; position: relative; }
   
-  /* [변경] 버튼 배치를 위해 position: relative 추가 및 우측 패딩 조정 */
-  .tb-hero-text { width: 100%; height: 180px; background-color: #0f172a; padding: 20px 100px 20px 30px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative; }
+  .tb-hero-text { width: 100%; min-height: 180px; height: auto; background-color: #0f172a; padding: 20px 100px 20px 30px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative; }
   .tb-hero-text .hero-title { font-size: 1.75rem; font-weight: 800; line-height: 1.3; margin-top: 0px; margin-bottom: 0px; letter-spacing: -0.02em; color: #ffffff !important; }
   .tb-hero-text .hero-badge { font-size: 0.7rem; letter-spacing: 0.05em; display:block; margin-bottom: 6px; }
-  /* [추가] 마우스를 올렸을 때(hover) 제목을 제외한 모든 하위 요소의 밑줄을 강제로 제거 */
+  
   .hero-slide-link:hover,
   .hero-slide-link:hover *,
   .pub-slider-link:hover,
@@ -92,9 +90,7 @@ layout: article
   .main-hero-content .btn-hero { margin-top: 0px; padding: 12px 30px; font-size: 0.95rem; }
   .tb-hero-text .btn-hero { margin-top: 14px; }
 
-  /* ==========================================================================
-     ★ 내비게이션 버튼 우하단 정밀 재배치 (Hero & Publications 공통 적용)
-     ========================================================================== */
+  /* 컨트롤 버튼 위치 */
   .control-icon-bg { background-color: rgba(255, 255, 255, 0.85); padding: 8px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
   .control-icon-bg:hover { background-color: #ffffff; transform: scale(1.05); }
   
@@ -102,20 +98,50 @@ layout: article
   .carousel-prev-icon-svg { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); }
   .carousel-next-icon-svg { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
 
-  /* 1. Main Hero Carousel 버튼 위치 (첫 번째 슬라이드 포함 일괄 적용) */
   #milabStyleCarousel .custom-carousel-control-prev,
   #milabStyleCarousel .custom-carousel-control-next { top: auto !important; bottom: 20px !important; width: auto !important; height: auto !important; }
   #milabStyleCarousel .custom-carousel-control-prev { right: 64px !important; left: auto !important; }
   #milabStyleCarousel .custom-carousel-control-next { right: 20px !important; left: auto !important; }
 
-  /* 첫 번째 슬라이드(전체 배경형)일 때 버튼 디자인 다크 테마에 맞춰 소폭 최적화 */
   .is-first-slide .control-icon-bg { background-color: rgba(255, 255, 255, 0.2) !important; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: none !important; }
   .is-first-slide .carousel-prev-icon-svg { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); }
   .is-first-slide .carousel-next-icon-svg { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); }
 
-  /* ==========================================================================
-     ★ Latest News 결합형 카드 디자인 리뉴얼 
-     ========================================================================== */
+  /* Announcement */
+  .announcement-container { margin-bottom: 50px; }
+  .announcement-item { 
+    display: flex; 
+    align-items: center; 
+    background: #f8fafc; 
+    border-left: 4px solid #1A365D; 
+    border-radius: 4px; 
+    padding: 16px 20px; 
+    margin-bottom: 12px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .announcement-item .item__image { 
+    font-size: 1.25rem; 
+    color: #1A365D; 
+    margin-right: 16px; 
+    display: flex; 
+    align-items: center; 
+  }
+  .announcement-item .item__content { flex: 1; }
+  .announcement-btn { 
+    display: inline-block; 
+    background-color: #00B4D8; 
+    color: #ffffff !important; 
+    font-weight: 700; 
+    font-size: 0.8rem; 
+    padding: 4px 10px; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    margin-right: 8px; 
+  }
+  .announcement-btn:hover { background-color: #0077b6; }
+  .announcement-text { font-size: 0.95rem; color: #334155; font-weight: 500; }
+
+  /* Latest News */
   .news-grid-container { margin-bottom: 80px; }
   .news-card-wrapper { margin-bottom: 24px; }
   
@@ -136,9 +162,7 @@ layout: article
     box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
     border-color: #00B4D8;
   }
-  .news-card:hover .news-card-text a {
-    color: #1A365D; /* 호버 시 제목 글자색을 Deep Navy로 강조 */
-  }
+  .news-card:hover .news-card-text a { color: #1A365D; }
 
   .news-card-img-wrap {
     position: relative;
@@ -177,16 +201,10 @@ layout: article
     letter-spacing: 0.5px;
   }
 
-  /* 키워드별 고유 배경색 */
-  .bg-vslab-paper { 
-    background-color: #0056b3 !important; /* 파란색 */
-  }
-  .bg-vslab-award { 
-    background-color: #f39c12 !important; /* 골드/노란색 */
-  }
-  .bg-vslab-default { 
-    background-color: #7f8c8d !important; /* 기본 회색 */
-  }
+  .bg-vslab-paper { background-color: #0056b3 !important; }
+  .bg-vslab-award { background-color: #f39c12 !important; }
+  .bg-vslab-default { background-color: #7f8c8d !important; }
+  
   .news-card-text { 
     font-size: 1.05rem; 
     font-weight: 700; 
@@ -204,43 +222,22 @@ layout: article
   .news-card-text a { color: #0f172a; text-decoration: none; }
   .news-card-text a:hover { text-decoration: underline; }
   
-  .news-card-date { 
-    font-size: 0.85rem; 
-    color: #94a3b8; 
-    font-weight: 500; 
-    margin-top: auto; 
-  }
+  .news-card-date { font-size: 0.85rem; color: #94a3b8; font-weight: 500; margin-top: auto; }
 
-  /* Recent Publications */
-  .bottom-split-container { 
-    margin-bottom: 100px; 
-  }
-  .pub-slider-link {
-    display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease; 
-  }
-  /* [수정] 호버 시 하단 그림자를 #00B4D8 색상으로 변경 */
-  .pub-slider-link:hover { 
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2) 
-  }
-  .pub-mini-hero { 
-    width: 100%; position: relative; background-color: #ffffff; 
-  }
-  .pub-hero-img-wrap { 
-    position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #f8fafc; 
-  }
-  .pub-hero-bg { 
-    width: 100%; height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; 
-  }
+  /* Recent Publications & Contact */
+  .bottom-split-container { margin-bottom: 100px; }
+  .pub-slider-link { display: block; text-decoration: none; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: transform 0.3s ease; }
+  .pub-slider-link:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2); }
+  .pub-mini-hero { width: 100%; position: relative; background-color: #ffffff; }
+  .pub-hero-img-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #f8fafc; }
+  .pub-hero-bg { width: 100%; height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; }
   
-  /* [변경] 버튼 배치를 위해 position: relative 추가 및 우측 패딩 조정 */
   .pub-hero-text-wrap { background-color: #1e293b; padding: 20px 100px 20px 20px; min-height: 165px; display: flex; flex-direction: column; justify-content: flex-start; box-sizing: border-box; position: relative; }
   .pub-hero-badge { font-size: 0.72rem; letter-spacing: 0.05em; display: block; line-height: 1.1; margin-top: 0px; margin-bottom: 8px; }
   .pub-hero-title { font-size: 1.2rem; font-weight: 700; line-height: 1.4; color: #ffffff !important; margin-top: 0px !important; margin-bottom: 12px !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; word-break: break-word; }
   .pub-hero-meta { font-size: 0.88rem; color: #94a3b8 !important; display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
   .pub-hero-meta div { color: #94a3b8 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   
-  /* 2. Recent Publications Carousel 버튼 위치 정의 */
   .pub-mini-hero .custom-carousel-control-prev,
   .pub-mini-hero .custom-carousel-control-next { top: auto !important; bottom: 20px !important; z-index: 10 !important; }
   .pub-mini-hero .custom-carousel-control-prev { right: 64px !important; left: auto !important; }
@@ -254,19 +251,54 @@ layout: article
   .contact-detail-title { font-weight: 700; color: #0f172a; font-size: 0.95rem; margin-bottom: 2px; }
   .contact-detail-text { font-size: 0.95rem; color: #475569; line-height: 1.5; }
 
+  /* ==========================================================================
+     ★ 모바일 및 디바이스 반응형 밀도감 최적화 (Hero 영역 풀사이즈 튜닝)
+     ========================================================================== */
   @media (max-width: 992px) {
-    .hero-slide { height: auto; min-height: 440px; }
-    .main-hero-content .hero-title { font-size: 2.0rem; }
-    .main-hero-wrapper { padding: 30px; }
+    .container-hero { margin-bottom: 40px; }
+    .hero-slide { height: auto; min-height: 480px; display: flex; flex-direction: column; }
+    
+    .main-hero-wrapper { 
+      padding: 50px 24px 65px 24px; 
+      max-width: 100%; 
+      justify-content: center;
+      min-height: 480px;
+    }
+    .main-hero-content .hero-title { font-size: 2.1rem; line-height: 1.25; margin-bottom: 16px; }
+    .main-hero-content .hero-desc { font-size: 1.05rem; line-height: 1.6; margin-bottom: 28px; }
+    
+    .tb-hero-img { height: 260px; }
+    .tb-hero-text { padding: 24px 80px 28px 24px; min-height: 220px; }
+    .tb-hero-text .hero-title { font-size: 1.5rem; line-height: 1.3; }
+    
     .pub-slider-link { margin-bottom: 40px; }
-    .contact-info-box { margin-top: 0px; }
-    /* 모바일 환경에서 첫 화면 버튼 위치 보정 */
-    .is-first-slide .custom-carousel-control-prev, .is-first-slide .custom-carousel-control-next { bottom: 20px !important; }
+  }
+
+  @media (max-width: 576px) {
+    .hero-slide { min-height: 420px; }
+    
+    .main-hero-wrapper { padding: 40px 20px 60px 20px; min-height: 420px; }
+    .main-hero-content .hero-title { font-size: 1.75rem; line-height: 1.25; margin-bottom: 12px; }
+    .main-hero-content .hero-desc { font-size: 0.95rem; line-height: 1.55; margin-bottom: 24px; }
+    .main-hero-content .btn-hero { padding: 10px 22px; font-size: 0.88rem; }
+    
+    .tb-hero-img { height: 210px; }
+    .tb-hero-text { padding: 20px 70px 24px 18px; min-height: 210px; }
+    .tb-hero-text .hero-title { font-size: 1.3rem; line-height: 1.35; }
+    .tb-hero-text .hero-badge { font-size: 0.75rem; margin-bottom: 8px; }
+    .tb-hero-text .btn-hero { margin-top: 12px; padding: 7px 18px; font-size: 0.8rem; }
+    
+    #milabStyleCarousel .custom-carousel-control-prev,
+    #milabStyleCarousel .custom-carousel-control-next { bottom: 16px !important; }
+    #milabStyleCarousel .custom-carousel-control-prev { right: 56px !important; }
+    #milabStyleCarousel .custom-carousel-control-next { right: 16px !important; }
   }
 </style>
+{% endraw %}
 
 <div class="vslab-container">
   
+  <!-- Hero Carousel -->
   <div class="container-hero" id="heroContainerFrame">
     <div id="milabStyleCarousel" class="custom-carousel">
       <div class="custom-carousel-inner">
@@ -340,6 +372,31 @@ layout: article
     </div>
   </div>
 
+  <!-- Announcement Section -->
+  {% if site.data.announcements.size > 0 %}
+  <div class="announcement-container">
+    <h2 class="vslab-heading">Announcement</h2>
+    {% for notice in site.data.announcements %}
+    <div class="announcement-item">
+      <div class="item__image">
+        <i class="{{ notice.icon }} fa-fw"></i>
+      </div>
+      <div class="item__content">
+        {% if notice.link != nil and notice.link != "" %}
+          <a class="announcement-btn" href="{{ notice.link }}" target="_blank">
+            {{ notice.keyword }}
+          </a>
+        {% else %}
+          <span class="announcement-btn">{{ notice.keyword }}</span>
+        {% endif %}
+        <span class="announcement-text">{{ notice.content }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Latest News Section -->
   <div class="news-grid-container">
     <h2 class="vslab-heading">Latest News</h2>
     <div class="vslab-row">
@@ -359,9 +416,12 @@ layout: article
               {% else %} bg-vslab-default {% endif %}">
               
               {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
-                <i class="far fa-file-alt me-1"></i> {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
-                <i class="fas fa-trophy me-1"></i> {% else %}
-                <i class="fas fa-bullhorn me-1"></i> {% endif %}
+                <i class="far fa-file-alt me-1"></i>
+              {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
+                <i class="fas fa-trophy me-1"></i>
+              {% else %}
+                <i class="fas fa-bullhorn me-1"></i>
+              {% endif %}
               
               {{ news.keyword }}
             </div>
@@ -406,6 +466,7 @@ layout: article
     </div>
   </div>
 
+  <!-- Recent Publications & Contact Us -->
   <div class="vslab-row bottom-split-container">
     
     <div class="vslab-col-6 vslab-col-md-12" style="width: 58.33333333%;">
@@ -434,8 +495,8 @@ layout: article
                       <h4 class="pub-hero-title">
                         {% if paper.Title.en %}
                           {{ paper.Title.en | strip_html }}
-                        {% elsif paper.Title.kr %}
-                          {{ paper.Title.kr | strip_html }}
+                        {% elsif paper.Title.first %}
+                          {{ paper.Title | first | strip_html }}
                         {% else %}
                           {{ paper.Title | strip_html }}
                         {% endif %}
@@ -444,8 +505,8 @@ layout: article
                       <div class="pub-hero-meta">
                         <div>
                           <i class="fas fa-bookmark me-1 opacity-75"></i>
-                          {% if paper.FullVenue %} {{ paper.FullVenue }}
-                          {% elsif paper.FullVenue.en %} {{ paper.FullVenue.en }}
+                          {% if paper.FullVenue.en %} {{ paper.FullVenue.en }}
+                          {% elsif paper.FullVenue %} {{ paper.FullVenue }}
                           {% elsif paper.Publisher %} {{ paper.Publisher }}
                           {% else %} Accepted Venue {% endif %}
                         </div>
@@ -522,7 +583,6 @@ layout: article
       var timer = null;
       var containerFrame = document.getElementById('heroContainerFrame');
 
-      // 초기화 시 첫 슬라이드 감지 클래스 적용
       if (carouselId === 'milabStyleCarousel' && containerFrame && currentIndex === 0) {
         containerFrame.classList.add('is-first-slide');
       }

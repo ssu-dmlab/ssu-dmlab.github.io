@@ -14,9 +14,16 @@
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
         </div>
-        {%- if site.search.provider -%}
-          <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
-        {%- endif -%}
+
+        <div class="header__actions">
+          {%- if site.search.provider -%}
+            <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
+          {%- endif -%}
+          <!-- 모바일 전용 햄버거 메뉴 토글 버튼 -->
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
       
       {%- if site.data.navigation.header -%}
@@ -37,7 +44,7 @@
 
             {%- if _item.children -%}
               <li class="navigation__item has-dropdown {% if is_active %}navigation__item--active{% endif %}">
-                <a href="{{ _nav_url }}">{{ _main_title }} <i class="fas fa-caret-down dropdown-arrow"></i></a>
+                <a href="{{ _nav_url }}">{{ _main_title }}</a>
                 <ul class="dropdown-menu">
                   {%- for _child in _item.children -%}
                     {%- include snippets/get-nav-url.html path=_child.url -%}
@@ -53,10 +60,6 @@
               </li>
             {%- endif -%}
           {%- endfor -%}
-          
-          {%- if site.search.provider -%}
-            <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
-          {%- endif -%}
         </ul>
       </nav>
       {%- endif -%}
@@ -65,14 +68,23 @@
 
 <style>
   /* ==========================================================================
-     ★ 네비게이션 드롭다운 강제 격리 스타일 (우선순위 최고 단계 보강)
+     1. 데스크톱 기본 스타일 (화면 넓을 때)
      ========================================================================== */
-  
-  /* 1. 상위 내비게이션 영역의 넘침 방지(overflow) 해제 */
   .navigation, 
   .navigation ul, 
   .main {
     overflow: visible !important; 
+  }
+
+  /* 모바일 토글 버튼 데스크톱에서는 숨김 */
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .header__actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
   }
 
   .nav-menu {
@@ -84,21 +96,12 @@
     overflow: visible !important;
   }
 
-  /* 2. 자식 드롭다운의 기준점이 되는 부모 li 설정 */
   .navigation__item {
     position: relative !important; 
     overflow: visible !important;
   }
 
-  .dropdown-arrow {
-    font-size: 0.75rem !important;
-    margin-left: 5px !important;
-    transition: transform 0.2s ease;
-    display: inline-block !important;
-    vertical-align: middle !important;
-  }
-
-  /* 3. 드롭다운 메뉴 본체 (초기 상태: 숨김) */
+  /* 드롭다운 메뉴 (데스크톱 호버 모드) */
   .dropdown-menu {
     position: absolute !important;
     top: 100% !important;
@@ -111,16 +114,13 @@
     padding: 6px 0 !important;
     list-style: none !important;
     margin: 0 !important;
-    
-    /* 애니메이션 및 숨김 처리 */
     opacity: 0 !important;
     visibility: hidden !important;
-    z-index: 99999 !important; /* 다른 요소보다 무조건 위에 배치 */
+    z-index: 99999 !important;
     transition: all 0.2s ease-in-out !important;
     border: 1px solid #e2e8f0 !important;
   }
 
-  /* 다크테마 대응 */
   .header--dark .dropdown-menu {
     background-color: #1e293b !important;
     border-color: #334155 !important;
@@ -134,7 +134,6 @@
     display: block !important;
   }
 
-  /* 하위 링크 스타일 (글씨 색상 고정) */
   .dropdown-menu li a {
     display: block !important;
     padding: 10px 20px !important;
@@ -144,14 +143,13 @@
     text-align: left !important;
     transition: background 0.15s !important;
     font-weight: 500 !important;
-    white-space: nowrap !important; /* 글자가 한 줄로 나오도록 고정 */
+    white-space: nowrap !important;
   }
 
   .header--dark .dropdown-menu li a {
     color: #cbd5e1 !important;
   }
 
-  /* 호버(마우스 오버) 시 배경색 및 액션 효과 */
   .dropdown-menu li a:hover {
     background-color: #f1f5f9 !important;
     color: #0f172a !important;
@@ -161,15 +159,119 @@
     color: #ffffff !important;
   }
 
-  /* ★ 핵심: 부모 메뉴에 마우스를 올렸을 때 나타나는 액션 */
-  .has-dropdown:hover .dropdown-menu {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(-50%) translateY(0px) !important;
+  /* 데스크톱 호버 시 드롭다운 활성화 */
+  @media (min-width: 769px) {
+    .has-dropdown:hover .dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateX(-50%) translateY(0px) !important;
+    }
   }
-  
-  /* 마우스 올렸을 때 화살표 회전 */
-  .has-dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg) !important;
+
+  /* ==========================================================================
+     2. 모바일 스타일 및 메뉴 토글 설정 (@media max-width: 768px)
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .main {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      padding: 10px 15px !important;
+    }
+
+    .header__title {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+
+    /* 오른쪽 상단 햄버거 버튼 표시 */
+    .nav-toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: transparent !important;
+      border: none !important;
+      font-size: 1.25rem !important;
+      padding: 6px 10px !important;
+      cursor: pointer !important;
+      color: inherit !important;
+    }
+
+    /* 평소에는 모바일 내비게이션 숨김 */
+    .navigation {
+      display: none !important;
+      width: 100% !important;
+      margin-top: 10px !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+      padding-top: 10px !important;
+    }
+
+    .header--dark .navigation {
+      border-top-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* 햄버거 버튼 클릭 시 메뉴 펼침 */
+    .navigation.is-active {
+      display: block !important;
+    }
+
+    .nav-menu {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100% !important;
+    }
+
+    .navigation__item {
+      width: 100% !important;
+      text-align: left !important;
+    }
+
+    .navigation__item > a {
+      display: block !important;
+      padding: 12px 10px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 모바일 하위 드롭다운 (인라인) */
+    .dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      box-shadow: none !important;
+      border: none !important;
+      border-left: 2px solid #cbd5e1 !important;
+      margin-left: 15px !important;
+      padding: 4px 0 !important;
+      background-color: transparent !important;
+      width: auto !important;
+    }
+
+    .header--dark .dropdown-menu {
+      background-color: transparent !important;
+      border-left-color: #475569 !important;
+    }
+
+    .dropdown-menu li a {
+      padding: 8px 15px !important;
+      font-size: 0.85rem !important;
+    }
   }
 </style>
+
+<!-- 토글 동작 JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleBtn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.navigation');
+
+    if (toggleBtn && nav) {
+      toggleBtn.addEventListener('click', function() {
+        nav.classList.toggle('is-active');
+      });
+    }
+  });
+</script>
