@@ -76,6 +76,16 @@
     overflow: visible !important; 
   }
 
+  /* header를 sticky로 설정 -> fixed와 달리 문서 흐름(flow)에서
+     빠지지 않으므로, nav 메뉴가 줄바꿈되어 header 높이가 늘어나면
+     아래 콘텐츠가 자동으로 밀려 내려감. 동시에 stacking context를
+     최상단으로 잡아 드롭다운이 다른 콘텐츠에 묻히는 것도 방지 */
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+  }
+
   /* 모바일 토글 버튼 데스크톱에서는 숨김 */
   .nav-toggle {
     display: none !important;
