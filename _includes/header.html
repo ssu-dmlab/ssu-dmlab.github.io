@@ -11,7 +11,10 @@
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}
-            <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
+            <a class="header__brand-link" title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">
+              <img src="/assets/SSU_Logo.png" alt="SSU Logo" class="header__logo">
+              <span>{{ site.title }}</span>
+            </a>
           {%- endif -%}
         </div>
 
@@ -84,6 +87,17 @@
     position: sticky !important;
     top: 0 !important;
     z-index: 10000 !important;
+  }
+  .header__brand-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .header__logo {
+    height: 80px !important;
+    width: auto !important;
+    display: block !important;
   }
 
   /* 모바일 토글 버튼 데스크톱에서는 숨김 */

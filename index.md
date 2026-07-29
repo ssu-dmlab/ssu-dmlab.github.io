@@ -473,7 +473,7 @@ layout: article
       <h2 class="vslab-heading">Recent Publications</h2>
       <div style="padding-right: 1.5rem;">
         
-        {% assign all_papers = site.data.domestic_conference | concat: site.data.international_conference | concat: site.data.international_journal %}
+        {% assign all_papers = site.data.international_conference | concat: site.data.international_journal %}
         {% assign sorted_papers = all_papers | sort: "Date" | reverse %}
         
         {% if sorted_papers.size > 0 %}
