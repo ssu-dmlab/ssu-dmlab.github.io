@@ -23,7 +23,7 @@ Google Sheet(Apps Script) 에서 데이터를 받아 _data/*.yml 로 저장하�
   이 스키마에 맞게 변환해야 한다.
 '''
  
-PAPER_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxO17hMwj9jdoHT5imxfTgTITt1JOxLYXNwHz42ZS9VGg1k1qpunpfPvu1pnP6_sSPFKw/exec"
+PAPER_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyxkkSkKMUwS8VUD3R-3C5_GPpS5vTsQgi33O2pzlQKAV096dNoGQs4yw1iilZNoQQRuw/exec"
 SEMINAR_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkHvVaplMOJp9tkEoJTX7-X0hy6o6IQz94tm4xyUBaA-Pf50LuEtwqOCgbHmModBDc5A/exec"
  
 IMAGE_DIR_PUBLICATIONS = "assets/images/publications"
