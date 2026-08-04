@@ -176,21 +176,34 @@ def localize_publication_images(entries):
     return entries
 
 
+# 논문 설명 txt 파일의 Drive 링크를 넣는 컬럼 이름으로 이 중 아무거나 인식한다.
+# (시트에 "Description"이든 "Abstract"든 편한 이름으로 만들어도 되도록 유연하게 처리)
+DESCRIPTION_LINK_COLUMNS = ["Description", "Abstract", "Content", "Details"]
+
+
 def attach_paper_description(entries):
-    """Description 필드(구글시트 컬럼, 논문 설명 txt 파일의 Drive 링크)를 받아서
+    """논문 설명 txt 파일의 Drive 링크(구글시트의 Description/Abstract 등 컬럼)를 받아서
     Abstract / Contribution 두 필드로 나눠 entry에 채워 넣는다.
-    시트에 Description 컬럼이 없거나 값이 비어있으면 그냥 건너뛴다(빈 문자열로 채워짐)."""
+    해당 컬럼이 없거나 값이 비어있으면 그냥 건너뛴다(빈 문자열로 채워짐).
+    주의: 링크가 들어있던 원래 컬럼 값(예: Abstract 컬럼에 있던 링크 텍스트)은
+    파싱된 실제 Abstract 텍스트로 덮어써진다."""
     for entry in entries:
+        url = ""
+        for col in DESCRIPTION_LINK_COLUMNS:
+            if col in entry:
+                url = extract_url(entry[col])
+                if url:
+                    break
+
         entry["Abstract"] = ""
         entry["Contribution"] = ""
-        if "Description" not in entry:
-            continue
-        url = extract_url(entry["Description"])
         if not url:
             continue
+
         text = fetch_drive_text(url)
         if not text:
             continue
+
         sections = parse_description_sections(text)
         entry["Abstract"] = sections.get("Abstract", "")
         entry["Contribution"] = sections.get("Contribution", "")
