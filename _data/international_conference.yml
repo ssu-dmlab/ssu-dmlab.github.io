@@ -46,6 +46,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes:
   - note: Received the Samsung Humantech Paper Award (Gold Prize)
     url: ''
@@ -97,6 +99,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2017-03-01T00:00:00.000Z'
   Year: 2017
@@ -150,6 +154,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2017-05-01T00:00:00.000Z'
   Year: 2017
@@ -200,6 +206,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes:
   - note: Received the Samsung Humantech Paper Award (Silver Prize)
     url: ''
@@ -251,6 +259,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2018-04-01T00:00:00.000Z'
   Year: 2018
@@ -300,6 +310,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2018-10-01T00:00:00.000Z'
   Year: 2018
@@ -350,6 +362,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes:
   - note: Received the Samsung Humantech Paper Award (Honorable Mention)
     url: ''
@@ -400,6 +414,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2021-08-01T00:00:00.000Z'
   Year: 2021
@@ -448,6 +464,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2022-08-01T00:00:00.000Z'
   Year: 2022
@@ -497,6 +515,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2023-02-01T00:00:00.000Z'
   Year: 2023
@@ -544,6 +564,8 @@
   Appendix:
     text: link
     url: https://arxiv.org/pdf/2211.01214.pdf
+  Image: link
+  Abstract: link
   Notes:
   - note: Accepted as oral presentation
     url: https://aaai.org/Conferences/AAAI-23/
@@ -599,6 +621,8 @@
   Appendix:
     text: link
     url: https://github.com/kbrother/NeuKron/blob/main/online_appendix.pdf
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2023-12-01T00:00:00.000Z'
   Year: 2023
@@ -648,6 +672,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes:
   - note: Received the IEEE ICDM Best Student Paper Runner-up Award
     url: https://icdm.zhonghuapu.com/Awards/BestPapers.shtml
@@ -704,6 +730,8 @@
   Appendix:
     text: link
     url: https://github.com/kbrother/Light-IT/blob/mem_opt/supplement.pdf
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2024-10-01T00:00:00.000Z'
   Year: 2024
@@ -755,6 +783,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2024-12-01T00:00:00.000Z'
   Year: 2024
@@ -805,6 +835,8 @@
   Appendix:
     text: link
     url: https://github.com/jihoonko/elicit/blob/main/supplementary_material.pdf
+  Image: link
+  Abstract: link
   Notes:
   - note: Selected as one of the best-ranked papers of ICDM 2024 for fast-track journal
       invitation
@@ -858,6 +890,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes:
   - note: Received the PAKDD 2025 Best Survey Paper Award
     url: ''
@@ -911,6 +945,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2025-11-01T00:00:00.000Z'
   Year: 2025
@@ -960,6 +996,8 @@
   Appendix:
     text: link
     url: ''
+  Image: link
+  Abstract: link
   Notes: []
 - Date: '2026-04-01T00:00:00.000Z'
   Year: 2026
@@ -996,10 +1034,56 @@
     url: ''
   Paper:
     text: link
-    url: https://arxiv.org/pdf/2603.02653
+    url: https://drive.google.com/file/d/1XB7psSt-h892GGXKj4dBeriTU-u0fNG-/view?usp=drive_link
   Code:
     text: link
     url: https://github.com/Minseojeonn/AlphaFree
+  Slide:
+    text: link
+    url: https://drive.google.com/file/d/1VopPuSSuDEXTFYIVqp708r_dyfw_RTuJ/view?usp=drive_link
+  Poster:
+    text: link
+    url: ''
+  Appendix:
+    text: link
+    url: ''
+  Image: link
+  Abstract: link
+  Notes: []
+- Date: '2026-08-03T00:00:00.000Z'
+  Year: 2026
+  Month: 8
+  Days: 1-3
+  Publisher: test
+  Location: test
+  Venue: test
+  FullVenue: test
+  Title: test
+  BKIF: 0
+  AR: 0
+  BK: 최우수
+  Type:
+  - /
+  Pages: '-'
+  NumAuthors: 1
+  Authors:
+  - test
+  First:
+  - test
+  Corresp:
+  - test
+  DOI:
+    text: link
+    url: ''
+  BIB:
+    text: link
+    url: ''
+  Paper:
+    text: link
+    url: ''
+  Code:
+    text: link
+    url: ''
   Slide:
     text: link
     url: ''
@@ -1009,4 +1093,6 @@
   Appendix:
     text: link
     url: ''
+  Image: /assets/images/publications/fbad2eb8aead.png
+  Abstract: link
   Notes: []
