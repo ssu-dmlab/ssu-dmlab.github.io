@@ -402,11 +402,12 @@ layout: article
     <div class="vslab-row">
       
       {% for news in site.data.news limit:5 %}
+      {% assign news_img = news.image | default: '/assets/images/news/default_news169.png' %}
       <div class="vslab-col-4 vslab-col-md-12 news-card-wrapper">
         <div class="news-card">
           
           <div class="news-card-img-wrap">
-            <div class="news-card-bg" style="background-image: url('{% if news.image %}{{ news.image }}{% else %}/assets/images/news/default_news169.png{% endif %}');"></div>
+            <div class="news-card-bg" style="background-image: url('{{ news_img }}');"></div>
           </div>
           
           <div class="news-card-body">
@@ -486,7 +487,7 @@ layout: article
                   <div class="custom-carousel-item {% if forloop.first %}vslab-active{% endif %}" data-interval="4500">
                     
                     <div class="pub-hero-img-wrap">
-                      <div class="pub-hero-bg" style="background-image: url('/assets/images/paper/slide_research{{ forloop.index }}.png');"></div>
+                      <div class="pub-hero-bg" style="background-image: url('{% if paper.Image and paper.Image != "" %}{{ paper.Image }}{% else %}/assets/images/paper/slide_research{{ forloop.index }}.png{% endif %}');"></div>
                     </div>
                     
                     <div class="pub-hero-text-wrap">

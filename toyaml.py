@@ -137,6 +137,11 @@ def download_image(url, image_dir, slug=""):
     if not url:
         return ""
 
+    # "link"처럼 실제 URL이 아닌 텍스트가 셀에 잘못 들어간 경우: 요청을 시도하지 않고 바로 빈 값 처리.
+    if not re.match(r"^https?://", url.strip(), re.IGNORECASE):
+        print(f"[warn] not a valid image URL, skipping: {url!r}")
+        return ""
+
     os.makedirs(image_dir, exist_ok=True)
     url_hash = hashlib.md5(url.encode("utf-8")).hexdigest()[:12]
 
@@ -149,7 +154,7 @@ def download_image(url, image_dir, slug=""):
         resp.raise_for_status()
     except requests.RequestException as e:
         print(f"[warn] failed to download image: {url} ({e})")
-        return url  # 실패 시 원래 외부 링크라도 남겨둔다
+        return ""  # 실패한 원본 URL을 그대로 남기지 않고 빈 값으로 → placeholder로 안전하게 폴백
 
     content_type = resp.headers.get("Content-Type", "").split(";")[0].strip()
     ext = mimetypes.guess_extension(content_type) or ".jpg"

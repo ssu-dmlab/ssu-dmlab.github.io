@@ -185,7 +185,7 @@ permalink: /publications/
     height: 100%;
     background-color: rgba(15, 23, 42, 0.6); /* 뒷배경 어둡게 */
     backdrop-filter: blur(4px); /* 뒷배경 블러 처리 */
-    z-index: 9999;
+    z-index: 10000; /* 테마 헤더/사이드바(z-index 996~999대)보다 확실히 위로 */
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -237,6 +237,24 @@ permalink: /publications/
   .pub-modal-close:hover {
     background-color: #f1f5f9;
     color: #0f172a;
+  }
+
+  /* 모달 상단 이미지 (35px 패딩을 뚫고 가장자리까지 꽉 차게) */
+  .pub-modal-img-wrap {
+    position: relative;
+    width: calc(100% + 70px);
+    margin: -35px -35px 20px -35px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #f1f5f9;
+    border-radius: 12px 12px 0 0;
+  }
+  .pub-modal-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   /* 모달 내부 타이틀 및 디테일 구역 */
@@ -348,7 +366,7 @@ permalink: /publications/
           {% for paper in site.data.international_journal %}
             {% if paper.Year == y or paper.Date contains y %}
               {% assign sort_time = paper.Date | date: "%Y%m%d" %}
-              <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
+              <li class="pub-card" data-time="{{ sort_time | default: 0 }}" data-image="{{ paper.Image }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.en | default: paper.Title.ko | default: paper.Title }}</h4>
                   <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Journal" }}</div>
@@ -371,6 +389,8 @@ permalink: /publications/
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
+                <div class="pub-card-abstract" hidden>{{ paper.Abstract | markdownify }}</div>
+                <div class="pub-card-contribution" hidden>{{ paper.Contribution | markdownify }}</div>
               </li>
             {% endif %}
           {% endfor %}
@@ -378,7 +398,7 @@ permalink: /publications/
           {% for paper in site.data.international_conference %}
             {% if paper.Year == y or paper.Date contains y %}
               {% assign sort_time = paper.Date | date: "%Y%m%d" %}
-              <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
+              <li class="pub-card" data-time="{{ sort_time | default: 0 }}" data-image="{{ paper.Image }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.en | default: paper.Title.ko | default: paper.Title }}</h4>
                   {% assign short_year = y | slice: 2, 2 %}
@@ -402,6 +422,8 @@ permalink: /publications/
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
+                <div class="pub-card-abstract" hidden>{{ paper.Abstract | markdownify }}</div>
+                <div class="pub-card-contribution" hidden>{{ paper.Contribution | markdownify }}</div>
               </li>
             {% endif %}
           {% endfor %}
@@ -424,7 +446,7 @@ permalink: /publications/
           {% for paper in site.data.domestic_journal %}
             {% if paper.Year == y or paper.Date contains y %}
               {% assign sort_time = paper.Date | date: "%Y%m%d" %}
-              <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
+              <li class="pub-card" data-time="{{ sort_time | default: 0 }}" data-image="{{ paper.Image }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.ko | default: paper.Title.en | default: paper.Title }}</h4>
                   <div class="pub-venue-badge">{{ paper.Venue.text | default: paper.Publisher | default: "Journal" }}</div>
@@ -447,6 +469,8 @@ permalink: /publications/
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
+                <div class="pub-card-abstract" hidden>{{ paper.Abstract | markdownify }}</div>
+                <div class="pub-card-contribution" hidden>{{ paper.Contribution | markdownify }}</div>
               </li>
             {% endif %}
           {% endfor %}
@@ -454,7 +478,7 @@ permalink: /publications/
           {% for paper in site.data.domestic_conference %}
             {% if paper.Year == y or paper.Date contains y %}
               {% assign sort_time = paper.Date | date: "%Y%m%d" %}
-              <li class="pub-card" data-time="{{ sort_time | default: 0 }}">
+              <li class="pub-card" data-time="{{ sort_time | default: 0 }}" data-image="{{ paper.Image }}">
                 <div class="pub-card-header">
                   <h4 class="pub-card-title">{{ paper.Title.ko | default: paper.Title.en | default: paper.Title }}</h4>
                   {% assign short_year = y | slice: 2, 2 %}
@@ -478,6 +502,8 @@ permalink: /publications/
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
+                <div class="pub-card-abstract" hidden>{{ paper.Abstract | markdownify }}</div>
+                <div class="pub-card-contribution" hidden>{{ paper.Contribution | markdownify }}</div>
               </li>
             {% endif %}
           {% endfor %}
@@ -494,18 +520,21 @@ permalink: /publications/
     <button class="pub-modal-close" id="modalCloseBtn">
       <i class="fas fa-times"></i>
     </button>
+    <div class="pub-modal-img-wrap" id="modalImageWrap">
+      <div class="pub-modal-img" id="modalImage"></div>
+    </div>
     <div id="modalVenue" class="pub-modal-badge"></div>
     <h3 id="modalTitle" class="pub-modal-title"></h3>
     <div id="modalAuthors" class="pub-modal-authors"></div>
     
     <div class="pub-modal-section">
       <div class="pub-modal-section-title"><i class="fas fa-align-left me-2"></i> Abstract</div>
-      <p id="modalAbstract" class="pub-modal-section-desc"></p>
+      <div id="modalAbstract" class="pub-modal-section-desc"></div>
     </div>
     
     <div class="pub-modal-section">
       <div class="pub-modal-section-title"><i class="fas fa-award me-2"></i> Contribution</div>
-      <p id="modalContribution" class="pub-modal-section-desc"></p>
+      <div id="modalContribution" class="pub-modal-section-desc"></div>
     </div>
   </div>
 </div>
@@ -608,10 +637,8 @@ permalink: /publications/
     var modalAuthors = document.getElementById('modalAuthors');
     var modalAbstract = document.getElementById('modalAbstract');
     var modalContribution = document.getElementById('modalContribution');
-
-    // 더미 데이터 생성 (실제 논문에서 개별 필드를 YAML 데이터로 관리하게 되면 나중에 연동할 수 있습니다)
-    var dummyAbstract = "In this research, we propose a novel paradigm addressing key issues in standard machine learning models. By leveraging multi-modal representation frameworks and optimizing the underlying loss landscapes, our architecture achieves significantly higher generalization bounds compared to conventional models. We evaluate our method across extensive real-world datasets, demonstrating its effectiveness, lightweight footprint, and outstanding scalability.";
-    var dummyContribution = "1. Designed and implemented a highly scalable algorithm capable of processing massive graph structures in real time.\n2. Introduced a dynamic pruning technique that reduces VRAM utilization by up to 45%.\n3. Demonstrated state-of-the-art (SOTA) performance across three main benchmark tasks.";
+    var modalImageWrap = document.getElementById('modalImageWrap');
+    var modalImage = document.getElementById('modalImage');
 
     // 1. 카드 클릭 시 팝업 열기 (이벤트 위임 방식으로 Pjax 및 동적 리스트 보장)
     document.addEventListener('click', function(e) {
@@ -629,15 +656,30 @@ permalink: /publications/
       var titleText = card.querySelector('.pub-card-title').innerText;
       var authorsText = card.querySelector('.pub-card-authors').innerText;
       var venueText = card.querySelector('.pub-venue-badge').innerText;
+      var abstractEl = card.querySelector('.pub-card-abstract');
+      var contributionEl = card.querySelector('.pub-card-contribution');
+      var imageUrl = card.getAttribute('data-image');
 
       // 모달 엘리먼트에 내용 대입
       modalVenue.innerText = venueText;
       modalTitle.innerText = titleText;
       modalAuthors.innerText = authorsText;
-      
-      // 더미 텍스트 대입 (개행 문자는 <br> 태그 등으로 가독성 확보)
-      modalAbstract.innerText = dummyAbstract;
-      modalContribution.innerHTML = dummyContribution.replace(/\n/g, '<br>');
+
+      // 논문 이미지: 없으면 상단 이미지 영역 자체를 숨김
+      if (imageUrl && imageUrl.trim() !== '') {
+        modalImage.style.backgroundImage = "url('" + imageUrl + "')";
+        modalImageWrap.style.display = 'block';
+      } else {
+        modalImageWrap.style.display = 'none';
+      }
+
+      // 카드 자신이 들고 있는 실제 Abstract/Contribution (_data/*.yml에서 온 값, markdownify로 이미 HTML 변환됨)
+      modalAbstract.innerHTML = (abstractEl && abstractEl.innerHTML.trim())
+        ? abstractEl.innerHTML
+        : '<em>등록된 Abstract가 없습니다.</em>';
+      modalContribution.innerHTML = (contributionEl && contributionEl.innerHTML.trim())
+        ? contributionEl.innerHTML
+        : '<em>등록된 Contribution이 없습니다.</em>';
 
       // 모달 활성화 클래스 추가
       modal.classList.add('is-active');
