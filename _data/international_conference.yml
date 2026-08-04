@@ -46,7 +46,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Received the Samsung Humantech Paper Award (Gold Prize)
@@ -100,7 +100,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -156,7 +156,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -209,7 +209,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Received the Samsung Humantech Paper Award (Silver Prize)
@@ -263,7 +263,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -315,7 +315,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -368,7 +368,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Received the Samsung Humantech Paper Award (Honorable Mention)
@@ -421,7 +421,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -472,7 +472,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -524,7 +524,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -574,7 +574,7 @@
   Appendix:
     text: link
     url: https://arxiv.org/pdf/2211.01214.pdf
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Accepted as oral presentation
@@ -632,7 +632,7 @@
   Appendix:
     text: link
     url: https://github.com/kbrother/NeuKron/blob/main/online_appendix.pdf
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -684,7 +684,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Received the IEEE ICDM Best Student Paper Runner-up Award
@@ -743,7 +743,7 @@
   Appendix:
     text: link
     url: https://github.com/kbrother/Light-IT/blob/mem_opt/supplement.pdf
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -797,7 +797,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -850,7 +850,7 @@
   Appendix:
     text: link
     url: https://github.com/jihoonko/elicit/blob/main/supplementary_material.pdf
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Selected as one of the best-ranked papers of ICDM 2024 for fast-track journal
@@ -906,7 +906,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes:
   - note: Received the PAKDD 2025 Best Survey Paper Award
@@ -962,7 +962,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -1014,7 +1014,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
@@ -1066,7 +1066,7 @@
   Appendix:
     text: link
     url: ''
-  Image: link
+  Image: ''
   Abstract: ''
   Notes: []
   Contribution: ''
