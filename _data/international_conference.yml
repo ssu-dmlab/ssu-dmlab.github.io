@@ -1114,6 +1114,10 @@
     text: link
     url: ''
   Image: /assets/images/publications/fbad2eb8aead.png
-  Abstract: ''
+  Abstract: it is a test data
   Notes: []
-  Contribution: ''
+  Contribution: '1. it is
+
+    2. test
+
+    3. data'
