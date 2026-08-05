@@ -23,6 +23,20 @@ permalink: /news/
     padding-left: 15px;
   }
 
+  /* 연도 구분 헤딩 */
+  .news-year-section {
+    margin-bottom: 44px;
+  }
+
+  .vslab-year-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0 0 18px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
   .vslab-row {
     display: flex;
     flex-wrap: wrap;
@@ -245,58 +259,68 @@ permalink: /news/
 
 <div class="news-grid-container">
   <h2 class="vslab-heading">All News</h2>
-  <div class="vslab-row">
-    
-    <!-- 원래의 Jekyll 데이터 루프 구조 그대로 유지 -->
-    {% for news in site.data.news %}
-    {% assign news_img = news.image | default: '/assets/images/news/default_news169.png' %}
-    {% assign news_title = news.title | default: news.content | strip_html %}
-    
-    <div class="vslab-col-4 news-card-wrapper">
-      <div class="news-card" 
-           onclick="openNewsModal(this)"
-           data-title="{{ news_title | escape }}"
-           data-content="{{ news.content | strip_html | escape }}"
-           data-image="{{ news_img }}"
-           data-date="{{ news.date }}"
-           data-keyword="{{ news.keyword }}"
-           data-link="{% if news.keyword == 'Paper' or news.keyword == 'paper' %}/publications{% else %}{{ news.link }}{% endif %}">
-        
-        <div class="news-card-img-wrap">
-          <div class="news-card-bg" style="background-image: url('{{ news_img }}');"></div>
-        </div>
-        
-        <div class="news-card-body">
-          <div class="news-card-badge 
-              {% if news.keyword == 'Paper' or news.keyword == 'paper' %} bg-vslab-paper 
-              {% elsif news.keyword == 'Award' or news.keyword == 'award' %} bg-vslab-award 
-              {% else %} bg-vslab-default {% endif %}">
-              
-              {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
-                <i class="far fa-file-alt me-1"></i>
-              {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
-                <i class="fas fa-trophy me-1"></i>
-              {% else %}
-                <i class="fas fa-bullhorn me-1"></i>
-              {% endif %}
-              
-              {{ news.keyword }}
-          </div>
-          
-          <h4 class="news-card-text">
-            {{ news_title }}
-          </h4>
-          
-          <div class="news-card-date">
-            <i class="far fa-calendar-alt me-1"></i> {{ news.date }}
-          </div>
-        </div>
 
+  <!-- news.date의 뒤 4자리(연도)를 기준으로 그룹핑 -->
+  {% assign news_by_year = site.data.news | group_by_exp: "item", "item.date | slice: -4, 4" %}
+  {% assign news_by_year = news_by_year | sort: "name" | reverse %}
+
+  {% for year_group in news_by_year %}
+  <div class="news-year-section">
+    <h3 class="vslab-year-heading">{{ year_group.name }}</h3>
+    <div class="vslab-row">
+
+      {% for news in year_group.items %}
+      {% assign news_img = news.image | default: '/assets/images/news/default_news169.png' %}
+      {% assign news_title = news.title | default: news.content | strip_html %}
+
+      <div class="vslab-col-4 news-card-wrapper">
+        <div class="news-card" 
+             onclick="openNewsModal(this)"
+             data-title="{{ news_title | escape }}"
+             data-content="{{ news.content | strip_html | escape }}"
+             data-image="{{ news_img }}"
+             data-date="{{ news.date }}"
+             data-keyword="{{ news.keyword }}"
+             data-link="{% if news.keyword == 'Paper' or news.keyword == 'paper' %}/publications{% else %}{{ news.link }}{% endif %}">
+          
+          <div class="news-card-img-wrap">
+            <div class="news-card-bg" style="background-image: url('{{ news_img }}');"></div>
+          </div>
+          
+          <div class="news-card-body">
+            <div class="news-card-badge 
+                {% if news.keyword == 'Paper' or news.keyword == 'paper' %} bg-vslab-paper 
+                {% elsif news.keyword == 'Award' or news.keyword == 'award' %} bg-vslab-award 
+                {% else %} bg-vslab-default {% endif %}">
+                
+                {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
+                  <i class="far fa-file-alt me-1"></i>
+                {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
+                  <i class="fas fa-trophy me-1"></i>
+                {% else %}
+                  <i class="fas fa-bullhorn me-1"></i>
+                {% endif %}
+                
+                {{ news.keyword }}
+            </div>
+            
+            <h4 class="news-card-text">
+              {{ news_title }}
+            </h4>
+            
+            <div class="news-card-date">
+              <i class="far fa-calendar-alt me-1"></i> {{ news.date }}
+            </div>
+          </div>
+
+        </div>
       </div>
+      {% endfor %}
+
     </div>
-    {% endfor %}
-    
   </div>
+  {% endfor %}
+
 </div>
 
 <!-- 뉴스 팝업 (Modal) -->

@@ -113,18 +113,10 @@ layout: article
     display: flex; 
     align-items: center; 
     background: #f8fafc; 
-    border-left: 4px solid #1A365D; 
     border-radius: 4px; 
     padding: 16px 20px; 
     margin-bottom: 12px; 
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .announcement-item .item__image { 
-    font-size: 1.25rem; 
-    color: #1A365D; 
-    margin-right: 16px; 
-    display: flex; 
-    align-items: center; 
   }
   .announcement-item .item__content { flex: 1; }
   .announcement-btn { 
@@ -468,9 +460,6 @@ layout: article
     <h2 class="vslab-heading">Announcement</h2>
     {% for notice in site.data.announcements %}
     <div class="announcement-item">
-      <div class="item__image">
-        <i class="{{ notice.icon }} fa-fw"></i>
-      </div>
       <div class="item__content">
         {% if notice.link != nil and notice.link != "" %}
           <a class="announcement-btn" href="{{ notice.link }}" target="_blank">

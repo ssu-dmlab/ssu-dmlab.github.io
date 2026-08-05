@@ -69,13 +69,11 @@ title: ""
     display: flex;
     align-items: center;
     background: #f8fafc;
-    border-left: 4px solid #1A365D;
     border-radius: 4px;
     padding: 16px 20px;
     margin-bottom: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
-  .announcement-item .item__image { font-size: 1.25rem; color: #1A365D; margin-right: 16px; display: flex; align-items: center; }
   .announcement-item .item__content { flex: 1; }
   .announcement-btn {
     display: inline-block;
@@ -224,9 +222,6 @@ title: ""
 
 <div class="announcement-container">
   <div class="announcement-item">
-    <div class="item__image">
-      <i class="fas fa-star fa-fw"></i>
-    </div>
     <div class="item__content">
       <a class="announcement-btn" href="/recruitments" target="_blank">Join Our Lab</a>
       We are looking for graduate students who are enthusiastically interested in artificial intelligence and machine learning for data science. Please click <a href="/recruitments" target="_blank">[link]</a> if you're interested!
