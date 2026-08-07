@@ -113,18 +113,10 @@ layout: article
     display: flex; 
     align-items: center; 
     background: #f8fafc; 
-    border-left: 4px solid #1A365D; 
     border-radius: 4px; 
     padding: 16px 20px; 
     margin-bottom: 12px; 
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .announcement-item .item__image { 
-    font-size: 1.25rem; 
-    color: #1A365D; 
-    margin-right: 16px; 
-    display: flex; 
-    align-items: center; 
   }
   .announcement-item .item__content { flex: 1; }
   .announcement-btn { 
@@ -156,13 +148,14 @@ layout: article
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-sizing: border-box;
+    cursor: pointer;
   }
   .news-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 180, 216, 0.2);
     border-color: #00B4D8;
   }
-  .news-card:hover .news-card-text a { color: #1A365D; }
+  .news-card:hover .news-card-text { color: #1A365D; }
 
   .news-card-img-wrap {
     position: relative;
@@ -223,6 +216,95 @@ layout: article
   .news-card-text a:hover { text-decoration: underline; }
   
   .news-card-date { font-size: 0.85rem; color: #94a3b8; font-weight: 500; margin-top: auto; }
+
+  /* ================= News 팝업 (Modal) 스타일 ================= */
+  .news-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .news-modal-overlay.active { display: flex; }
+  .news-modal-content {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: newsModalFadeIn 0.2s ease-out;
+  }
+  @keyframes newsModalFadeIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .news-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    transition: background 0.2s;
+  }
+  .news-modal-close:hover { background: #e2e8f0; color: #0f172a; }
+  .news-modal-body { padding: 24px; }
+  .news-modal-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .news-modal-meta-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  .news-modal-content-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #334155;
+    margin-bottom: 24px;
+    white-space: pre-line;
+  }
+  .news-modal-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: #1A365D;
+    color: #ffffff !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+  .news-modal-link-btn:hover { background-color: #00B4D8; }
 
   /* Recent Publications & Contact */
   .bottom-split-container { margin-bottom: 100px; }
@@ -378,9 +460,6 @@ layout: article
     <h2 class="vslab-heading">Announcement</h2>
     {% for notice in site.data.announcements %}
     <div class="announcement-item">
-      <div class="item__image">
-        <i class="{{ notice.icon }} fa-fw"></i>
-      </div>
       <div class="item__content">
         {% if notice.link != nil and notice.link != "" %}
           <a class="announcement-btn" href="{{ notice.link }}" target="_blank">
@@ -402,11 +481,25 @@ layout: article
     <div class="vslab-row">
       
       {% for news in site.data.news limit:5 %}
+      {% assign news_img = news.image | default: '/assets/images/news/default_news169.png' %}
+      {% assign news_link = "" %}
+      {% if news.keyword == "Paper" or news.keyword == "paper" %}
+        {% assign news_link = "/publications" %}
+      {% elsif news.link and news.link != "" %}
+        {% assign news_link = news.link %}
+      {% endif %}
       <div class="vslab-col-4 vslab-col-md-12 news-card-wrapper">
-        <div class="news-card">
+        <div class="news-card"
+             onclick="openNewsModal(this)"
+             data-title="{{ news.content | strip_html | escape }}"
+             data-content="{{ news.content | strip_html | escape }}"
+             data-image="{{ news_img }}"
+             data-date="{{ news.date }}"
+             data-keyword="{{ news.keyword }}"
+             data-link="{{ news_link }}">
           
           <div class="news-card-img-wrap">
-            <div class="news-card-bg" style="background-image: url('{% if news.image %}{{ news.image }}{% else %}/assets/images/news/default_news169.png{% endif %}');"></div>
+            <div class="news-card-bg" style="background-image: url('{{ news_img }}');"></div>
           </div>
           
           <div class="news-card-body">
@@ -427,13 +520,7 @@ layout: article
             </div>
             
             <h4 class="news-card-text">
-              {% if news.keyword == "Paper" %}
-                <a href="/publications">{{ news.content | strip_html }}</a>
-              {% elsif news.link != nil %}
-                <a href="{{ news.link }}" target="_blank">{{ news.content | strip_html }}</a>
-              {% else %}
-                {{ news.content | strip_html }}
-              {% endif %}
+              {{ news.content | strip_html }}
             </h4>
             
             <div class="news-card-date">
@@ -466,6 +553,30 @@ layout: article
     </div>
   </div>
 
+  <!-- News 팝업 (Modal) -->
+  <div class="news-modal-overlay" id="newsModal" onclick="closeNewsModal(event)">
+    <div class="news-modal-content" onclick="event.stopPropagation()">
+      <button class="news-modal-close" onclick="closeNewsModal()"><i class="fas fa-times"></i></button>
+
+      <div class="news-card-img-wrap">
+        <div class="news-card-bg" id="newsModalImg"></div>
+      </div>
+
+      <div class="news-modal-body">
+        <div class="news-modal-meta-info">
+          <span id="newsModalBadge" class="news-card-badge"></span>
+          <span><i class="far fa-calendar-alt me-1"></i> <span id="newsModalDate"></span></span>
+        </div>
+
+        <h3 class="news-modal-title" id="newsModalTitle"></h3>
+
+        <p class="news-modal-content-text" id="newsModalContent"></p>
+
+        <div id="newsModalLinkContainer"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Recent Publications & Contact Us -->
   <div class="vslab-row bottom-split-container">
     
@@ -473,7 +584,7 @@ layout: article
       <h2 class="vslab-heading">Recent Publications</h2>
       <div style="padding-right: 1.5rem;">
         
-        {% assign all_papers = site.data.domestic_conference | concat: site.data.international_conference | concat: site.data.international_journal %}
+        {% assign all_papers = site.data.international_conference | concat: site.data.international_journal %}
         {% assign sorted_papers = all_papers | sort: "Date" | reverse %}
         
         {% if sorted_papers.size > 0 %}
@@ -486,7 +597,7 @@ layout: article
                   <div class="custom-carousel-item {% if forloop.first %}vslab-active{% endif %}" data-interval="4500">
                     
                     <div class="pub-hero-img-wrap">
-                      <div class="pub-hero-bg" style="background-image: url('/assets/images/paper/slide_research{{ forloop.index }}.png');"></div>
+                      <div class="pub-hero-bg" style="background-image: url('{% if paper.Image and paper.Image != "" %}{{ paper.Image }}{% else %}/assets/images/paper/slide_research{{ forloop.index }}.png{% endif %}');"></div>
                     </div>
                     
                     <div class="pub-hero-text-wrap">
@@ -572,6 +683,57 @@ layout: article
 </div>
 
 <script>
+  function openNewsModal(cardElement) {
+    var title = cardElement.getAttribute('data-title');
+    var content = cardElement.getAttribute('data-content');
+    var image = cardElement.getAttribute('data-image');
+    var date = cardElement.getAttribute('data-date');
+    var keyword = cardElement.getAttribute('data-keyword');
+    var link = cardElement.getAttribute('data-link');
+
+    document.getElementById('newsModalTitle').innerText = title;
+    document.getElementById('newsModalContent').innerText = content;
+    document.getElementById('newsModalDate').innerText = date;
+    document.getElementById('newsModalImg').style.backgroundImage = "url('" + image + "')";
+
+    var badgeEl = document.getElementById('newsModalBadge');
+    var kwLower = keyword ? keyword.toLowerCase() : '';
+    var iconHTML = '<i class="fas fa-bullhorn me-1"></i>';
+    var badgeClass = 'bg-vslab-default';
+
+    if (kwLower === 'paper') {
+      iconHTML = '<i class="far fa-file-alt me-1"></i>';
+      badgeClass = 'bg-vslab-paper';
+    } else if (kwLower === 'award') {
+      iconHTML = '<i class="fas fa-trophy me-1"></i>';
+      badgeClass = 'bg-vslab-award';
+    }
+
+    badgeEl.className = 'news-card-badge ' + badgeClass;
+    badgeEl.innerHTML = iconHTML + ' ' + keyword;
+
+    var linkContainer = document.getElementById('newsModalLinkContainer');
+    if (link && link.trim() !== '') {
+      var isExternal = link.indexOf('http') === 0;
+      var targetAttr = isExternal ? 'target="_blank"' : '';
+      linkContainer.innerHTML = '<a href="' + link + '" ' + targetAttr + ' class="news-modal-link-btn">관련 페이지 바로가기 <i class="fas fa-external-link-alt"></i></a>';
+    } else {
+      linkContainer.innerHTML = '';
+    }
+
+    document.getElementById('newsModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNewsModal(event) {
+    document.getElementById('newsModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNewsModal();
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
     
     function initCustomCarousel(carouselId, prevBtnId, nextBtnId) {

@@ -2,17 +2,24 @@
 // Skin: Default
 // Author: Tian Qi
 // Email: kitian616@outlook.com
+//
+// ★ VSLAB 리뉴얼 브랜드 컬러 적용 (2026)
+//   기존 코랄(#fc4d50) 테마 대신, index.md / news.md / publications.md 에서
+//   이미 쓰고 있던 남색(navy) + 시안(cyan) 팔레트를 전역 테마로 승격.
+//   - main-color-1(포인트/링크/버튼 등 핵심 액센트) -> #00B4D8 (cyan, 카드 hover/버튼에 이미 쓰던 색)
+//   - main-color-2(보조 액센트)                     -> #1A365D (navy, 헤딩/히어로 배경에 이미 쓰던 색)
+//   - main-color-3(헤더/푸터 배경)                    -> #f8fafc (slate-50, 새 카드 배경톤과 통일)
 ///
 
 // main colors
-$main-color-1:     #fc4d50;
+$main-color-1:     #00B4D8;
 $text-color-1:     #fff;
 
-$main-color-2:     #fca24d;
+$main-color-2:     #1A365D;
 $text-color-2:     #fff;
 
-$main-color-3:     #f2f2f2;
-$text-color-3:     #333;
+$main-color-3:     #f8fafc;
+$text-color-3:     #1e293b;
 
 $main-color-theme-light: rgba(#000, .9);
 $main-color-theme-dark:  rgba(#fff, .9);

@@ -1,36 +1,38 @@
 name: Update Google Sheets Data
-
+ 
 on:
   workflow_dispatch:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 0 * * *' 
-
+    - cron: '0 0 * * *'
+ 
 jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+ 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
+ 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests pyyaml
-
+ 
       - name: Fetch and convert Google Sheets data to YAML
-        run: python toyaml.py  
-
+        run: python toyaml.py
+ 
       - name: Commit and push YAML data update
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git pull
-          git add _data/*.yml
+          mkdir -p assets/images/publications assets/images/news
+          git add _data/*.yml assets/images/publications assets/images/news
           git commit -m "Update Google Sheets data" || echo "No changes to commit"
           git push
+ 

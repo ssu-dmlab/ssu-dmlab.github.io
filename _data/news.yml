@@ -1,220 +1,102 @@
+- date: Aug 3, 2026
+  content: it's a test news
+  keyword: ''
+  link: ''
+  image: /assets/images/news/388cdf66d086.png
 - date: Jan 13, 2026
-  content: "Our work on recommendation free from users, IDs, and GNNs has been accepted at <a href='https://www2026.thewebconf.org' target='_blank'>WWW 2026</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on recommendation free from users, IDs, and GNNs has been accepted
+    at WWW 2026
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Aug 28, 2025
-  content: "Our work on SSL for signed graphs has been accepted at <a href='https://icdm2025.org' target='_blank'>ICDM 2025</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
-
+  content: Our work on SSL for signed graphs has been accepted at ICDM 2025
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Jun 12, 2025
-  content: "Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link: "/publications"
-
-
+  content: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Jun 3, 2025
-  content: "Our work on lightweight signed bipartite GNNs has been accepted at <a href='https://www.sciencedirect.com/journal/neural-networks'> Neural Networks</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on lightweight signed bipartite GNNs has been accepted at Neural
+    Networks
+  keyword: ''
+  link: /publications
+  image: ''
 - date: May 24, 2025
-  content: "Our work on lightweight tensor compression has been accepted at <a href='https://link.springer.com/journal/10115' target='_blank'>KAIS</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
-
-- date: Feb 09, 2025
-  content: "Two papers have been accepted at <a href='https://pakdd2025.org/'>PAKDD 2025</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on lightweight tensor compression has been accepted at KAIS
+  keyword: ''
+  link: /publications
+  image: ''
+- date: Feb 9, 2025
+  content: Two papers have been accepted at PAKDD 2025
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Dec 19, 2024
-  content: "Gyeongmin and Minseo won Best Paper Award at <a href='https://www.kiise.or.kr/conference/KSC/2024/' target='_blank'>KSC 2024</a>"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link: "https://drive.google.com/file/d/10-HbP7UMyT9ANIhvUNjM9lWyD8B_rYuL/view?usp=sharing"
-
+  content: Gyeongmin and Minseo won Best Paper Award at KSC 2024
+  keyword: ''
+  link: https://drive.google.com/file/d/10-HbP7UMyT9ANIhvUNjM9lWyD8B_rYuL/view?usp=sharing
+  image: ''
 - date: Nov 1, 2024
-  content: "Junwoo and Cheolhee won Best Paper Award (Silver) at <a href='https://www.dbsociety.kr/kdbc/kdbc2024/index.html' target='_blank'>KDBC 2024</a>"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link: "https://drive.google.com/file/d/1FLmDb8DAMXBCta5dC47nHsl9oiJD5HKC/view?usp=sharing"
-
+  content: Junwoo and Cheolhee won Best Paper Award (Silver) at KDBC 2024
+  keyword: ''
+  link: https://drive.google.com/file/d/1FLmDb8DAMXBCta5dC47nHsl9oiJD5HKC/view?usp=sharing
+  image: ''
 - date: Oct 17, 2024
-  content: "Daewon, Jaehyun, and Jongyoon won Encouragement Award at <a href='https://fashion-how.org/' target='_blank'>2024 ETRI Self-Improving AI Competition</a>"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link: ""
-
+  content: Daewon, Jaehyun, and Jongyoon won Encouragement Award at 2024 ETRI Self-Improving
+    AI Competition
+  keyword: ''
+  link: ''
+  image: ''
 - date: Sep 24, 2024
-  content: "Our work on lossy tensor compression has been accepted at <a href='https://link.springer.com/journal/10115' target='_blank'>KAIS</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on lossy tensor compression has been accepted at KAIS
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Sep 6, 2024
-  content: "Our work on compact tensor compression has been accepted at <a href='https://icdm2024.org' target='_blank'>ICDM 2024</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
-- date: July 16, 2024
-  content: "Our work on multi-behavior recommendation has been accepted at <a href='https://cikm2024.org/' target='_blank'>CIKM 2024</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on compact tensor compression has been accepted at ICDM 2024
+  keyword: ''
+  link: /publications
+  image: ''
+- date: Jul 16, 2024
+  content: Our work on multi-behavior recommendation has been accepted at CIKM 2024
+  keyword: ''
+  link: /publications
+  image: ''
 - date: May 17, 2024
-  content: "Our work on compact irregular tensor compression has been accepted at <a href='https://kdd2024.kdd.org/' target='_blank'>KDD 2024</a>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link: "/publications"
-
+  content: Our work on compact irregular tensor compression has been accepted at KDD
+    2024
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Mar 2, 2024
-  content: "Our work on learning signed graphs has been accepted for the publication of <b>InfoSci</b>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link:
-
+  content: Our work on learning signed graphs has been accepted for the publication
+    of InfoSci
+  keyword: ''
+  link: ''
+  image: ''
 - date: Dec 13, 2023
-  content: "Our work on tensor compression received the IEEE ICDM Best Student Paper Runner-up Award"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link:
-
+  content: Our work on tensor compression received the IEEE ICDM Best Student Paper
+    Runner-up Award
+  keyword: ''
+  link: ''
+  image: ''
 - date: Nov 24, 2023
-  content: "Our work on hypergraph RWR has been accepted for the Journal Track of <b>ECML-PKDD</b>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link:
-
+  content: Our work on hypergraph RWR has been accepted for the Journal Track of ECML-PKDD
+  keyword: ''
+  link: ''
+  image: ''
 - date: Nov 15, 2023
-  content: "Our work is selected as one of the best-ranked papers of <b>ICDM 2023</b>"
-  icon: "fas fa-award"
-  keyword: "Award"
-  button_color: "info"
-  link:
-
+  content: Our work is selected as one of the best-ranked papers of ICDM 2023
+  keyword: ''
+  link: ''
+  image: ''
 - date: Sep 3, 2023
-  content: "Our work on compact lossy tensor compression has been accepted at <b>ICDM 2023</b>"
-  icon: "fas fa-file"
-  keyword: "Paper"
-  button_color: "success"
-  link:
-
-# - date: Sep 1, 2023
-#   content: "Our lab has been moved to Soongsil University"
-#   icon: "fas fa-rss"
-#   keyword: "News"
-#   button_color: "info"
-#   link:
-
-
-# - date: Aug 11, 2023
-#   content: "<b>Seunghan</b> and <b>Najeong</b> had the runner-up position at <a href='https://www.swuniv.kr/60/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=16021832&t=board' target='_blank'>2023 소중대 AI경진대회</a>"
-#   icon: "fas fa-award"
-#   keyword: "Award"
-#   button_color: "info"
-#   link:
-
-# - date: Feb 20, 2023
-#   content: "<b>Jong-whi</b> won <a href='https://humantech.samsung.com/saitext/index.jsp' target='_blank'>Samsung HumanTech Paper Award</a>  (<a href='/gallery/'>bronze, 3rd in CSE</a>)"
-#   icon: "fas fa-award"
-#   keyword: "Award"
-#   button_color: "info"
-#   link:
-
-# - date: Feb 8, 2023
-#   content: "<b>Geonwoo</b> and <b>Jong-whi</b> have participated in <a href='/gallery/'>AAAI 2023</a> ✈️ 🇺🇸"
-#   icon: "fas fa-plane"
-#   keyword: "Travel"
-#   button_color: "primary"
-#   link:
-
-# - date: Jan 25, 2023
-#   content: "Our work on sparse tensor compression has been accepted at <b>TheWebConf 2023</b>"
-#   icon: "fas fa-file"
-#   keyword: "Paper"
-#   button_color: "success"
-#   link:
-
-# - date: Dec 23, 2022
-#   content: "<b>Jong-whi</b> won the AAAI-23 Student Scholarship"
-#   icon: "fas fa-award"
-#   keyword: "Award"
-#   button_color: "info"
-#   link:
-
-# - date: Nov 19, 2022
-#   content: "Our work on dynamic graph augmentation has been accepted at <b>AAAI 2023</b>"
-#   icon: "fas fa-file"
-#   keyword: "Paper"
-#   button_color: "success"
-#   link:
-
-# - date: Jun 27, 2022
-#   content: "Our work on node feature estimation has been accepted at <b>KDD 2022</b>"
-#   icon: "fas fa-file"
-#   keyword: "Paper"
-#   button_color: "success"
-#   link:
-
-# - date: Mar 15, 2022
-#   content: "Our work on GNN on signed graphs has been published at <b>PLoS ONE</b>"
-#   icon: "fas fa-file"
-#   keyword: "Paper"
-#   button_color: "success"
-#   link:
-
-# - date: Oct 23, 2021
-#   content: "Our lab website is newly open! Check out our website and announcements!"
-#   icon: "fas fa-rss"
-#   keyword: "Web Open"
-#   button_color: "info"
-#   link: ""
-
-# - date: Aug 14, 2021
-#   content: "Our work on temporal knowledge graph completion was presented at <b>KDD 2021</b>"
-#   icon: "fas fa-file"
-#   keyword: "Paper"
-#   button_color: "success"
-#   link:
-
-# - date: Mar 1, 2021
-#   content: "A research proposal for grant has been selected by NRF of Korea."
-#   icon: "fas fa-money-check"
-#   keyword: "Research Grant"
-#   button_color: "info"
-#   link:
-
-# - date: Feb 23, 2021
-#   content: "Jinhong won the AAAI-21 Outstanding Program Committee Award."
-#   icon: "fas fa-award"
-#   keyword: "Award"
-#   button_color: "info"
-#   link: "https://aaai.org/Awards/conference.php#:~:text=Jinhong%20Jung%20(Seoul%20National%20University%2C%20South%20Korea)"
+  content: Our work on compact lossy tensor compression has been accepted at ICDM
+    2023
+  keyword: ''
+  link: ''
+  image: ''
