@@ -1,40 +1,35 @@
-- date: Aug 3, 2026
-  content: it's a test news
-  keyword: ''
-  link: ''
-  image: /assets/images/news/388cdf66d086.png
 - date: Jan 13, 2026
   content: Our work on recommendation free from users, IDs, and GNNs has been accepted
     at WWW 2026
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2026-01-13-99039a817a98.png
 - date: Aug 28, 2025
   content: Our work on SSL for signed graphs has been accepted at ICDM 2025
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2025-08-28-b263bf0f9d70.png
 - date: Jun 12, 2025
   content: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2025-02-09-c87534263026.png
 - date: Jun 3, 2025
   content: Our work on lightweight signed bipartite GNNs has been accepted at Neural
     Networks
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2025-06-03-13a5691bfc27.png
 - date: May 24, 2025
   content: Our work on lightweight tensor compression has been accepted at KAIS
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2025-05-24-6ef65815a1c2.png
 - date: Feb 9, 2025
   content: Two papers have been accepted at PAKDD 2025
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2025-02-09-c87534263026.png
 - date: Dec 19, 2024
   content: Gyeongmin and Minseo won Best Paper Award at KSC 2024
   keyword: ''
