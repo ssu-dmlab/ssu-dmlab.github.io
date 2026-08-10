@@ -1,6 +1,5 @@
 ---
 layout: article
-title: "News"
 permalink: /news/
 ---
 

@@ -1,7 +1,22 @@
-- date: Jun 16, 2026
+- date: Jun 5, 2026
+  title: Junwoo and Daewon have been selected as recipients of the 2026 AI Seoul Tech
+    Research Scholarship
+  content: "Junwoo and Daewon have been selected as scholarship recipients of the\
+    \ 2026 AI Seoul Tech Research Support Program (Master’s Program) organized by\
+    \ the Seoul Future Foundation. \nThe program supports outstanding graduate researchers\
+    \ in AI-related science and engineering fields at universities in Seoul, providing\
+    \ KRW 20 million per year to each selected master’s student to support their research\
+    \ activities. We congratulate Junwoo and Daewon on their achievement and look\
+    \ forward to their continued growth and contributions to AI research."
+  keyword: ''
+  link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
+  image: /assets/images/news/2026-06-05-b51f51aad67a.png
+- date: May 4, 2026
+  title: Our work on CascadingRank for multi-behavior recommendation has been accepted
+    at ACM Transactions on Intelligent Systems and Technology.
   content: "Our work, “Personalized Ranking on Cascading Behavior Graphs for Accurate\
     \ Multi-Behavior Recommendation,” has been accepted for publication in ACM Transactions\
-    \ on Intelligent Systems and Technology (TIST). \n\nIn this work, we propose CascadingRank,\
+    \ on Intelligent Systems and Technology (TIST). \nIn this work, we propose CascadingRank,\
     \ a personalized graph-ranking method that captures the natural progression of\
     \ user behaviors (e.g., view → cart → purchase) through a cascading behavior graph.\
     \ Experiments on three real-world datasets demonstrate that CascadingRank outperforms\
@@ -13,18 +28,9 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2026-06-16-763783ab1ede.png
-- date: Jun 5, 2026
-  content: "Junwoo and Daewon have been selected as scholarship recipients of the\
-    \ 2026 AI Seoul Tech Research Support Program (Master’s Program) organized by\
-    \ the Seoul Future Foundation. \n\nThe program supports outstanding graduate researchers\
-    \ in AI-related science and engineering fields at universities in Seoul, providing\
-    \ KRW 20 million per year to each selected master’s student to support their research\
-    \ activities. We congratulate Junwoo and Daewon on their achievement and look\
-    \ forward to their continued growth and contributions to AI research."
-  keyword: ''
-  link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
-  image: /assets/images/news/2026-06-05-b51f51aad67a.png
 - date: Jan 24, 2026
+  title: Our extended survey on multi-behavior recommender systems has been published
+    in the International Journal of Data Science and Analytics
   content: "Our work, “A Comprehensive Survey on Multi-Behavior Recommender Systems:\
     \ Extended Taxonomy and Recent Advances,” has been published in the International\
     \ Journal of Data Science and Analytics. \nThis work substantially extends our\
@@ -39,12 +45,14 @@
     \ for future research."
   keyword: ''
   link: /publications
-  image: ''
+  image: /assets/images/news/2026-01-24-57eb3b846a2a.png
 - date: Jan 13, 2026
+  title: Our work on recommendation free from users, IDs, and GNNs has been accepted
+    at WWW 2026
   content: "Our work, “AlphaFree: Recommendation Free from Users, IDs, and GNNs,”\
     \ has been accepted at The ACM Web Conference 2026 (WWW 2026), one of the premier\
-    \ international conferences in Web and data mining research. \n\nIn this work,\
-    \ we propose AlphaFree, a new recommendation framework that challenges three common\
+    \ international conferences in Web and data mining research. \nIn this work, we\
+    \ propose AlphaFree, a new recommendation framework that challenges three common\
     \ design conventions in recommender systems: storing user embeddings, relying\
     \ on discrete item IDs, and using graph neural networks (GNNs). AlphaFree instead\
     \ models user preferences on-the-fly, represents items using language representations\
@@ -58,9 +66,10 @@
   link: /publications
   image: /assets/images/news/2026-01-13-99039a817a98.png
 - date: Aug 28, 2025
+  title: Our work on SSL for signed graphs has been accepted at ICDM 2025
   content: "Our work, “PIGLET: Probabilistic Message Passing for Semi-supervised Link\
     \ Sign Prediction,” has been accepted at IEEE International Conference on Data\
-    \ Mining (ICDM) 2025. \n\nIn this work, we propose PIGLET, a semi-supervised learning\
+    \ Mining (ICDM) 2025. \nIn this work, we propose PIGLET, a semi-supervised learning\
     \ framework for signed graphs where only a limited fraction of positive and negative\
     \ link labels are available. PIGLET probabilistically assigns soft labels to unlabeled\
     \ links and incorporates them into message passing while controlling unreliable\
@@ -74,7 +83,9 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-08-28-1b884e895ffe.png
+  image: /assets/images/news/2025-08-28-1b884e895ffe.png
 - date: Jun 12, 2025
+  title: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
   content: "Our survey paper, “Multi-Behavior Recommender Systems: A Survey,” received\
     \ the Best Survey Paper Award at PAKDD 2025 (The 29th Pacific-Asia Conference\
     \ on Knowledge Discovery and Data Mining). \nThis work, conducted in collaboration\
@@ -87,82 +98,107 @@
   keyword: ''
   link: https://pakdd2025.org/award/awards/
   image: /assets/images/news/2025-06-12-ec7178bae2fa.png
+  link: https://pakdd2025.org/award/awards/
+  image: /assets/images/news/2025-06-12-ec7178bae2fa.png
 - date: Jun 3, 2025
+  title: Our work on lightweight signed bipartite GNNs has been accepted at Neural
+    Networks
   content: Our work on lightweight signed bipartite GNNs has been accepted at Neural
     Networks
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-06-03-13a5691bfc27.png
+  image: /assets/images/news/2025-06-03-13a5691bfc27.png
 - date: May 24, 2025
+  title: Our work on lightweight tensor compression has been accepted at KAIS
   content: Our work on lightweight tensor compression has been accepted at KAIS
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-05-24-6ef65815a1c2.png
+  image: /assets/images/news/2025-05-24-6ef65815a1c2.png
 - date: Feb 9, 2025
+  title: Two papers have been accepted at PAKDD 2025
   content: Two papers have been accepted at PAKDD 2025
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-02-09-c87534263026.png
+  image: /assets/images/news/2025-02-09-c87534263026.png
 - date: Dec 19, 2024
+  title: Gyeongmin and Minseo won Best Paper Award at KSC 2024
   content: Gyeongmin and Minseo won Best Paper Award at KSC 2024
   keyword: ''
   link: https://drive.google.com/file/d/10-HbP7UMyT9ANIhvUNjM9lWyD8B_rYuL/view?usp=sharing
   image: ''
 - date: Nov 1, 2024
+  title: Junwoo and Cheolhee won Best Paper Award (Silver) at KDBC 2024
   content: Junwoo and Cheolhee won Best Paper Award (Silver) at KDBC 2024
   keyword: ''
   link: https://drive.google.com/file/d/1FLmDb8DAMXBCta5dC47nHsl9oiJD5HKC/view?usp=sharing
   image: ''
 - date: Oct 17, 2024
+  title: Daewon, Jaehyun, and Jongyoon won Encouragement Award at 2024 ETRI Self-Improving
+    AI Competition
   content: Daewon, Jaehyun, and Jongyoon won Encouragement Award at 2024 ETRI Self-Improving
     AI Competition
   keyword: ''
   link: ''
   image: ''
 - date: Sep 24, 2024
+  title: Our work on lossy tensor compression has been accepted at KAIS
   content: Our work on lossy tensor compression has been accepted at KAIS
   keyword: ''
   link: /publications
   image: ''
 - date: Sep 6, 2024
+  title: Our work on compact tensor compression has been accepted at ICDM 2024
   content: Our work on compact tensor compression has been accepted at ICDM 2024
   keyword: ''
   link: /publications
   image: ''
 - date: Jul 16, 2024
+  title: Our work on multi-behavior recommendation has been accepted at CIKM 2024
   content: Our work on multi-behavior recommendation has been accepted at CIKM 2024
   keyword: ''
   link: /publications
   image: ''
 - date: May 17, 2024
+  title: Our work on compact irregular tensor compression has been accepted at KDD
+    2024
   content: Our work on compact irregular tensor compression has been accepted at KDD
     2024
   keyword: ''
   link: /publications
   image: ''
 - date: Mar 2, 2024
+  title: Our work on learning signed graphs has been accepted for the publication
+    of InfoSci
   content: Our work on learning signed graphs has been accepted for the publication
     of InfoSci
   keyword: ''
   link: ''
   image: ''
 - date: Dec 13, 2023
+  title: Our work on tensor compression received the IEEE ICDM Best Student Paper
+    Runner-up Award
   content: Our work on tensor compression received the IEEE ICDM Best Student Paper
     Runner-up Award
   keyword: ''
   link: ''
   image: ''
 - date: Nov 24, 2023
+  title: Our work on hypergraph RWR has been accepted for the Journal Track of ECML-PKDD
   content: Our work on hypergraph RWR has been accepted for the Journal Track of ECML-PKDD
   keyword: ''
   link: ''
   image: ''
 - date: Nov 15, 2023
+  title: Our work is selected as one of the best-ranked papers of ICDM 2023
   content: Our work is selected as one of the best-ranked papers of ICDM 2023
   keyword: ''
   link: ''
   image: ''
 - date: Sep 3, 2023
+  title: Our work on compact lossy tensor compression has been accepted at ICDM 2023
   content: Our work on compact lossy tensor compression has been accepted at ICDM
     2023
   keyword: ''
