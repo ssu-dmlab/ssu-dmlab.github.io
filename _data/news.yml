@@ -1,3 +1,29 @@
+- date: Jun 16, 2026
+  content: Our work, “Personalized Ranking on Cascading Behavior Graphs for Accurate
+    Multi-Behavior Recommendation,” has been accepted for publication in ACM Transactions
+    on Intelligent Systems and Technology (TIST). In this work, we propose CascadingRank,
+    a personalized graph-ranking method that captures the natural progression of user
+    behaviors (e.g., view → cart → purchase) through a cascading behavior graph. Experiments
+    on three real-world datasets demonstrate that CascadingRank outperforms state-of-the-art
+    methods, achieving improvements of up to 9.56% in HR@10 and 7.16% in NDCG@10,
+    while theoretical analyses establish its convergence and scalability. ACM TIST
+    is a leading journal in intelligent systems and AI published by ACM; ACM currently
+    reports a 2025 Impact Factor of 10.7, with Q1 rankings in both Computer Science,
+    Information Systems and Computer Science, Artificial Intelligence.
+  keyword: ''
+  link: /publications
+  image: /assets/images/news/2026-06-16-763783ab1ede.png
+- date: Jun 5, 2026
+  content: Junwoo and Daewon have been selected as scholarship recipients of the 2026
+    AI Seoul Tech Research Support Program (Master’s Program) organized by the Seoul
+    Future Foundation. The program supports outstanding graduate researchers in AI-related
+    science and engineering fields at universities in Seoul, providing KRW 20 million
+    per year to each selected master’s student to support their research activities.
+    We congratulate Junwoo and Daewon on their achievement and look forward to their
+    continued growth and contributions to AI research.
+  keyword: ''
+  link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
+  image: /assets/images/news/2026-06-05-b51f51aad67a.png
 - date: Jan 13, 2026
   content: Our work on recommendation free from users, IDs, and GNNs has been accepted
     at WWW 2026
