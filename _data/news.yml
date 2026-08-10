@@ -1,13 +1,13 @@
 - date: Jun 5, 2026
   title: Junwoo and Daewon have been selected as recipients of the 2026 AI Seoul Tech
     Research Scholarship
-  content: "Junwoo and Daewon have been selected as scholarship recipients of the\
-    \ 2026 AI Seoul Tech Research Support Program (Master’s Program) organized by\
-    \ the Seoul Future Foundation. \nThe program supports outstanding graduate researchers\
-    \ in AI-related science and engineering fields at universities in Seoul, providing\
-    \ KRW 20 million per year to each selected master’s student to support their research\
-    \ activities. We congratulate Junwoo and Daewon on their achievement and look\
-    \ forward to their continued growth and contributions to AI research."
+  content: <b>Junwoo and Daewon have been selected as scholarship recipients of the
+    2026 AI Seoul Tech Research Support Program (Master’s Program) organized by the
+    Seoul Future Foundation.</b> The program supports outstanding graduate researchers
+    in AI-related science and engineering fields at universities in Seoul, providing
+    KRW 20 million per year to each selected master’s student to support their research
+    activities. We congratulate Junwoo and Daewon on their achievement and look forward
+    to their continued growth and contributions to AI research.
   keyword: ''
   link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
   image: /assets/images/news/2026-06-05-b51f51aad67a.png
@@ -83,7 +83,6 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-08-28-1b884e895ffe.png
-  image: /assets/images/news/2025-08-28-1b884e895ffe.png
 - date: Jun 12, 2025
   title: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
   content: "Our survey paper, “Multi-Behavior Recommender Systems: A Survey,” received\
@@ -98,8 +97,6 @@
   keyword: ''
   link: https://pakdd2025.org/award/awards/
   image: /assets/images/news/2025-06-12-ec7178bae2fa.png
-  link: https://pakdd2025.org/award/awards/
-  image: /assets/images/news/2025-06-12-ec7178bae2fa.png
 - date: Jun 3, 2025
   title: Our work on lightweight signed bipartite GNNs has been accepted at Neural
     Networks
@@ -108,20 +105,17 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-06-03-13a5691bfc27.png
-  image: /assets/images/news/2025-06-03-13a5691bfc27.png
 - date: May 24, 2025
   title: Our work on lightweight tensor compression has been accepted at KAIS
   content: Our work on lightweight tensor compression has been accepted at KAIS
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-05-24-6ef65815a1c2.png
-  image: /assets/images/news/2025-05-24-6ef65815a1c2.png
 - date: Feb 9, 2025
   title: Two papers have been accepted at PAKDD 2025
   content: Two papers have been accepted at PAKDD 2025
   keyword: ''
   link: /publications
-  image: /assets/images/news/2025-02-09-c87534263026.png
   image: /assets/images/news/2025-02-09-c87534263026.png
 - date: Dec 19, 2024
   title: Gyeongmin and Minseo won Best Paper Award at KSC 2024
