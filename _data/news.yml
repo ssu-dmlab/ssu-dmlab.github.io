@@ -14,16 +14,32 @@
   link: /publications
   image: /assets/images/news/2026-06-16-763783ab1ede.png
 - date: Jun 5, 2026
-  content: Junwoo and Daewon have been selected as scholarship recipients of the 2026
-    AI Seoul Tech Research Support Program (Master’s Program) organized by the Seoul
-    Future Foundation. The program supports outstanding graduate researchers in AI-related
-    science and engineering fields at universities in Seoul, providing KRW 20 million
-    per year to each selected master’s student to support their research activities.
-    We congratulate Junwoo and Daewon on their achievement and look forward to their
-    continued growth and contributions to AI research.
+  content: "Junwoo and Daewon have been selected as scholarship recipients of the\
+    \ 2026 AI Seoul Tech Research Support Program (Master’s Program) organized by\
+    \ the Seoul Future Foundation. \n\nThe program supports outstanding graduate researchers\
+    \ in AI-related science and engineering fields at universities in Seoul, providing\
+    \ KRW 20 million per year to each selected master’s student to support their research\
+    \ activities. We congratulate Junwoo and Daewon on their achievement and look\
+    \ forward to their continued growth and contributions to AI research."
   keyword: ''
   link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
   image: /assets/images/news/2026-06-05-b51f51aad67a.png
+- date: Jan 24, 2026
+  content: "Our work, “A Comprehensive Survey on Multi-Behavior Recommender Systems:\
+    \ Extended Taxonomy and Recent Advances,” has been published in the International\
+    \ Journal of Data Science and Analytics. \nThis work substantially extends our\
+    \ PAKDD 2025 Best Survey Paper by presenting a broader and more systematic taxonomy\
+    \ of multi-behavior recommender systems across three key stages: data modeling,\
+    \ encoding, and training. The extended survey covers graph-, sequence-, and text-based\
+    \ approaches, incorporates recent advances including LLM-based methods, and provides\
+    \ expanded discussions on benchmark datasets, evaluation protocols, real-world\
+    \ applications, scalability, and multimodal integration. Through this comprehensive\
+    \ perspective, the survey aims to provide a unified understanding of the rapidly\
+    \ evolving landscape of multi-behavior recommendation and identify promising directions\
+    \ for future research."
+  keyword: ''
+  link: /publications
+  image: ''
 - date: Jan 13, 2026
   content: "Our work, “AlphaFree: Recommendation Free from Users, IDs, and GNNs,”\
     \ has been accepted at The ACM Web Conference 2026 (WWW 2026), one of the premier\
@@ -42,15 +58,35 @@
   link: /publications
   image: /assets/images/news/2026-01-13-99039a817a98.png
 - date: Aug 28, 2025
-  content: Our work on SSL for signed graphs has been accepted at ICDM 2025
+  content: "Our work, “PIGLET: Probabilistic Message Passing for Semi-supervised Link\
+    \ Sign Prediction,” has been accepted at IEEE International Conference on Data\
+    \ Mining (ICDM) 2025. \n\nIn this work, we propose PIGLET, a semi-supervised learning\
+    \ framework for signed graphs where only a limited fraction of positive and negative\
+    \ link labels are available. PIGLET probabilistically assigns soft labels to unlabeled\
+    \ links and incorporates them into message passing while controlling unreliable\
+    \ information through confidence-based weighting and relation-aware attention.\
+    \ The method further establishes a theoretical connection between its iterative\
+    \ refinement procedure and the Expectation-Maximization (EM) framework. Experiments\
+    \ on five real-world signed graphs demonstrate that PIGLET consistently outperforms\
+    \ existing signed GNN methods under limited supervision, achieving improvements\
+    \ of up to 7.6% in AUC and 11.0% in Macro-F1. This work is a joint research collaboration\
+    \ with Seoul National University. "
   keyword: ''
   link: /publications
-  image: /assets/images/news/2025-08-28-b263bf0f9d70.png
+  image: /assets/images/news/2025-08-28-1b884e895ffe.png
 - date: Jun 12, 2025
-  content: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
+  content: "Our survey paper, “Multi-Behavior Recommender Systems: A Survey,” received\
+    \ the Best Survey Paper Award at PAKDD 2025 (The 29th Pacific-Asia Conference\
+    \ on Knowledge Discovery and Data Mining). \nThis work, conducted in collaboration\
+    \ with researchers at KAIST, provides a systematic review of the rapidly growing\
+    \ field of multi-behavior recommendation, where diverse user interactions such\
+    \ as clicks, cart additions, and purchases are jointly leveraged to better understand\
+    \ user preferences. The survey organizes existing methods around three key stages—data\
+    \ modeling, encoding, and training—and presents a unified taxonomy of representative\
+    \ approaches, benchmark datasets, and promising future research directions."
   keyword: ''
-  link: /publications
-  image: /assets/images/news/2025-02-09-c87534263026.png
+  link: https://pakdd2025.org/award/awards/
+  image: /assets/images/news/2025-06-12-ec7178bae2fa.png
 - date: Jun 3, 2025
   content: Our work on lightweight signed bipartite GNNs has been accepted at Neural
     Networks
