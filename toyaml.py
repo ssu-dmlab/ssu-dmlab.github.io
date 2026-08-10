@@ -16,13 +16,13 @@ Google Sheet(Apps Script) 에서 데이터를 받아 _data/*.yml 로 저장하�
   "Abstract:" / "Contribution:" 구분자로 섹션을 나눠 각 논문 항목의 Abstract/Contribution 필드로 저장한다.
   -> publications.md 팝업에서 실제 내용으로 보여주려면 별도로 publications.md 수정이 필요함(채팅 참고).
 - News 탭 데이터를 받아 실제 news.md / index.md 가 기대하는 소문자 스키마
-  (date, content, keyword, link, image)로 변환해 _data/news.yml 로 저장한다.
+  (date, title, content, keyword, link, image)로 변환해 _data/news.yml 로 저장한다.
 
 ** ssu-dmlab.github.io 저장소 실측 기준 **
 - toyaml.py는 리포 루트에서 실행되고(.github/workflows/update_data.yml), _data/*.yml 을 커밋한다.
 - 이미지 경로 컨벤션은 assets/img/ 가 아니라 assets/images/ 이다 (assets/images/news, /paper, /hero 등 기존 사용 확인).
-- _data/news.yml은 news.md, index.md 에서 news.date / news.content / news.keyword / news.link / news.image
-  필드명(소문자)으로 카드+팝업을 렌더링하므로, Apps Script가 돌려주는 키(헤더 그대로, 대문자 포함)를
+- _data/news.yml은 news.md, index.md 에서 news.date / news.title / news.content / news.keyword / news.link /
+  news.image 필드명(소문자)으로 카드+팝업을 렌더링하므로, Apps Script가 돌려주는 키(헤더 그대로, 대문자 포함)를
   이 스키마에 맞게 변환해야 한다.
 '''
 
@@ -255,15 +255,17 @@ save_yaml(seminars, "_data/seminars.yml")
 News
 
 Google Sheet "News" 탭 컬럼 구성(권장):
-  Date, Content, Keyword, Link(선택), Image(선택)
+  Date, Title(선택), Content, Keyword, Link(선택), Image(선택)
   - Date: 날짜 셀(구글시트 Date 타입)로 입력 -> Apps Script가 ISO로 파싱, 여기서 "Jan 13, 2026" 형태로 재포맷
+  - Title: 카드/팝업 제목으로 쓸 짧은 텍스트. 비워두면 news.md/index.md가 Content를 대신 제목으로 사용한다
+    (`news.title | default: news.content` 폴백 방식).
   - Content: 카드/팝업에 보여줄 본문 텍스트 (news.md, index.md 둘 다 HTML 태그는 strip해서 보여줌)
   - Keyword: "Paper" / "Award" 로 쓰면 전용 배지 색상+아이콘이 붙고, 그 외 값은 기본(공지) 배지로 표시됨
   - Link: 카드 클릭 시 이동할 외부/내부 링크 (Keyword가 Paper면 /publications로 자동 연결되어 비워둬도 됨)
   - Image: 카드 썸네일. 비워두면 news.md/index.md가 기본 이미지(/assets/images/news/default_news169.png)를 사용
 
-_data/news.yml은 news.md / index.md 에서 news.date / news.content / news.keyword / news.link / news.image
-(소문자) 필드로 이미 카드+팝업 UI가 구현되어 있으므로, 그 스키마에 맞춰 변환한다.
+_data/news.yml은 news.md / index.md 에서 news.date / news.title / news.content / news.keyword / news.link /
+news.image (소문자) 필드로 이미 카드+팝업 UI가 구현되어 있으므로, 그 스키마에 맞춰 변환한다.
 '''
 raw_news = fetch_sheet("News")
 
@@ -275,6 +277,7 @@ for item in raw_news:
     news.append({
         "date": format_display_date(iso_date),
         "_sort_date": str(iso_date),  # 정렬 전용, 저장 직전에 제거
+        "title": extract_text(item.get("Title")) if item.get("Title") else "",
         "content": extract_text(item.get("Content")),
         "keyword": extract_text(item.get("Keyword")),
         "link": extract_url(item.get("Link")) if item.get("Link") else "",
