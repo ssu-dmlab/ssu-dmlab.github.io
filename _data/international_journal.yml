@@ -43,8 +43,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2019-05-01T00:00:00.000Z'
   Year: 2019
@@ -90,8 +90,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2019-03-01T00:00:00.000Z'
   Year: 2019
@@ -138,8 +138,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2020-05-01T00:00:00.000Z'
   Year: 2020
@@ -187,8 +187,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2020-10-01T00:00:00.000Z'
   Year: 2020
@@ -234,8 +234,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2021-08-01T00:00:00.000Z'
   Year: 2021
@@ -281,8 +281,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2022-03-01T00:00:00.000Z'
   Year: 2022
@@ -329,8 +329,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2023-12-21T00:00:00.000Z'
   Year: 2023
@@ -379,8 +379,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2024-02-24T00:00:00.000Z'
   Year: 2024
@@ -426,8 +426,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2024-10-14T00:00:00.000Z'
   Year: 2024
@@ -476,8 +476,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2025-06-01T00:00:00.000Z'
   Year: 2025
@@ -524,8 +524,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2025-07-11T00:00:00.000Z'
   Year: 2025
@@ -573,8 +573,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2025-09-19T00:00:00.000Z'
   Year: 2025
@@ -623,8 +623,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2026-01-24T00:00:00.000Z'
   Year: 2026
@@ -673,8 +673,8 @@
     text: link
     url: ''
   Image: ''
-  Notes: []
   Abstract: ''
+  Notes: []
   Contribution: ''
 - Date: '2026-05-04T00:00:00.000Z'
   Year: 2026
@@ -712,17 +712,29 @@
     url: ''
   Paper:
     text: link
-    url: ''
+    url: https://arxiv.org/abs/2502.11335
   Code:
     text: link
-    url: ''
+    url: https://github.com/geonwooko/CascadingRank
   Slide:
     text: link
-    url: ''
+    url: https://drive.google.com/file/d/1Zee0d_NrXQrw_WcyAGK19gcQlSK7uxkT/view?usp=drive_link
   Appendix:
     text: link
     url: ''
-  Image: ''
+  Image: /assets/images/publications/personalized-ranking-on-cascading-behavi-6d85112dc75a.png
+  Abstract: Multi-behavior recommendation leverages multiple user actions, such as
+    viewing, carting, and purchasing, to better predict user preferences. We propose
+    CascadingRank, a personalized graph-ranking method that models the natural progression
+    of user behaviors and propagates ranking information across them. Experiments
+    on three real-world datasets show that CascadingRank consistently outperforms
+    existing methods.
   Notes: []
-  Abstract: ''
-  Contribution: ''
+  Contribution: '1. We introduce a personalized graph-ranking approach for multi-behavior
+    recommendation.
+
+    2. We propose a cascading behavior graph that captures dependencies among different
+    user behaviors.
+
+    3. We demonstrate the effectiveness and scalability of CascadingRank on three
+    real-world datasets.'
