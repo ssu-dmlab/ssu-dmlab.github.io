@@ -488,10 +488,11 @@ layout: article
       {% elsif news.link and news.link != "" %}
         {% assign news_link = news.link %}
       {% endif %}
+      {% assign news_title = news.title | default: news.content | strip_html %}
       <div class="vslab-col-4 vslab-col-md-12 news-card-wrapper">
         <div class="news-card"
              onclick="openNewsModal(this)"
-             data-title="{{ news.content | strip_html | escape }}"
+             data-title="{{ news_title | escape }}"
              data-content="{{ news.content | strip_html | escape }}"
              data-image="{{ news_img }}"
              data-date="{{ news.date }}"
@@ -520,7 +521,7 @@ layout: article
             </div>
             
             <h4 class="news-card-text">
-              {{ news.content | strip_html }}
+              {{ news_title }}
             </h4>
             
             <div class="news-card-date">
