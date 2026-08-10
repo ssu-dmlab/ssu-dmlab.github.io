@@ -3,8 +3,8 @@
     ko: "정진홍"
   type: prof
   img: "jinhongjung-cropped.png"
-  affiliation: "Division of Computer Science and Engineering at Jeonbuk National University"
-  email: "jinhongjung (AT) jbnu.ac.kr"
+  affiliation: "Assistant Professor, Data Mining Lab., School of Software, Soongsil University"
+  email: "jinhong (at) ssu.ac.kr"
   link: "https://jinhongjung.github.io/"
 
 - name:
@@ -80,7 +80,7 @@
 - name:
     en: "Jongyoon Choi"
     ko: "최종윤"
-  type: undergrad
+  type: grad
   img: "jongyoonchoi.jpg"
   gender: man
   affiliation:
@@ -190,7 +190,7 @@
 - name:
     en: "Gyuwon Je"
     ko: "제규원"
-  type: undergrad
+  type: grad
   img: "gyuwonje.jpg"
   gender: man
   affiliation:

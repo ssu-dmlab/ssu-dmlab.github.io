@@ -83,6 +83,7 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-08-28-1b884e895ffe.png
+  image: /assets/images/news/2025-08-28-1b884e895ffe.png
 - date: Jun 12, 2025
   title: Our survey on multi-behavior RecSys received PAKDD Best Survey Paper Award
   content: "Our survey paper, “Multi-Behavior Recommender Systems: A Survey,” received\
@@ -97,6 +98,8 @@
   keyword: ''
   link: https://pakdd2025.org/award/awards/
   image: /assets/images/news/2025-06-12-ec7178bae2fa.png
+  link: https://pakdd2025.org/award/awards/
+  image: /assets/images/news/2025-06-12-ec7178bae2fa.png
 - date: Jun 3, 2025
   title: Our work on lightweight signed bipartite GNNs has been accepted at Neural
     Networks
@@ -105,17 +108,20 @@
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-06-03-13a5691bfc27.png
+  image: /assets/images/news/2025-06-03-13a5691bfc27.png
 - date: May 24, 2025
   title: Our work on lightweight tensor compression has been accepted at KAIS
   content: Our work on lightweight tensor compression has been accepted at KAIS
   keyword: ''
   link: /publications
   image: /assets/images/news/2025-05-24-6ef65815a1c2.png
+  image: /assets/images/news/2025-05-24-6ef65815a1c2.png
 - date: Feb 9, 2025
   title: Two papers have been accepted at PAKDD 2025
   content: Two papers have been accepted at PAKDD 2025
   keyword: ''
   link: /publications
+  image: /assets/images/news/2025-02-09-c87534263026.png
   image: /assets/images/news/2025-02-09-c87534263026.png
 - date: Dec 19, 2024
   title: Gyeongmin and Minseo won Best Paper Award at KSC 2024
