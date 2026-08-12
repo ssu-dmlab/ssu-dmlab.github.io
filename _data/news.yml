@@ -41,8 +41,8 @@
   link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
   image: /assets/images/news/2026-06-05-b51f51aad67a.png
 - date: May 4, 2026
-  title: Our Paper on Multi-Behavior Recommendation Accepted for Publication in ACM
-    TIST
+  title: Our Paper on Personalized Graph Ranking for Multi-Behavior Recommendation
+    Accepted for Publication in ACM TIST
   content: 'Our paper, “Personalized Ranking on Cascading Behavior Graphs for Accurate
     Multi-Behavior Recommendation,” has been accepted for publication in ACM Transactions
     on Intelligent Systems and Technology (TIST), a leading journal in intelligent
@@ -93,21 +93,32 @@
   link: /publications
   image: /assets/images/news/2026-01-24-57eb3b846a2a.png
 - date: Jan 13, 2026
-  title: Our work on recommendation free from users, IDs, and GNNs has been accepted
-    at WWW 2026
-  content: "Our work, “AlphaFree: Recommendation Free from Users, IDs, and GNNs,”\
-    \ has been accepted at The ACM Web Conference 2026 (WWW 2026), one of the premier\
-    \ international conferences in Web and data mining research. \nIn this work, we\
-    \ propose AlphaFree, a new recommendation framework that challenges three common\
-    \ design conventions in recommender systems: storing user embeddings, relying\
-    \ on discrete item IDs, and using graph neural networks (GNNs). AlphaFree instead\
-    \ models user preferences on-the-fly, represents items using language representations\
-    \ from pretrained language models, and captures collaborative signals through\
-    \ similarity-based augmentation and contrastive learning without GNNs. Experiments\
-    \ on seven real-world datasets show that AlphaFree consistently outperforms existing\
-    \ methods, achieving up to 5.7% improvement over language-representation-based\
-    \ methods and over 40% improvement over conventional methods, while reducing GPU\
-    \ memory usage by up to 69%."
+  title: Our Paper on Recommendtion Free from Users, IDs, and GNNs Accepted at WWW
+    2026
+  content: 'Our paper, “AlphaFree: Recommendation Free from Users, IDs, and GNNs,”
+    has been accepted at The ACM Web Conference 2026 (WWW 2026), a premier international
+    conference in Web research, data mining, and information retrieval.
+
+
+    This work was conducted by our lab members Minseo Jeon, Junwoo Jung, and Daewon
+    Gwak.
+
+
+    In this paper, we propose AlphaFree, a top-K recommendation framework that does
+    not rely on stored user embeddings, raw item IDs, or GNNs. AlphaFree constructs
+    user preferences directly from interaction histories, represents items through
+    pretrained language models, and captures collaborative filtering signals using
+    behaviorally and semantically related items. Across seven real-world datasets,
+    AlphaFree improves recommendation accuracy by up to approximately 43% over methods
+    without language representations and 5.7% over language-representation-based methods,
+    while reducing GPU memory usage by up to 69%.
+
+
+    Our key takeaway is that conventional components such as user embeddings, item
+    IDs, and GNNs are not mandatory for effective recommendation. In particular, collaborative
+    signals can be captured without GNN propagation, while eliminating persistent
+    user embeddings and item IDs can improve generalization and scalability—especially
+    in domains where new users and cold items arrive frequently.'
   keyword: ''
   link: /publications
   image: /assets/images/news/2026-01-13-99039a817a98.png
