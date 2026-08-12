@@ -20,9 +20,10 @@
     methods.
 
 
-    Our key takeaway is that knowledge graph information should be selectively incorporated
-    according to the reliability of each node’s collaborative signal, rather than
-    being applied uniformly to all nodes.'
+    Our key takeaway is that knowledge graphs do not necessarily benefit every user
+    and item in KG-aware recommendation; for nodes with rich collaborative filtering
+    signals, KG information may provide limited or even unnecessary support and should
+    therefore be incorporated selectively.'
   keyword: ''
   link: /publications
   image: /assets/images/news/2026-08-11-a91479fb6fab.png
@@ -40,19 +41,36 @@
   link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
   image: /assets/images/news/2026-06-05-b51f51aad67a.png
 - date: May 4, 2026
-  title: Our work on CascadingRank for multi-behavior recommendation has been accepted
-    at ACM Transactions on Intelligent Systems and Technology.
-  content: "Our work, “Personalized Ranking on Cascading Behavior Graphs for Accurate\
-    \ Multi-Behavior Recommendation,” has been accepted for publication in ACM Transactions\
-    \ on Intelligent Systems and Technology (TIST). \nIn this work, we propose CascadingRank,\
-    \ a personalized graph-ranking method that captures the natural progression of\
-    \ user behaviors (e.g., view → cart → purchase) through a cascading behavior graph.\
-    \ Experiments on three real-world datasets demonstrate that CascadingRank outperforms\
-    \ state-of-the-art methods, achieving improvements of up to 9.56% in HR@10 and\
-    \ 7.16% in NDCG@10, while theoretical analyses establish its convergence and scalability.\
-    \ ACM TIST is a leading journal in intelligent systems and AI published by ACM;\
-    \ ACM currently reports a 2025 Impact Factor of 10.7, with Q1 rankings in both\
-    \ Computer Science, Information Systems and Computer Science, Artificial Intelligence."
+  title: Our Paper on Multi-Behavior Recommendation Accepted for Publication in ACM
+    TIST
+  content: 'Our paper, “Personalized Ranking on Cascading Behavior Graphs for Accurate
+    Multi-Behavior Recommendation,” has been accepted for publication in ACM Transactions
+    on Intelligent Systems and Technology (TIST), a leading journal in intelligent
+    systems and related technologies. ACM reports a 2025 Impact Factor of 10.7, with
+    TIST ranked in Q1 in both Computer Science, Information Systems and Computer Science,
+    Artificial Intelligence.
+
+
+    This work was led by our lab members Geonwoo Ko and Minseo Jeon, who contributed
+    equally as co-first authors.
+
+
+    In this paper, we propose CascadingRank, a personalized graph-ranking method for
+    multi-behavior recommendation. CascadingRank models the progression of user behaviors—from
+    viewing and adding an item to a cart to purchasing—through a cascading behavior
+    graph. It directly computes personalized rankings and purchase probabilities by
+    transferring preference signals across successive behaviors. Experiments on three
+    real-world datasets demonstrate improvements of up to 9.56% in HR@10 and 7.16%
+    in NDCG@10 over existing methods. Theoretical analyses further establish the convergence
+    and scalability of the proposed algorithm.
+
+
+    Our key takeaway is that GNN-based approaches may weaken the sequential relationships
+    among cascading behaviors, such as view → cart → purchase, because repeated message
+    passing can blur behavior-specific preference signals through over-smoothing.
+    In contrast, graph ranking can preserve this progression by computing personalized
+    rankings for each user and directly estimating how preferences transfer across
+    behaviors toward the final purchase.'
   keyword: ''
   link: /publications
   image: /assets/images/news/2026-06-16-763783ab1ede.png
