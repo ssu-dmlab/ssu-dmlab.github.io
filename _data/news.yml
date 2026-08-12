@@ -1,3 +1,31 @@
+- date: Aug 11, 2026
+  title: Our Paper on Adaptive Node-Aware Knowledge Graph Fusion Accepted at CIKM
+    2026
+  content: 'Our paper, “Do All Nodes Benefit Equally from Knowledge Graphs? Adaptive
+    Node-Aware KG Fusion for Recommendation,” has been accepted at the 35th ACM International
+    Conference on Information and Knowledge Management (CIKM 2026), a premier international
+    conference in information retrieval, knowledge management, and data mining.
+
+
+    This work was conducted by our lab members Jaehyun Park, Minseo Jeon, Daewon Gwak,
+    Sunuk Kim, and Hanvit Lee, with Jaehyun Park and Minseo Jeon contributing equally
+    as co-first authors.
+
+
+    In this paper, we propose AdaKG, a knowledge graph-aware recommendation framework
+    that adaptively determines how much each user or item should rely on auxiliary
+    knowledge. AdaKG preserves reliable interaction-based information while providing
+    greater knowledge graph support to nodes with unstable collaborative signals.
+    Experiments on four real-world datasets demonstrate its effectiveness over state-of-the-art
+    methods.
+
+
+    Our key takeaway is that knowledge graph information should be selectively incorporated
+    according to the reliability of each node’s collaborative signal, rather than
+    being applied uniformly to all nodes.'
+  keyword: ''
+  link: /publications
+  image: /assets/images/news/2026-08-11-a91479fb6fab.png
 - date: Jun 5, 2026
   title: Junwoo and Daewon have been selected as recipients of the 2026 AI Seoul Tech
     Research Scholarship
