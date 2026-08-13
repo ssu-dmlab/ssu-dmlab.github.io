@@ -18,7 +18,6 @@ title: ""
     margin-top: 1.5rem;
     margin-bottom: 35px;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
     border-bottom: 2px solid #1A365D !important;
   }
   .mem-section { margin-bottom: 70px; }
