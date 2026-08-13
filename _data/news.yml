@@ -28,15 +28,20 @@
   link: /publications
   image: /assets/images/news/2026-08-11-a91479fb6fab.png
 - date: Jun 5, 2026
-  title: Junwoo and Daewon have been selected as recipients of the 2026 AI Seoul Tech
-    Research Scholarship
-  content: Junwoo and Daewon have been selected as scholarship recipients of the 2026
-    AI Seoul Tech Research Support Program (Master’s Program) organized by the Seoul
-    Future Foundation. The program supports outstanding graduate researchers in AI-related
-    science and engineering fields at universities in Seoul, providing KRW 20 million
-    per year to each selected master’s student to support their research activities.
-    We congratulate Junwoo and Daewon on their achievement and look forward to their
-    continued growth and contributions to AI research.
+  title: Junwoo and Daewon Selected for the 2026 AI Seoul Tech Research Support Program
+  content: 'We are pleased to announce that our lab members Junwoo and Daewon have
+    been selected as scholarship recipients of the 2026 AI Seoul Tech Research Support
+    Program (Master’s Program), organized by the Seoul Future Foundation.
+
+
+    The program supports outstanding master’s students conducting research in AI-related
+    science and engineering fields at universities in Seoul. Each selected student
+    receives KRW 20 million per year to support their research activities.
+
+
+    This scholarship will support Junwoo and Daewon in advancing their research and
+    continuing their academic development. We congratulate them on this achievement
+    and look forward to their continued growth and contributions to AI research.'
   keyword: ''
   link: https://www.seoulfuture.or.kr/home/kor/M075356964/scholarship/info/view.do?idx=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&idx3=cb00d1a0008a85e71a41b8741facbffe0da50bb4e2a1672fcc14ff2318200bfa&act=&tabPos3=C
   image: /assets/images/news/2026-06-05-b51f51aad67a.png
@@ -75,20 +80,23 @@
   link: /publications
   image: /assets/images/news/2026-06-16-763783ab1ede.png
 - date: Jan 24, 2026
-  title: Our extended survey on multi-behavior recommender systems has been published
+  title: Our Comprehensive Survey on Multi-Behavior Recommender Systems Published
     in the International Journal of Data Science and Analytics
-  content: "Our work, “A Comprehensive Survey on Multi-Behavior Recommender Systems:\
+  content: "Our paper, “A Comprehensive Survey on Multi-Behavior Recommender Systems:\
     \ Extended Taxonomy and Recent Advances,” has been published in the International\
-    \ Journal of Data Science and Analytics. \nThis work substantially extends our\
-    \ PAKDD 2025 Best Survey Paper by presenting a broader and more systematic taxonomy\
-    \ of multi-behavior recommender systems across three key stages: data modeling,\
-    \ encoding, and training. The extended survey covers graph-, sequence-, and text-based\
-    \ approaches, incorporates recent advances including LLM-based methods, and provides\
-    \ expanded discussions on benchmark datasets, evaluation protocols, real-world\
-    \ applications, scalability, and multimodal integration. Through this comprehensive\
-    \ perspective, the survey aims to provide a unified understanding of the rapidly\
-    \ evolving landscape of multi-behavior recommendation and identify promising directions\
-    \ for future research."
+    \ Journal of Data Science and Analytics, a peer-reviewed Springer journal. \n\n\
+    This work was conducted in collaboration with KAIST.\n\nIn this paper, we present\
+    \ a comprehensive taxonomy that organizes multi-behavior recommender systems across\
+    \ three key stages: data modeling, encoding, and training. The survey explains\
+    \ how existing methods represent heterogeneous user behaviors, capture relationships\
+    \ across behaviors, and optimize models using main and auxiliary objectives. It\
+    \ also summarizes benchmark datasets, evaluation protocols, real-world applications,\
+    \ and recent advances, including text- and LLM-based approaches. Based on this\
+    \ systematic analysis, we identify open challenges related to data imbalance,\
+    \ scalability, temporal dynamics, multimodal integration, interpretability, and\
+    \ privacy.\n\nOur key takeaway is that effective multi-behavior recommendation\
+    \ requires the coordinated design of modeling, encoding, and training strategies\
+    \ to balance fine-grained behavioral semantics with cross-behavior relationships."
   keyword: ''
   link: /publications
   image: /assets/images/news/2026-01-24-57eb3b846a2a.png
