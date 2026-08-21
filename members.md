@@ -120,7 +120,7 @@ title: ""
     border: 3px solid #e2e8f0;
   }
   .mem-name { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
-  .mem-person, a.mem-person { display: block; text-decoration: none !important; color: inherit; }
+  .mem-person, a.mem-person { display: block; text-decoration: none !important; color: inherit; font-weight: normal; }
   a.mem-person:hover .mem-name { color: #00B4D8 !important; text-decoration: underline !important; }
   .mem-meta { font-size: 0.85rem; color: #475569; line-height: 1.6; word-break: break-word; margin-bottom: 4px; }
   .mem-meta:last-of-type { margin-bottom: 18px; }
