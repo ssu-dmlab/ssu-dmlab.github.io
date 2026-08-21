@@ -120,6 +120,8 @@ title: ""
     border: 3px solid #e2e8f0;
   }
   .mem-name { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+  .mem-person, a.mem-person { display: block; text-decoration: none !important; color: inherit; }
+  a.mem-person:hover .mem-name { color: #00B4D8 !important; text-decoration: underline !important; }
   .mem-meta { font-size: 0.85rem; color: #475569; line-height: 1.6; word-break: break-word; margin-bottom: 4px; }
   .mem-meta:last-of-type { margin-bottom: 18px; }
 
@@ -235,6 +237,7 @@ title: ""
   {% for member in site.data.members %}
   {% if member.type == "grad" %}
   <div class="mem-card">
+    {% if member.link %}<a href="{{ member.link }}" target="_blank" class="mem-person">{% endif %}
     {% if member.img %}
       <div class="mem-avatar" style="background-image: url('/assets/images/profile/{{ member.img }}');"></div>
     {% else %}
@@ -243,18 +246,12 @@ title: ""
     <div class="mem-name">{{ member.name.en }}</div>
     {% if member.email %}<div class="mem-meta">{{ member.email }}</div>{% endif %}
     {% if member.affiliation %}<div class="mem-meta">{{ member.affiliation }}</div>{% endif %}
+    {% if member.link %}</a>{% endif %}
+    {% if member.email %}
     <div class="mem-icon-row">
-      {% if member.email %}<a class="mem-icon-btn" href="mailto:{{ member.email }}" title="Email"><i class="fas fa-envelope"></i></a>{% endif %}
-      {% if member.link %}
-        <a class="mem-icon-btn" href="{{ member.link }}" target="_blank" title="Link">
-          {% if member.link contains "github" %}<i class="fab fa-github"></i>
-          {% elsif member.link contains "linkedin" %}<i class="fab fa-linkedin-in"></i>
-          {% elsif member.link contains "notion" %}<i class="fas fa-file-alt"></i>
-          {% else %}<i class="fas fa-link"></i>
-          {% endif %}
-        </a>
-      {% endif %}
+      <a class="mem-icon-btn" href="mailto:{{ member.email }}" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
+    {% endif %}
   </div>
   {% endif %}
   {% endfor %}
@@ -267,6 +264,7 @@ title: ""
   {% for member in site.data.members %}
   {% if member.type == "undergrad" %}
   <div class="mem-card">
+    {% if member.link %}<a href="{{ member.link }}" target="_blank" class="mem-person">{% endif %}
     {% if member.img %}
       <div class="mem-avatar" style="background-image: url('/assets/images/profile/{{ member.img }}');"></div>
     {% else %}
@@ -275,18 +273,12 @@ title: ""
     <div class="mem-name">{{ member.name.en }}</div>
     {% if member.email %}<div class="mem-meta">{{ member.email }}</div>{% endif %}
     {% if member.affiliation %}<div class="mem-meta">{{ member.affiliation }}</div>{% endif %}
+    {% if member.link %}</a>{% endif %}
+    {% if member.email %}
     <div class="mem-icon-row">
-      {% if member.email %}<a class="mem-icon-btn" href="mailto:{{ member.email }}" title="Email"><i class="fas fa-envelope"></i></a>{% endif %}
-      {% if member.link %}
-        <a class="mem-icon-btn" href="{{ member.link }}" target="_blank" title="Link">
-          {% if member.link contains "github" %}<i class="fab fa-github"></i>
-          {% elsif member.link contains "linkedin" %}<i class="fab fa-linkedin-in"></i>
-          {% elsif member.link contains "notion" %}<i class="fas fa-file-alt"></i>
-          {% else %}<i class="fas fa-link"></i>
-          {% endif %}
-        </a>
-      {% endif %}
+      <a class="mem-icon-btn" href="mailto:{{ member.email }}" title="Email"><i class="fas fa-envelope"></i></a>
     </div>
+    {% endif %}
   </div>
   {% endif %}
   {% endfor %}
