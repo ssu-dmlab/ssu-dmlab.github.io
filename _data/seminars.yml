@@ -30,24 +30,24 @@
     URL: ''
 - Date: '2026-08-27T00:00:00'
   Speaker: Gyuwon Je
-  Title: ''
-  Venue: ''
+  Title: '[NLP-Study] Reasoning Part 2'
+  Venue: NLP-Study
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-20T00:00:00'
   Speaker: Sunuk Kim
-  Title: ''
-  Venue: ''
+  Title: '[NLP-Study] Reasoning Part 1 (CoT, Self-Consistency, RL)'
+  Venue: NLP-Study
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-13T00:00:00'
   Speaker: Hanvit Lee
   Title: '[NLP-Study] Benchmarking & Evaluation'
