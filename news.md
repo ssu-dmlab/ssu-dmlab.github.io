@@ -121,7 +121,8 @@ permalink: /news/
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 6px;
-    margin-bottom: 12px;
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
     width: fit-content;
     color: #ffffff;
   }
@@ -135,6 +136,9 @@ permalink: /news/
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
+    hyphens: auto;
+    margin-top: -10px!important;
+    margin-bottom: 4px!important;
     margin: 0 0 15px 0;
     color: #1e293b;
     flex-grow: 1;
@@ -173,6 +177,8 @@ permalink: /news/
     max-width: 650px;
     width: 100%;
     max-height: 90vh;
+    text-align: justify;
+    hyphens: auto;
     overflow-y: auto;
     position: relative;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -216,7 +222,7 @@ permalink: /news/
     font-size: 1.35rem;
     font-weight: 700;
     color: #0f172a;
-    margin-top: 15px;
+    margin-top: 6px !important;
     margin-bottom: 12px;
     line-height: 1.4;
   }
@@ -287,21 +293,21 @@ permalink: /news/
           </div>
           
           <div class="news-card-body">
+            {% if news.keyword == 'Paper' or news.keyword == 'paper' or news.keyword == 'Award' or news.keyword == 'award' %}
             <div class="news-card-badge 
                 {% if news.keyword == 'Paper' or news.keyword == 'paper' %} bg-vslab-paper 
                 {% elsif news.keyword == 'Award' or news.keyword == 'award' %} bg-vslab-award 
-                {% else %} bg-vslab-default {% endif %}">
+                {% endif %}">
                 
                 {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
                   <i class="far fa-file-alt me-1"></i>
                 {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
                   <i class="fas fa-trophy me-1"></i>
-                {% else %}
-                  <i class="fas fa-bullhorn me-1"></i>
                 {% endif %}
                 
                 {{ news.keyword }}
             </div>
+            {% endif %}
             
             <h4 class="news-card-text">
               {{ news_title }}
@@ -370,19 +376,19 @@ permalink: /news/
     // 뱃지 아이콘 및 클래스 설정
     const badgeEl = document.getElementById('modalBadge');
     const kwLower = keyword ? keyword.toLowerCase() : '';
-    let iconHTML = '<i class="fas fa-bullhorn me-1"></i>';
-    let badgeClass = 'bg-vslab-default';
 
     if (kwLower === 'paper') {
-      iconHTML = '<i class="far fa-file-alt me-1"></i>';
-      badgeClass = 'bg-vslab-paper';
+      badgeEl.className = 'news-card-badge bg-vslab-paper';
+      badgeEl.innerHTML = `<i class="far fa-file-alt me-1"></i> ${keyword}`;
+      badgeEl.style.display = '';
     } else if (kwLower === 'award') {
-      iconHTML = '<i class="fas fa-trophy me-1"></i>';
-      badgeClass = 'bg-vslab-award';
+      badgeEl.className = 'news-card-badge bg-vslab-award';
+      badgeEl.innerHTML = `<i class="fas fa-trophy me-1"></i> ${keyword}`;
+      badgeEl.style.display = '';
+    } else {
+      badgeEl.innerHTML = '';
+      badgeEl.style.display = 'none';
     }
-
-    badgeEl.className = `news-card-badge ${badgeClass}`;
-    badgeEl.innerHTML = `${iconHTML} ${keyword}`;
 
     // 링크 버튼 처리
     const linkContainer = document.getElementById('modalLinkContainer');

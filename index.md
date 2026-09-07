@@ -51,7 +51,6 @@ layout: article
     margin-top: 1.5rem; 
     margin-bottom: 35px; 
     letter-spacing: -0.02em; 
-    text-transform: uppercase; 
     border-bottom: 2px solid #1A365D !important;
   }
 
@@ -160,7 +159,7 @@ layout: article
   .news-card-img-wrap {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9; 
+    aspect-ratio: 16 / 9; img
     overflow: hidden;
     background-color: #f1f5f9; 
     border-bottom: 1px solid #e2e8f0;
@@ -180,20 +179,6 @@ layout: article
     justify-content: space-between;
     flex-grow: 1; 
   }
-
-  .news-card-badge {
-    display: inline-block;
-    padding: 6px 12px !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    border-radius: 6px !important;
-    margin-bottom: 12px;
-    width: fit-content;
-    color: #ffffff !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
   .bg-vslab-paper { background-color: #0056b3 !important; }
   .bg-vslab-award { background-color: #f39c12 !important; }
   .bg-vslab-default { background-color: #7f8c8d !important; }
@@ -203,10 +188,11 @@ layout: article
     font-weight: 700; 
     color: #1e293b; 
     line-height: 1.45; 
-    margin-top: 0px !important;
+    margin-top: -12px !important;
     margin-bottom: 16px; 
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    hyphens: auto;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -240,6 +226,8 @@ layout: article
     max-width: 650px;
     width: 100%;
     max-height: 90vh;
+    text-align: justify;
+    hyphens: auto;
     overflow-y: auto;
     position: relative;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -273,14 +261,16 @@ layout: article
     font-size: 1.35rem;
     font-weight: 700;
     color: #0f172a;
-    margin-top: 15px;
-    margin-bottom: 12px;
+    margin-top: 6px!important;
+    margin-bottom: 0px!important;
     line-height: 1.4;
   }
   .news-modal-meta-info {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-top: 3px!important;
+    margin-bottom: 3px!important;
     font-size: 0.85rem;
     color: #64748b;
   }
@@ -288,7 +278,8 @@ layout: article
     font-size: 0.95rem;
     line-height: 1.6;
     color: #334155;
-    margin-bottom: 24px;
+    margin-top: 0px!important;
+    margin-bottom: 6px;
     white-space: pre-line;
   }
   .news-modal-link-btn {
@@ -455,25 +446,14 @@ layout: article
   </div>
 
   <!-- Announcement Section -->
-  {% if site.data.announcements.size > 0 %}
   <div class="announcement-container">
-    <h2 class="vslab-heading">Announcement</h2>
-    {% for notice in site.data.announcements %}
-    <div class="announcement-item">
-      <div class="item__content">
-        {% if notice.link != nil and notice.link != "" %}
-          <a class="announcement-btn" href="{{ notice.link }}" target="_blank">
-            {{ notice.keyword }}
-          </a>
-        {% else %}
-          <span class="announcement-btn">{{ notice.keyword }}</span>
-        {% endif %}
-        <span class="announcement-text">{{ notice.content }}</span>
-      </div>
+  <div class="announcement-item">
+    <div class="item__content">
+      <a class="announcement-btn" href="/recruitments" target="_blank">Join Our Lab</a>
+      We are looking for graduate students who are enthusiastically interested in artificial intelligence and machine learning for data science. Please click <a href="/recruitments" target="_blank">[link]</a> if you're interested!
     </div>
-    {% endfor %}
   </div>
-  {% endif %}
+</div>
 
   <!-- Latest News Section -->
   <div class="news-grid-container">
@@ -504,21 +484,7 @@ layout: article
           </div>
           
           <div class="news-card-body">
-            <div class="news-card-badge 
-              {% if news.keyword == 'Paper' or news.keyword == 'paper' %} bg-vslab-paper 
-              {% elsif news.keyword == 'Award' or news.keyword == 'award' %} bg-vslab-award 
-              {% else %} bg-vslab-default {% endif %}">
-              
-              {% if news.keyword == 'Paper' or news.keyword == 'paper' %}
-                <i class="far fa-file-alt me-1"></i>
-              {% elsif news.keyword == 'Award' or news.keyword == 'award' %}
-                <i class="fas fa-trophy me-1"></i>
-              {% else %}
-                <i class="fas fa-bullhorn me-1"></i>
-              {% endif %}
-              
-              {{ news.keyword }}
-            </div>
+            
             
             <h4 class="news-card-text">
               {{ news_title }}
@@ -598,7 +564,7 @@ layout: article
                   <div class="custom-carousel-item {% if forloop.first %}vslab-active{% endif %}" data-interval="4500">
                     
                     <div class="pub-hero-img-wrap">
-                      <div class="pub-hero-bg" style="background-image: url('{% if paper.Image and paper.Image != "" %}{{ paper.Image }}{% else %}/assets/images/paper/slide_research{{ forloop.index }}.png{% endif %}');"></div>
+                      <div class="pub-hero-bg" style="background-image: url('{% if paper.Image and paper.Image != "" %}{{ paper.Image }}{% else %}/assets/images/paper/coming_soon.png{% endif %}');"></div>
                     </div>
                     
                     <div class="pub-hero-text-wrap">
@@ -699,19 +665,19 @@ layout: article
 
     var badgeEl = document.getElementById('newsModalBadge');
     var kwLower = keyword ? keyword.toLowerCase() : '';
-    var iconHTML = '<i class="fas fa-bullhorn me-1"></i>';
-    var badgeClass = 'bg-vslab-default';
 
     if (kwLower === 'paper') {
-      iconHTML = '<i class="far fa-file-alt me-1"></i>';
-      badgeClass = 'bg-vslab-paper';
+      badgeEl.className = 'news-card-badge bg-vslab-paper';
+      badgeEl.innerHTML = '<i class="far fa-file-alt me-1"></i> ' + keyword;
+      badgeEl.style.display = '';
     } else if (kwLower === 'award') {
-      iconHTML = '<i class="fas fa-trophy me-1"></i>';
-      badgeClass = 'bg-vslab-award';
+      badgeEl.className = 'news-card-badge bg-vslab-award';
+      badgeEl.innerHTML = '<i class="fas fa-trophy me-1"></i> ' + keyword;
+      badgeEl.style.display = '';
+    } else {
+      badgeEl.innerHTML = '';
+      badgeEl.style.display = 'none';
     }
-
-    badgeEl.className = 'news-card-badge ' + badgeClass;
-    badgeEl.innerHTML = iconHTML + ' ' + keyword;
 
     var linkContainer = document.getElementById('newsModalLinkContainer');
     if (link && link.trim() !== '') {
