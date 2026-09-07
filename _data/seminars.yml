@@ -10,24 +10,24 @@
     URL: ''
 - Date: '2026-09-10T00:00:00'
   Speaker: Junwoo Jung
-  Title: ''
-  Venue: ''
+  Title: '[NLP-Study] Open Questions'
+  Venue: NLP-Study
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-09-03T00:00:00'
   Speaker: Jaehyun Park
-  Title: ''
-  Venue: ''
+  Title: '[NLP-Study] Tokenization and Multilinguality'
+  Venue: NLP-Study
   Paper:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
   Slide:
-    Text: ''
-    URL: ''
+    Text: link
+    URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-27T00:00:00'
   Speaker: Gyuwon Je
   Title: '[NLP-Study] Reasoning Part 2'
