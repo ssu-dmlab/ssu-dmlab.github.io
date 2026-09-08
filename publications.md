@@ -386,6 +386,7 @@ permalink: /publications/
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
                     {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
+                    <a href="{{ paper.Review.url | default: '#' }}" class="pub-btn-link" target="_blank"><i class="fas fa-comment-dots"></i> Review</a>
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -419,6 +420,7 @@ permalink: /publications/
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
                     {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
+                    <a href="{{ paper.Review.url | default: '#' }}" class="pub-btn-link" target="_blank"><i class="fas fa-comment-dots"></i> Review</a>
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -466,6 +468,7 @@ permalink: /publications/
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
                     {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
+                    <a href="{{ paper.Review.url | default: '#' }}" class="pub-btn-link" target="_blank"><i class="fas fa-comment-dots"></i> Review</a>
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>
@@ -499,6 +502,7 @@ permalink: /publications/
                     {% if paper.Paper.url != nil %}<a href="{{ paper.Paper.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>{% endif %}
                     {% if paper.BIB.url != nil %}<a href="{{ paper.BIB.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-import"></i> BibTex</a>{% endif %}
                     {% if paper.Slide.url != nil %}<a href="{{ paper.Slide.url }}" class="pub-btn-link" target="_blank"><i class="fas fa-file-powerpoint"></i> Slide</a>{% endif %}
+                    <a href="{{ paper.Review.url | default: '#' }}" class="pub-btn-link" target="_blank"><i class="fas fa-comment-dots"></i> Review</a>
                     {% if paper.Code.url != nil %}<a href="{{ paper.Code.url }}" class="pub-btn-link" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
                   </div>
                 </div>

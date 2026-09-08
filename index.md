@@ -310,6 +310,7 @@ layout: article
   .pub-hero-title { font-size: 1.2rem; font-weight: 700; line-height: 1.4; color: #ffffff !important; margin-top: 0px !important; margin-bottom: 12px !important; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; word-break: break-word; }
   .pub-hero-meta { font-size: 0.88rem; color: #94a3b8 !important; display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
   .pub-hero-meta div { color: #94a3b8 !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pub-hero-meta .pub-hero-venue { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
   
   .pub-mini-hero .custom-carousel-control-prev,
   .pub-mini-hero .custom-carousel-control-next { top: auto !important; bottom: 20px !important; z-index: 10 !important; }
@@ -317,7 +318,7 @@ layout: article
   .pub-mini-hero .custom-carousel-control-next { right: 20px !important; left: auto !important; }
 
   /* Contact Box */
-  .contact-info-box { background-color: #f8fafc; border-radius: 2px; padding: 35px; height: 100%; box-sizing: border-box;}
+  .contact-info-box { background-color: #f8fafc; border-radius: 2px; padding: 35px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; }
   .contact-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
   .contact-item:last-child { margin-bottom: 0; }
   .contact-icon { font-size: 1.2rem; color: #64748b; margin-right: 16px; margin-top: 2px; width: 24px; text-align: center; }
@@ -381,9 +382,9 @@ layout: article
             <div class="main-hero-bg"></div>
             <div class="main-hero-wrapper">
               <div class="main-hero-content">
-                <h1 class="hero-title">Data Mining & Machine Learning Lab</h1>
+                <h1 class="hero-title">DMLab</h1>
                 <p class="hero-desc">We investigate cutting-edge algorithms to solve real-world complexities. Our core research spans across fundamental machine learning methodologies and innovative data science applications.</p>
-                <a href="/contact" class="btn-hero">CONTACT US</a>
+                <a href="/recruitments" class="btn-hero">CONTACT US</a>
               </div>
             </div>
           </div>
@@ -460,7 +461,7 @@ layout: article
     <h2 class="vslab-heading">Latest News</h2>
     <div class="vslab-row">
       
-      {% for news in site.data.news limit:5 %}
+      {% for news in site.data.news limit:8 %}
       {% assign news_img = news.image | default: '/assets/images/news/default_news169.png' %}
       {% assign news_link = "" %}
       {% if news.keyword == "Paper" or news.keyword == "paper" %}
@@ -549,7 +550,7 @@ layout: article
     
     <div class="vslab-col-6 vslab-col-md-12" style="width: 58.33333333%;">
       <h2 class="vslab-heading">Recent Publications</h2>
-      <div style="padding-right: 1.5rem;">
+      <div id="recentPubWrap" style="padding-right: 1.5rem;">
         
         {% assign all_papers = site.data.international_conference | concat: site.data.international_journal %}
         {% assign sorted_papers = all_papers | sort: "Date" | reverse %}
@@ -581,7 +582,7 @@ layout: article
                       </h4>
                       
                       <div class="pub-hero-meta">
-                        <div>
+                        <div class="pub-hero-venue">
                           <i class="fas fa-bookmark me-1 opacity-75"></i>
                           {% if paper.FullVenue.en %} {{ paper.FullVenue.en }}
                           {% elsif paper.FullVenue %} {{ paper.FullVenue }}
@@ -589,7 +590,7 @@ layout: article
                           {% else %} Accepted Venue {% endif %}
                         </div>
                         <div>
-                          <i class="far fa-calendar me-1 opacity-75"></i>{{ paper.Date | date: "%Y-%m-%d" }}
+                          <i class="far fa-calendar opacity-75" style="margin-right: 6px;"></i>{{ paper.Date | date: "%b %-d, %Y" }}
                         </div>
                       </div>
                     </div>
@@ -617,7 +618,7 @@ layout: article
 
     <div class="vslab-col-6 vslab-col-md-12" style="width: 41.66666667%;">
       <h2 class="vslab-heading">Contact Us</h2>
-      <div class="contact-info-box">
+      <div class="contact-info-box" id="contactInfoBox">
         
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -751,5 +752,22 @@ layout: article
 
     initCustomCarousel('milabStyleCarousel', 'mainCarouselPrev', 'mainCarouselNext');
     initCustomCarousel('pubMiniCarousel', 'pubCarouselPrev', 'pubCarouselNext');
+
+    // Contact Us 박스 높이를 Recent Publications 카드 높이에 정확히 맞춤
+    function syncContactBoxHeight() {
+      var pubWrap = document.getElementById('recentPubWrap');
+      var contactBox = document.getElementById('contactInfoBox');
+      if (!pubWrap || !contactBox) return;
+
+      if (window.innerWidth <= 992) {
+        contactBox.style.height = ''; // 모바일(세로 배치)에서는 강제 높이 해제
+        return;
+      }
+      contactBox.style.height = pubWrap.offsetHeight + 'px';
+    }
+
+    syncContactBoxHeight();
+    window.addEventListener('resize', syncContactBoxHeight);
+    window.addEventListener('load', syncContactBoxHeight);
   });
 </script>
