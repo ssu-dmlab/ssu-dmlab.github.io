@@ -318,7 +318,7 @@ layout: article
   .pub-mini-hero .custom-carousel-control-next { right: 20px !important; left: auto !important; }
 
   /* Contact Box */
-  .contact-info-box { background-color: #f8fafc; border-radius: 2px; padding: 35px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
+  .contact-info-box { background-color: #f8fafc; border-radius: 2px; padding: 35px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; }
   .contact-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
   .contact-item:last-child { margin-bottom: 0; }
   .contact-icon { font-size: 1.2rem; color: #64748b; margin-right: 16px; margin-top: 2px; width: 24px; text-align: center; }
