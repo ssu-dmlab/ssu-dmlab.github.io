@@ -263,7 +263,6 @@ permalink: /news/
 </style>
 
 <div class="news-grid-container">
-  <h2 class="vslab-heading">All News</h2>
 
   <!-- news.date의 뒤 4자리(연도)를 기준으로 그룹핑 -->
   {% assign news_by_year = site.data.news | group_by_exp: "item", "item.date | slice: -4, 4" %}
