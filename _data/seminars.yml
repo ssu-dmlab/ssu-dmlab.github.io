@@ -1,4 +1,4 @@
-- Date: '2026-09-17T00:00:00'
+- Date: '2026-09-25T00:00:00'
   Speaker: ''
   Title: ''
   Venue: ''
@@ -8,9 +8,9 @@
   Slide:
     Text: ''
     URL: ''
-- Date: '2026-09-10T00:00:00'
+- Date: '2026-09-18T00:00:00'
   Speaker: Junwoo Jung
-  Title: '[NLP-Study] Open Questions'
+  Title: Open Questions
   Venue: NLP-Study
   Paper:
     Text: link
@@ -18,9 +18,9 @@
   Slide:
     Text: link
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
-- Date: '2026-09-03T00:00:00'
+- Date: '2026-09-11T00:00:00'
   Speaker: Jaehyun Park
-  Title: '[NLP-Study] Tokenization and Multilinguality'
+  Title: Tokenization and Multilinguality
   Venue: NLP-Study
   Paper:
     Text: link
@@ -28,9 +28,9 @@
   Slide:
     Text: link
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
-- Date: '2026-08-27T00:00:00'
+- Date: '2026-09-04T00:00:00'
   Speaker: Gyuwon Je
-  Title: '[NLP-Study] Reasoning Part 2'
+  Title: Reasoning Part 2
   Venue: NLP-Study
   Paper:
     Text: link
@@ -40,7 +40,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-20T00:00:00'
   Speaker: Sunuk Kim
-  Title: '[NLP-Study] Reasoning Part 1 (CoT, Self-Consistency, RL)'
+  Title: Reasoning Part 1 (CoT, Self-Consistency, RL)
   Venue: NLP-Study
   Paper:
     Text: link
@@ -50,7 +50,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-13T00:00:00'
   Speaker: Hanvit Lee
-  Title: '[NLP-Study] Benchmarking & Evaluation'
+  Title: Benchmarking & Evaluation
   Venue: NLP-Study
   Paper:
     Text: link
@@ -60,7 +60,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-08-06T00:00:00'
   Speaker: Junwoo Jung
-  Title: '[NLP-Study] Agents, Tool Use, and RAG'
+  Title: Agents, Tool Use, and RAG
   Venue: NLP-Study
   Paper:
     Text: link
@@ -70,7 +70,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-07-23T00:00:00'
   Speaker: Jaehyun Park
-  Title: '[NLP-Study] Efficient Adaptation (Prompting + PEFT)'
+  Title: Efficient Adaptation (Prompting + PEFT)
   Venue: NLP-Study
   Paper:
     Text: link
@@ -80,7 +80,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-07-16T00:00:00'
   Speaker: Sunuk Kim
-  Title: '[NLP-Study] Post-training (SFT, RLHF, DPO)'
+  Title: Post-training (SFT, RLHF, DPO)
   Venue: NLP-Study
   Paper:
     Text: link
@@ -90,7 +90,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-07-09T00:00:00'
   Speaker: Gyuwon Je
-  Title: '[NLP-Study] Pretraining (Scaling, Systems, Data)'
+  Title: Pretraining (Scaling, Systems, Data)
   Venue: NLP-Study
   Paper:
     Text: link
@@ -100,7 +100,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-07-02T00:00:00'
   Speaker: Jongyoon Choi
-  Title: '[NLP-Study] Transformers & Self-Attention'
+  Title: Transformers & Self-Attention
   Venue: NLP-Study
   Paper:
     Text: link
@@ -110,7 +110,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-06-18T00:00:00'
   Speaker: Jiseung Hyun
-  Title: '[NLP-Study] Language Models & RNNs'
+  Title: Language Models & RNNs
   Venue: NLP-Study
   Paper:
     Text: link
@@ -120,7 +120,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-06-11T00:00:00'
   Speaker: Daewon Gwak
-  Title: '[NLP-Study] Backpropagation and Neural Network Basics'
+  Title: Backpropagation and Neural Network Basics
   Venue: NLP-Study
   Paper:
     Text: link
@@ -130,7 +130,7 @@
     URL: https://web.stanford.edu/class/cs224n/index.html#coursework
 - Date: '2026-06-04T00:00:00'
   Speaker: Hanvit Lee
-  Title: '[NLP-Study] Word Vectors (word2vec, GloVe)'
+  Title: Word Vectors (word2vec, GloVe)
   Venue: NLP-Study
   Paper:
     Text: link
