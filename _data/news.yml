@@ -1,3 +1,30 @@
+- date: Oct 4, 2026
+  title: Our Paper on Classic GNNs for Hypergraph Node Classification Accepted for
+    Publication in IEEE Access
+  content: 'Our paper, “Revisiting Classic Graph Neural Networks for Hypergraph Node
+    Classification: An Extensive Empirical Study,” has been accepted for publication
+    in IEEE Access.
+
+
+    This work was conducted by our lab members Daewon Gwak, Jaehyun Park, Sunuk Kim,
+    and Jinhong Jung.
+
+
+    In this paper, we systematically revisit classic GNNs for hypergraph node classification
+    by combining simple hypergraph expansions with standard training techniques, including
+    dropout, normalization, residual connections, and DropEdge. Through extensive
+    experiments on 14 real-world datasets, we show that properly tuned classic GNNs
+    achieve accuracy comparable to or higher than the best HNN baseline on 12 of the
+    14 datasets across both homophilous and heterophilous settings.
+
+
+    Our key takeaway is that classic GNNs should not be dismissed as inherently inadequate
+    for hypergraph learning; when appropriately configured with simple expansions
+    and standard training techniques, they remain strong and competitive baselines
+    across diverse hypergraph settings.'
+  keyword: ''
+  link: /publications
+  image: /assets/images/news/2026-10-04-b0956c20fbb6.png
 - date: Aug 11, 2026
   title: Our Paper on Adaptive Node-Aware Knowledge Graph Fusion Accepted at CIKM
     2026
