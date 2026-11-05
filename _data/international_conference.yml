@@ -1097,7 +1097,7 @@
   Month: 11
   Days: 7-11
   Publisher: ACM
-  Location: Rome, ITALY
+  Location: Rome, Italy
   Venue:
     text: CIKM
     url: https://cikm2026.diag.uniroma1.it/
@@ -1105,7 +1105,7 @@
   Title: Do All Nodes Benefit Equally from Knowledge Graphs? Adaptive Node-Aware KG
     Fusion for Recommendation
   BKIF: 3
-  AR: ''
+  AR: 0.27
   BK: 최우수
   Type:
   - ORAL
@@ -1150,4 +1150,62 @@
   Image: ''
   Abstract: ''
   Notes: []
+  Contribution: ''
+- Date: '2026-11-04T00:00:00.000Z'
+  Year: 2027
+  Month: 2
+  Days: 15-19
+  Publisher: ACM
+  Location: Hong Kong, China
+  Venue:
+    text: WSDM
+    url: https://www.wsdm-conference.org/2027
+  FullVenue: International Conference on Web Search and Data Mining
+  Title: 'CollabBank: Compact Collaborative Memory for Accurate Federated Recommendation'
+  BKIF: 3
+  AR: 0.284
+  BK: 최우수
+  Type:
+  - POSTER
+  Pages: '-'
+  NumAuthors: 5
+  Authors:
+  - Daewon Gwak
+  - Jaehyun Park
+  - Hanvit Lee
+  - Gyuwon Je
+  - Jinhong Jung
+  First:
+  - Daewon Gwak
+  Corresp:
+  - Jinhong Jung
+  DOI:
+    text: link
+    url: ''
+  BIB:
+    text: link
+    url: ''
+  Paper:
+    text: link
+    url: ''
+  Code:
+    text: link
+    url: ''
+  Slide:
+    text: link
+    url: ''
+  Poster:
+    text: link
+    url: ''
+  Review:
+    text: link
+    url: https://drive.google.com/file/d/15NZh9J3ezk35TYcsVT0dBNQayj4Ypi4D/view?usp=drivesdk
+  Appendix:
+    text: link
+    url: ''
+  Image: ''
+  Abstract: ''
+  Notes:
+  - note: Accepted as a Findings paper
+    url: ''
   Contribution: ''

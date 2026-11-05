@@ -1,3 +1,34 @@
+- date: Nov 4, 2026
+  title: Our Paper on Compact Collaborative Memory for Federated Recommendation Accepted
+    to WSDM 2027 (Findings)
+  content: 'Our paper, “CollabBank: Compact Collaborative Memory for Accurate Federated
+    Recommendation,” has been accepted to the Findings track of the 20th ACM International
+    Conference on Web Search and Data Mining (WSDM 2027).
+
+
+    This work was conducted by our lab members Daewon Gwak, Jaehyun Park, Hanvit Lee,
+    and Gyuwon Je.
+
+
+    In this paper, we propose CollabBank, a memory-based federated recommendation
+    method that reformulates federated collaboration as retrieval over compact server-side
+    memories, without iterative federated training. CollabBank organizes clients based
+    on their behavioral similarities in a shared semantic item space and constructs
+    separate collaborative memories from overlapping client groups. By retrieving
+    client-specific memories, CollabBank provides complementary collaborative information
+    for local recommendation through a single communication round. Through extensive
+    experiments on six real-world datasets, we demonstrate that CollabBank achieves
+    competitive recommendation accuracy with substantially reduced communication costs
+    compared with existing federated recommendation methods.
+
+
+    Our key takeaway is that accurate federated recommendation does not necessarily
+    require iterative model training and exchange. Instead, compact collaborative
+    memories can enable personalized and communication-efficient collaboration by
+    retrieving relevant information tailored to each client''s behavior.'
+  keyword: ''
+  link: /publications
+  image: /assets/images/news/2026-11-04-5f35df0f9907.png
 - date: Oct 4, 2026
   title: Our Paper on Classic GNNs for Hypergraph Node Classification Accepted for
     Publication in IEEE Access
@@ -6,8 +37,8 @@
     in IEEE Access.
 
 
-    This work was conducted by our lab members Daewon Gwak, Jaehyun Park, Sunuk Kim,
-    and Jinhong Jung.
+    This work was conducted by our lab members Daewon Gwak, Jaehyun Park, and Sunuk
+    Kim.
 
 
     In this paper, we systematically revisit classic GNNs for hypergraph node classification
