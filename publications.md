@@ -351,7 +351,19 @@ permalink: /publications/
 
   {%- assign local_empty_array = "" | split: "," -%}
   {%- assign member_array = site.data.members | map: "name" | map: "en" -%}
-  {%- assign years = "2026,2025,2024,2023,2022,2021,2020" | split: "," -%}
+  {%- comment -%} _data의 모든 논문 중 가장 최신 연도를 찾아 연도 목록을 자동 생성 (미래 날짜 포함) {%- endcomment -%}
+  {%- assign min_year = 2020 -%}
+  {%- assign max_year = min_year -%}
+  {%- assign pub_datasets = "international_journal,international_conference,domestic_journal,domestic_conference" | split: "," -%}
+  {%- for ds in pub_datasets -%}
+    {%- for paper in site.data[ds] -%}
+      {%- assign py = paper.Year | plus: 0 -%}
+      {%- if py == 0 -%}{%- assign py = paper.Date | slice: 0, 4 | plus: 0 -%}{%- endif -%}
+      {%- if py > max_year -%}{%- assign max_year = py -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- capture years_str -%}{%- for yy in (min_year..max_year) reversed -%}{{ yy }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+  {%- assign years = years_str | split: "," -%}
 
   <div id="pub-content-international" class="pub-content-section">
     {% for y in years %}
